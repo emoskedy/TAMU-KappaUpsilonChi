@@ -1,2 +1,22 @@
 <h1>Checks#new</h1>
 <p>Find me in app/views/checks/new.html.erb</p>
+
+<%= form_with(model: @check, url: checks_path, local:true) do |form| %>
+
+<div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+</div>
+
+
+<br>
+
+<div>
+    <%= form.submit "Create form" %>
+</div>
+
+<%end%>
+
+<div>
+    <%= link_to "Back to homepage", checks_path%>
+</div>
