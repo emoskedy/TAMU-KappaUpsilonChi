@@ -1,4 +1,7 @@
 class ChecksController < ApplicationController
+  before_action :set_check, only: %i[ show edit update destroy ]
+
+
   def index
     @checks = Check.all
   end
@@ -22,6 +25,27 @@ class ChecksController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @check.update(check_params)
+        format.html {redirect_to check_url(@check), notice: "Form was successfully updated"}
+        format.json { render :show, status: :ok, location: @check }
+      else
+        format.html { render :edit, status: unprocessable_entity }
+        format.json { render josn: @check.errors, status: unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @check.destroy
+
+    respond_to do |format|
+      format.html { redirect_to checks_url, notice: "Form was successfuly destroyed" }
+      format.json { head :no_content }
+    end
   end
 
   def set_check
