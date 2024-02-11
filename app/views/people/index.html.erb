@@ -8,9 +8,9 @@
     <% @people.each do |person| %>
         <%= render person%>
         <p>
-            <%= link_to "Show this form", person %>
+            <%= link_to "Show this person", person %>
         </p>
     <% end %>
 </div>
 
-<%= link_to "New form", new_person_path %>
+<%= link_to "New person", new_person_path %>
