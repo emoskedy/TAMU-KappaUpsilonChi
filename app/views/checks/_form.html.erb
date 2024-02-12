@@ -1,9 +1,76 @@
 <%= form_with(model: check) do |form| %>
+    <% if check.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(check.errors.count, "error") %> prohibited this form from being saved: </h2>
+
+            <ul>
+                <% check.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <%end%>
+            </ul>
+        </div>
+    <%end%>
 
     <div>
         <%= form.label :description %>
         <%= form.text_field :description %>
     </div>
+
+    <div>
+        <%= form.label :organization_name %>
+        <%= form.text_field :organization_name %>
+    </div>
+
+    <div>
+        <%= form.label :account_number %>
+        <%= form.number_field :account_number %>
+    </div>
+
+    <div>
+        <%= form.label :date %>
+        <%= form.date_select :date, { prompt: true } %>
+    </div>
+
+    <div>
+        <%= form.label :role %>
+        <%= form.check_box :role, { multiple: true }, "student", nil%> 
+        <%= form.label :role, "Student" %>
+        <%=form.check_box :role, { multiple: true }, "employee", nil %>
+        <%= form.label :role, "Employee" %>
+        <%= form.check_box :role, { multiple: true }, "not_affiliated", nil %>
+        <%= form.label :role, "Not Affiliated" %>
+    </div>
+
+    <div>
+        <%= form.label :payment_method %>
+        <%= form.check_box :payment_method, { multiple: false }, "direct_deposit", nil %>
+        <%= form.label :payment_method, "Direct Deposit" %>
+        <%= form.check_box :payment_method, { multiple: false }, "mail_to_payee", nil %>
+        <%= form.label :payment_method, "Mail to Payee Address" %>
+        <%= form.check_box :payment_method, { multiple: false }, "pick_up_at_sofc", nil %>
+        <%= form.label :payment_method, "Pick up at SOFC" %>
+    </div>
+
+    <div>
+        <%= form.label :payable_name %>
+        <%= form.text_field :payable_name %>
+    </div>
+
+    <div>
+        <%= form.label :payable_address %>
+        <%= form.text_field :payable_address %>
+    </div>
+
+    <div>
+        <%= form.label :payable_phone_number %>
+        <%= form.text_field :payable_phone_number %>
+    </div>
+
+    <div>
+        <%= form.label :dollar_amounts %>
+        <%= form.text_field :dollar_amounts, placeholder: "Enter dollar amounts, seperated by commas" %>
+    </div>
+
     
 
     <div>

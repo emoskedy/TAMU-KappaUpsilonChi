@@ -7,7 +7,11 @@ class ChecksController < ApplicationController
   end
 
   def new
-    @check = Check.new
+    @check = Check.new(
+      organization_name: 'Kappa Upsilon Chi',
+      account_number: 945470,
+      payment_method: 'direct_deposit'
+    )
   end
 
   def create
@@ -57,6 +61,6 @@ class ChecksController < ApplicationController
   end
 
   def check_params
-    params.require(:check).permit(:description)
+    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, dollar_amounts: [])
   end
 end
