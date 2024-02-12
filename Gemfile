@@ -81,3 +81,13 @@ group :test do
   gem 'simplecov', require: false
   gem 'webdrivers'
 end
+
+gem 'brakeman'
+# gem 'seed_dump'
+
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+
+# gem "devise", github: "heartcombo/devise", branch: "master"
+gem 'omniauth-rails_csrf_protection'
