@@ -65,3 +65,4 @@ class ChecksController < ApplicationController
     params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, dollar_amounts: [])
   end
 end
+
