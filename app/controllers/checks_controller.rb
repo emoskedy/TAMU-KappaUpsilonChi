@@ -16,6 +16,7 @@ class ChecksController < ApplicationController
 
   def create
     @check = Check.new(check_params)
+    @check.dollar_amounts = params[:check][:dollar_amounts].split(",").map(&:to_d)
 
     respond_to do |format|
       if @check.save

@@ -35,6 +35,6 @@
         <br>
 
         <strong>Amount:</strong>
-        <%= check.total_dollar_amount %>
+        <%= number_with_precision(check.total_dollar_amount, precision: 2) %>
     </p>
 </div>

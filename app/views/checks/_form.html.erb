@@ -33,11 +33,11 @@
 
     <div>
         <%= form.label :role %>
-        <%= form.check_box :role, { multiple: true }, "student", nil%> 
+        <%= form.check_box :role, { multiple: false }, "student", nil%> 
         <%= form.label :role, "Student" %>
-        <%=form.check_box :role, { multiple: true }, "employee", nil %>
+        <%=form.check_box :role, { multiple: false }, "employee", nil %>
         <%= form.label :role, "Employee" %>
-        <%= form.check_box :role, { multiple: true }, "not_affiliated", nil %>
+        <%= form.check_box :role, { multiple: false }, "not_affiliated", nil %>
         <%= form.label :role, "Not Affiliated" %>
     </div>
 
