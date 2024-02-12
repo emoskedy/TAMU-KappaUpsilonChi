@@ -1,0 +1,42 @@
+<%= form_with(model: person) do |form| %>
+
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    
+    <div>
+        <%= form.label :address %>
+        <%= form.text_field :address %>
+    </div>
+
+    <div>
+        <%= form.label :uin %>
+        <%= form.text_field :uin %>
+    </div>
+
+    <div>
+        <%= form.label :phone_number %>
+        <%= form.text_field :phone_number %>
+    </div>
+
+    <div>
+        <%= form.label :tamu_student %>
+        <%= form.check_box :tamu_student %>
+    </div>
+    
+    <div>
+        <%= form.label :tamu_employee %>
+        <%= form.check_box :tamu_employee %>
+    </div>
+
+    <div>
+        <%= form.label :not_affiliated %>
+        <%= form.check_box :not_affiliated %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+
+<% end %>
