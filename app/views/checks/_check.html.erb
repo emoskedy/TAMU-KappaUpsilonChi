@@ -1,0 +1,40 @@
+<div id="<%= dom_id check%>">
+    <p>
+        <strong>Description:</strong>
+        <%= check.description %>
+
+        <br>
+
+        <strong>Organization Name:</strong>
+        <%= check.organization_name %>
+
+        <br>
+
+        <strong>Account Number:</strong>
+        <%= check.account_number %>
+
+        <br>
+
+
+        <strong>Date:</strong>
+        <%= check.date %>
+
+        <br>
+
+        <strong>Description:</strong>
+        <%= check.description %>
+
+        <br>
+
+        <strong>Payable To:</strong>
+        <%= check.payable_name %>
+        <%= check.payable_address %>
+        <%= check.payable_phone_number %>
+        <%= check.role %>
+
+        <br>
+
+        <strong>Amount:</strong>
+        <%= number_with_precision(check.total_dollar_amount, precision: 2) %>
+    </p>
+</div>
