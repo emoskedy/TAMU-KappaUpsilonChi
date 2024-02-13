@@ -16,6 +16,7 @@ class ChecksController < ApplicationController
 
   def create
     @check = Check.new(check_params)
+    @check.dollar_amounts = params[:check][:dollar_amounts].split(",").map(&:to_d)
 
     respond_to do |format|
       if @check.save
@@ -64,3 +65,4 @@ class ChecksController < ApplicationController
     params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, dollar_amounts: [])
   end
 end
+
