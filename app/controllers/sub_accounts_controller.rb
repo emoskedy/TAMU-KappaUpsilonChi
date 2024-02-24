@@ -1,0 +1,54 @@
+class SubAccountsController < ApplicationController
+    before_action :set_sub_account, only: [:show, :edit, :update, :destroy]
+
+    def index
+        @sub_accounts = SubAccount.all
+    end
+
+    def show
+        @sub_account = SubAccount.find(params[:id])
+    end
+
+    def new
+        @sub_account = SubAccount.new
+    end
+
+    def create
+        @sub_account = SubAccount.new(sub_account_params)
+
+        if @sub_account.save
+            redirect_to @sub_account, notice: 'Sub-account successfully created.'
+        else
+            render :new
+        end
+    end
+
+    def edit
+    end
+
+    def update
+        if @sub_account.update(sub_account_params)
+            redirect_to @sub_account, notice: 'Sub-account sucessfully updated.'
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @sub_account.destroy
+        redirect_to sub_accounts_url, notice: 'Sub-account successfully destroyed.'
+    end
+
+    private
+
+    def set_sub_account
+        @sub_account = SubAccount.find(params[:id])
+    end
+
+    def sub_account_params
+        params.require(:sub_account).permit(:sub_account_number, :owner_name)
+    end
+end
+
+
+
