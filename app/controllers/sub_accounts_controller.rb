@@ -16,10 +16,14 @@ class SubAccountsController < ApplicationController
     def create
         @sub_account = SubAccount.new(sub_account_params)
 
-        if @sub_account.save
-            redirect_to @sub_account, notice: 'Sub-account successfully created.'
-        else
-            render :new
+        respond_to do |format|
+            if @sub_account.save
+                format.html { redirect_to sub_account_url(@sub_account), notice: "Sub-account was successfully created." }
+                format.json { render :show, status: :created, location: @sub_account }
+            else
+                format.html { render :new, status: :unprocessable_entity }
+                format.json { render json: @sub_account.errors, status: :unprocessable_entity }
+            end
         end
     end
 
