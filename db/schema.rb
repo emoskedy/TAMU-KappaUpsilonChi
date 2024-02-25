@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_24_230936) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_25_190944) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_24_230936) do
     t.decimal "dollar_amounts", default: [], array: true
     t.bigint "sub_account_id", null: false
     t.index ["sub_account_id"], name: "index_checks_on_sub_account_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "picture"
+    t.bigint "form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|

@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :checks
   resources :people
   resources :sub_accounts
+  resources :notes
 end
