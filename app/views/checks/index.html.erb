@@ -1,6 +1,6 @@
-<h1>You're logged in! Welcome to the Admin Dashboard!</h1>
+<h1>Welcome, <%= current_admin.full_name %>! You're logged in to the Home Page!</h1>
 <%= link_to "Sign Out", destroy_admin_session_path %>
-=======
+<p style="color: red"><%= alert %></p>
 <p style="color: green"><%= notice %></p>
 
 
@@ -19,3 +19,5 @@
 <%= link_to "New form", new_check_path %>
 
 <%= link_to "View sub-accounts", sub_accounts_path %>
+
+<%= link_to "Admin Page", admins_admin_index_path%>

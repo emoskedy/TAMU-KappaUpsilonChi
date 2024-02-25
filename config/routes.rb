@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   resources :checks
   resources :people
   resources :sub_accounts
+
+  namespace :admins do
+    resources :admin, only: [:index] # Add other actions as needed
+  end
 end

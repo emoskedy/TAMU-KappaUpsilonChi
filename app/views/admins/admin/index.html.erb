@@ -1,0 +1,12 @@
+<h1>Welcome to the Admin Page</h1>
+
+<h2>List of All Email Accounts:</h2>
+<ul>
+  <% @all_admins.each do |admin| %>
+    <li><%= admin.email %></li>
+  <% end %>
+</ul>
+
+<div>
+    <%= link_to "Back to homepage", checks_path%>
+</div>
