@@ -1,6 +1,8 @@
 class Check < ApplicationRecord
     before_validation :set_default_values
 
+    belongs_to :sub_account
+
     validates :organization_name, presence: true
     validates :account_number, presence: true, numericality: { only_integer: true }
     validates :date, presence: true
