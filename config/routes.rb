@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   resources :checks
   resources :people
   resources :sub_accounts
-
+  get '/admin', to: 'admins/admin#admin'
+  post '/update', to: 'admins/admin#update'
   namespace :admins do
-    resources :admin, only: [:index] # Add other actions as needed
+    resources :admin, only: [:index] 
   end
 end

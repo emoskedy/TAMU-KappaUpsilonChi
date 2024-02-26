@@ -8,7 +8,4 @@ class Admin < ApplicationRecord
     create_with(uid: uid, full_name: full_name, avatar_url: avatar_url).find_or_create_by!(email: email)
   end
 
-  def is_admin?
-    is_admin
-  end
 end

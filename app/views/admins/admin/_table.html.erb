@@ -1,0 +1,18 @@
+<% admins.each do |admin| %>
+  <tr>
+    <td><%= admin.email %></td>
+    <td><%= admin.full_name %></td>
+    <td><%= admin.created_at %></td>
+    <td><%= admin.updated_at %></td>
+    <td>
+      <%= hidden_field_tag "admins[#{admin.id}][is_officer]", "0" %>
+      <%= check_box_tag "admins[#{admin.id}][is_officer]", "1", admin.is_officer %>
+      <%= admin.is_officer ? 'true' : 'false' %>
+    </td>
+    <td>
+      <%= hidden_field_tag "admins[#{admin.id}][is_admin]", "0" %>
+      <%= check_box_tag "admins[#{admin.id}][is_admin]", "1", admin.is_admin %>
+      <%= admin.is_admin ? 'true' : 'false' %>
+    </td>
+  </tr>
+<% end %>
