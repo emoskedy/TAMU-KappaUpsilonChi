@@ -36,6 +36,14 @@
 
         <br>
 
+        <strong>Approval Status: </strong>
+        <%= check.approval_status %>
+
+        <br>
+
+        <strong>Officer Comments: </strong>
+        <%=check.comments %>
+
         <strong>Amount:</strong>
         <%= number_with_precision(check.total_dollar_amount, precision: 2) %>
     </p>

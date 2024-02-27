@@ -54,6 +54,20 @@ class ChecksController < ApplicationController
     end
   end
 
+  def review
+    @check = Check.find(params[:id])
+  end
+
+  def update_review
+    @check = Check.find(params[:id])
+
+    if @check.update(check_params)
+      redirect_to @check, notice: 'Form reviewed successfully.'
+    else
+      render :review
+    end
+  end
+
   private
 
   def set_check
@@ -71,6 +85,6 @@ class ChecksController < ApplicationController
   end
 
   def check_params
-    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, :sub_account_id, dollar_amounts: [])
+    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, :sub_account_id, :approval_status, :comments, dollar_amounts: [])
   end
 end

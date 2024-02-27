@@ -12,6 +12,7 @@ class Check < ApplicationRecord
 
     enum role: { student: 'student', employee: 'employee', not_affiliated: 'not_affiliated'}
     enum payment_method: { direct_deposit: 'direct_deposit', mail_to_payee: 'mail_to_payee', pick_up_at_sofc: 'pick_up_at_sofc' }
+    enum approval_status: { pending: 'Pending', approved: 'Approved', denied: 'Denied'}
 
     def total_dollar_amount
         dollar_amounts.map(&:to_f).sum
@@ -24,5 +25,6 @@ class Check < ApplicationRecord
         self.organization_name ||= 'Kappa Upsilon Chi'
         self.account_number ||= 945470
         self.payment_method ||= 'direct_deposit'
+        self.approval_status ||= 'Pending'
     end 
 end

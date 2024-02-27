@@ -13,7 +13,13 @@ Rails.application.routes.draw do
     get 'admins/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
   end
 
-  resources :checks
+  resources :checks do
+    member do
+      get 'review'
+      patch 'update_review'
+    end
+  end
+  
   resources :people
   resources :sub_accounts
   get '/admin', to: 'admins/admin#admin'

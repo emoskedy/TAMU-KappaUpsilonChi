@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_25_185041) do
+
+ActiveRecord::Schema[7.0].define(version: 2024_02_25_213540) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,7 +40,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_25_185041) do
     t.string "payment_method"
     t.string "role"
     t.decimal "dollar_amounts", default: [], array: true
-    t.bigint "sub_account_id"
+    t.bigint "sub_account_id", null: false
+    t.text "approval_status"
+    t.text "comments"
     t.index ["sub_account_id"], name: "index_checks_on_sub_account_id"
   end
 
