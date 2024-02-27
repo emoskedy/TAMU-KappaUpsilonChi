@@ -67,10 +67,55 @@
     </div>
 
     <div>
-        <%= form.label :dollar_amounts %>
-        <%= form.text_field :dollar_amounts, placeholder: "Enter dollar amounts, seperated by commas" %>
+        <%=form.label :travel %>
+        <%= form.number_field :travel, step: '0.01' %>
     </div>
 
+    <div>
+        <%=form.label :food %>
+        <%= form.number_field :food, step: '0.01' %>
+    </div>
+
+    <div>
+        <%=form.label :office_supplies %>
+        <%= form.number_field :office_supplies, step: '0.01' %>
+    </div>
+
+    <div>
+        <%=form.label :utilities %>
+        <%= form.number_field :utilities, step: '0.01' %>
+    </div>
+
+    <div>
+        <%=form.label :membership %>
+        <%= form.number_field :membership, step: '0.01' %>
+    </div>
+
+    <div>
+        <%=form.label :services_and_other_income %>
+        <%= form.number_field :services_and_other_income, step: '0.01' %>
+    </div>
+
+    <div>
+        <%=form.label :clothing %>
+        <%= form.number_field :clothing, step: '0.01' %>
+    </div>
+
+    <div>
+        <%=form.label :rent %>
+        <%= form.number_field :rent, step: '0.01' %>
+    </div>
+
+    <div>
+        <%=form.label :other_expenses %>
+        <%= form.number_field :other_expenses, step: '0.01' %>
+    </div>
+
+    <div>
+        <%=form.label :items_for_resale %>
+        <%= form.number_field :items_for_resale, step: '0.01' %>
+    </div>
+  
     <div>
         <%= form.label :sub_account_id %>
         <%= form.select :sub_account_id, options_from_collection_for_select(@sub_accounts, :id, :sub_account_number, :owner_name), {} %>
