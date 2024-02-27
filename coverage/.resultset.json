@@ -797,6 +797,102 @@
           null
         ]
       },
+      "/csce431/KYX/sprint-1-kappaupsilonchi/spec/models/check_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/KYX/sprint-1-kappaupsilonchi/app/models/check.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          6,
+          6,
+          6,
+          6,
+          null,
+          null
+        ]
+      },
       "/csce431/KYX/sprint-1-kappaupsilonchi/spec/models/person_spec.rb": {
         "lines": [
           1,
@@ -808,6 +904,41 @@
       },
       "/csce431/KYX/sprint-1-kappaupsilonchi/app/models/person.rb": {
         "lines": [
+          1,
+          null
+        ]
+      },
+      "/csce431/KYX/sprint-1-kappaupsilonchi/spec/models/sub_account_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/csce431/KYX/sprint-1-kappaupsilonchi/app/models/sub_account.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
           1,
           null
         ]
@@ -1074,50 +1205,6 @@
           null
         ]
       },
-      "/csce431/KYX/sprint-1-kappaupsilonchi/app/models/check.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/csce431/KYX/sprint-1-kappaupsilonchi/app/models/sub_account.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
       "/csce431/KYX/sprint-1-kappaupsilonchi/app/controllers/sub_accounts_controller.rb": {
         "lines": [
           1,
@@ -1181,6 +1268,6 @@
         ]
       }
     },
-    "timestamp": 1708993941
+    "timestamp": 1708997465
   }
 }
