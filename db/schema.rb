@@ -21,8 +21,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_25_185041) do
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_officer"
-    t.boolean "is_admin"
+    t.boolean "is_officer", default: false
+    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_25_185041) do
     t.string "payment_method"
     t.string "role"
     t.decimal "dollar_amounts", default: [], array: true
-    t.bigint "sub_account_id", null: false
+    t.bigint "sub_account_id"
     t.index ["sub_account_id"], name: "index_checks_on_sub_account_id"
   end
 
