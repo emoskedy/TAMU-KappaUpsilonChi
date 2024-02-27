@@ -1,0 +1,42 @@
+<h1>Welcome to the Admin Page</h1>
+
+<%= form_tag update_path, method: :post do %>
+  <h2>Your Account:</h2>
+  <table border="6" style="width: 100%;">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Full Name</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Officer?</th>
+        <th>Admin?</th>
+      </tr>
+    </thead>
+    <tbody id="your-account">
+      <%= render partial: 'table', locals: { admins: [current_admin] } %>
+    </tbody>
+  </table>
+
+  <div>
+    <%= link_to "Back to homepage", checks_path %>
+    <%= submit_tag "Update Roles" %>
+  </div>
+
+  <h2>List of All Email Accounts:</h2>
+  <table border="6" style="width: 100%;">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Full Name</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Officer?</th>
+        <th>Admin?</th>
+      </tr>
+    </thead>
+    <tbody id="admins">
+      <%= render partial: 'table', locals: { admins: @all_admins } %>
+    </tbody>
+  </table>
+<% end %>

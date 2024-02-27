@@ -15,8 +15,10 @@
 
         <br>
 
-        <strong>Sub-Account Number:</strong>
-        <%= check.sub_account.sub_account_number %>
+        <% if check.sub_account.present? %>
+            <strong>Sub-Account Number:</strong>
+            <%= check.sub_account.sub_account_number %>
+        <% end %>
 
 
 
