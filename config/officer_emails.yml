@@ -1,0 +1,8 @@
+# config/officer_emails.yml
+officer_emails:
+  - jerrytran@tamu.edu
+  - alejandro.muller@tamu.edu
+  - nghilam@tamu.edu
+  - mikekha109@tamu.edu
+  - paulinewade@tamu.edu
+  # Add more officer emails as needed
