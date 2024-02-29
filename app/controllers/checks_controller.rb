@@ -17,7 +17,6 @@ class ChecksController < ApplicationController
 
   def create
     @check = Check.new(check_params)
-    @check.dollar_amounts = params[:check][:dollar_amounts].split(",").map(&:to_d)
 
     respond_to do |format|
       if @check.save
@@ -39,8 +38,8 @@ class ChecksController < ApplicationController
         format.html {redirect_to check_url(@check), notice: "Form was successfully updated"}
         format.json { render :show, status: :ok, location: @check }
       else
-        format.html { render :edit, status: unprocessable_entity }
-        format.json { render josn: @check.errors, status: unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @check.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -85,6 +84,6 @@ class ChecksController < ApplicationController
   end
 
   def check_params
-    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, :sub_account_id, :approval_status, :comments, dollar_amounts: [])
+    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, :sub_account_id, :approval_status, :comments, :dollar_amount, :travel, :food, :office_supplies, :utilities, :membership, :services_and_other_income, :clothing, :rent, :other_expenses, :items_for_resale)
   end
 end
