@@ -1,7 +1,7 @@
 class ChecksController < ApplicationController
   before_action :set_check, only: %i[ show edit update destroy ]
   before_action :load_sub_accounts, only: [:new, :edit]
-
+  before_action :require_officer_or_admin, only: [:review, :update_review, :destroy]
 
   def index
     @checks = Check.all
@@ -81,6 +81,13 @@ class ChecksController < ApplicationController
 
   def show
     @check = Check.find(params[:id])
+  end
+
+  def require_officer_or_admin
+    unless current_admin.officer? || current_admin.admin?
+      flash[:alert] = "You are not authorized to perform this."
+      redirect_to root_path
+    end
   end
 
   def check_params

@@ -13,7 +13,14 @@
 ActiveRecord::Schema[7.0].define(version: 2024_02_28_213705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  
+
+  create_table "admin_emails", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admin_emails_on_email"
+  end
+
   create_table "admins", force: :cascade do |t|
     t.string "email", null: false
     t.string "full_name"
@@ -38,22 +45,27 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_213705) do
     t.text "payable_address"
     t.string "payment_method"
     t.string "role"
-    t.decimal "dollar_amounts", default: [], array: true
     t.bigint "sub_account_id"
     t.text "approval_status"
     t.text "comments"
     t.decimal "dollar_amount", precision: 10, scale: 2
-    t.decimal "travel", default: "0.0"
-    t.decimal "food", default: "0.0"
-    t.decimal "office_supplies", default: "0.0"
-    t.decimal "utilities", default: "0.0"
-    t.decimal "membership", default: "0.0"
-    t.decimal "clothing", default: "0.0"
-    t.decimal "rent", default: "0.0"
-    t.decimal "other_expenses", default: "0.0"
-    t.decimal "items_for_resale", default: "0.0"
+    t.decimal "travel", precision: 10, scale: 2, default: "0.0"
+    t.decimal "food", precision: 10, scale: 2, default: "0.0"
+    t.decimal "office_supplies", precision: 10, scale: 2, default: "0.0"
+    t.decimal "utilities", precision: 10, scale: 2, default: "0.0"
+    t.decimal "membership", precision: 10, scale: 2, default: "0.0"
+    t.decimal "clothing", precision: 10, scale: 2, default: "0.0"
+    t.decimal "rent", precision: 10, scale: 2, default: "0.0"
+    t.decimal "other_expenses", precision: 10, scale: 2, default: "0.0"
+    t.decimal "items_for_resale", precision: 10, scale: 2, default: "0.0"
     t.decimal "services_and_other_income", precision: 10, scale: 2, default: "0.0"
     t.index ["sub_account_id"], name: "index_checks_on_sub_account_id"
+  end
+
+  create_table "officer_emails", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|
