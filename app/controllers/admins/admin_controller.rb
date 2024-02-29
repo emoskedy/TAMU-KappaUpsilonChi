@@ -5,23 +5,26 @@ class Admins::AdminController < ApplicationController
     def index
       # Get the currently logged-in admin's email
       current_admin_email = current_admin.email
-    
+  
       # Retrieve all admins excluding the currently logged-in admin and sort them
       @all_admins = Admin.where.not(email: current_admin_email)
                          .order(is_admin: :desc, is_officer: :desc, email: :asc)
     end
-  
+    
+
     def update
       admins_params = params[:admins]
-      admins_params.each do |admin_id, attributes|
-        admin = Admin.find(admin_id)
-        case attributes[:role]
-        when 'admin'
-          admin.update(is_admin: true, is_officer: false)
-        when 'officer'
-          admin.update(is_admin: false, is_officer: true)
-        when 'member'
-          admin.update(is_admin: false, is_officer: false)
+      if admins_params.present?
+        admins_params.each do |admin_id, attributes|
+          admin = Admin.find(admin_id)
+          case attributes[:role]
+          when 'admin'
+            admin.update(is_admin: true, is_officer: false)
+          when 'officer'
+            admin.update(is_admin: false, is_officer: true)
+          when 'member'
+            admin.update(is_admin: false, is_officer: false)
+          end
         end
       end
       redirect_to admins_admin_index_path
@@ -46,7 +49,19 @@ class Admins::AdminController < ApplicationController
         end
       end
     end    
-  
+    
+    def search
+      if params[:search].present?
+        @search_query = params[:search]
+        @all_admins = Admin.where.not(email: current_admin.email)
+                           .where("email LIKE ?", "%#{@search_query}%")
+                           .order(is_admin: :desc, is_officer: :desc, email: :asc)
+      else
+        # If no search query provided, render index action to display all admins
+        redirect_to admins_admin_index_path
+      end
+    end
+
     def destroy
       admin = Admin.find(params[:id])
       admin.destroy

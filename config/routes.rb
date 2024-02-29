@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :admin, only: [:index, :create, :new, :destroy] 
     post 'update', to: 'admin#update', as: 'update'
+    get 'search', to: 'admin#search', as: 'search'  
   end
 end
