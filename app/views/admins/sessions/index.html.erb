@@ -4,7 +4,7 @@
 <% elsif current_admin.is_officer? %>
   <p>You're logged in as an officer.</p>
 <% else %>
-  <p>You're logged in as a member.</p>
+  <p>You're logged in as a regular user.</p>
 <% end %>
 
 <%= link_to "Sign Out", destroy_admin_session_path %>
