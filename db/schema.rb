@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2024_02_25_213540) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_28_213705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
+  
   create_table "admins", force: :cascade do |t|
     t.string "email", null: false
     t.string "full_name"
@@ -40,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_25_213540) do
     t.string "payment_method"
     t.string "role"
     t.decimal "dollar_amounts", default: [], array: true
-    t.bigint "sub_account_id", null: false
+    t.bigint "sub_account_id"
     t.text "approval_status"
     t.text "comments"
     t.index ["sub_account_id"], name: "index_checks_on_sub_account_id"
