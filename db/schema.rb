@@ -21,8 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_01_174430) do
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_officer", default: false
-    t.boolean "is_admin", default: false
+    t.string "role", default: "member"
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
@@ -38,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_01_174430) do
     t.text "payable_address"
     t.string "payment_method"
     t.string "role"
-    t.bigint "sub_account_id"
+    t.bigint "sub_account_id", null: false
     t.text "approval_status"
     t.text "comments"
     t.decimal "dollar_amount", precision: 10, scale: 2
@@ -53,6 +52,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_01_174430) do
     t.decimal "items_for_resale", default: "0.0"
     t.decimal "services_and_other_income", precision: 10, scale: 2, default: "0.0"
     t.index ["sub_account_id"], name: "index_checks_on_sub_account_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "picture"
+    t.bigint "form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "people", force: :cascade do |t|
