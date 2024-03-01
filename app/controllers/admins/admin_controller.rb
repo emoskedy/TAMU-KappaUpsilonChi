@@ -39,7 +39,7 @@ class Admins::AdminController < ApplicationController
       
       # Check if the email is already taken
       if Admin.exists?(email: @admin.email)
-        redirect_to admins_admin_index_path, alert: "Email address is already in use."
+        redirect_to admins_admin_index_path, alert: "Email address already existed."
       else
         # Try to save the admin
         if @admin.save
