@@ -1,6 +1,6 @@
 class ChecksController < ApplicationController
   before_action :set_check, only: %i[ show edit update destroy ]
-  before_action :load_sub_accounts, only: [:new, :edit]
+  before_action :load_sub_accounts, only: [:new, :edit, :update, :update_review, :review]
   before_action :require_officer_or_admin, only: [:review, :update_review, :destroy]
 
   def index
