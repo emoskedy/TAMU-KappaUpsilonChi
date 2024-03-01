@@ -8,12 +8,24 @@ class Admin < ApplicationRecord
     is_officer
   end
 
+  def officer=(value)
+    self.is_officer = value
+  end
+  
   def admin?
     is_admin
   end
 
+  def admin=(value)
+    self.is_admin = value
+  end
+
   def member?
     is_member
+  end
+
+  def member=(value)
+    self.is_member = value
   end
 
   def self.from_google(email:, full_name:, uid:, avatar_url:)
@@ -24,5 +36,4 @@ class Admin < ApplicationRecord
   validates :email, presence: true  # Add other validations as needed
   validates :full_name, presence: true
   attr_accessor :role
-
 end
