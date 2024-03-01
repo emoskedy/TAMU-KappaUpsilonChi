@@ -2,6 +2,7 @@ class Check < ApplicationRecord
     before_validation :set_default_values
     before_save :calculate_dollar_amount
 
+    belongs_to :admin
     belongs_to :sub_account, optional: true
 
     validates :organization_name, presence: true
