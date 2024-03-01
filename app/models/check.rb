@@ -3,6 +3,7 @@ class Check < ApplicationRecord
     before_save :calculate_dollar_amount
 
     belongs_to :sub_account
+    belongs_to :admin
 
     validates :organization_name, presence: true
     validates :account_number, presence: true, numericality: { only_integer: true }

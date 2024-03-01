@@ -4,7 +4,11 @@ class ChecksController < ApplicationController
   before_action :require_officer_or_admin, only: [:review, :update_review, :destroy]
 
   def index
-    @checks = Check.all
+    if current_admin.is_admin? || current_admin.is_officer?
+      @checks = Check.all
+    else
+      @checks = current_admin.checks
+    end
   end
 
   def new
@@ -16,7 +20,7 @@ class ChecksController < ApplicationController
   end
 
   def create
-    @check = Check.new(check_params)
+    @check = current_admin.checks.new(check_params)
 
     respond_to do |format|
       if @check.save
