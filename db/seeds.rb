@@ -7,10 +7,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 admin_emails = [
-  { email: 'nghilam@tamu.edu', full_name: 'Tran Lam', is_officer: true, is_admin: true },
-  { email: 'mikekha109@tamu.edu', full_name: 'Michael Kha', is_officer: true, is_admin: true },
-  { email: 'alejandro.muller@tamu.edu', full_name: 'Alex Muller', is_officer: true, is_admin: true },
-  { email: 'jerrytran@tamu.edu', full_name: 'Jerry Tran', is_officer: true, is_admin: true},
+  { email: 'nghilam@tamu.edu', full_name: 'Tran Lam', is_officer: false, is_admin: true },
+  { email: 'mikekha109@tamu.edu', full_name: 'Michael Kha', is_officer: false, is_admin: true },
+  { email: 'alejandro.muller@tamu.edu', full_name: 'Alex Muller', is_officer: false, is_admin: true },
+  { email: 'jerrytran@tamu.edu', full_name: 'Jerry Tran', is_officer: false, is_admin: true},
   # Add more email accounts as needed
 ]
 
