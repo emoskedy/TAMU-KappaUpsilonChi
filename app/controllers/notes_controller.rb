@@ -9,6 +9,7 @@ class NotesController < ApplicationController
 
   # GET /notes/1 or /notes/1.json
   def show
+    @note = Note.find(params[:id])
   end
 
   # GET /notes/new
@@ -23,7 +24,8 @@ class NotesController < ApplicationController
   # POST /notes or /notes.json
   def create
     @note = Note.new(note_params)
-
+    @note.name = params[:note][:picture].original_filename
+    
     respond_to do |format|
       if @note.save
         format.html { redirect_to note_url(@note), notice: "Note was successfully created." }
@@ -56,6 +58,12 @@ class NotesController < ApplicationController
       format.html { redirect_to notes_url, notice: "Note was successfully destroyed." }
       format.json { head :no_content }
     end
+
+    # # delete picture from bucket
+    # bucket = S3.bucket(S3_BUCKET.name)
+    # obj = bucket.object(params[:picture])
+    # obj.delete
+  
   end
 
   private
@@ -66,7 +74,7 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:picture, :form_id)
+      params.require(:note).permit(:picture, :form_id, :name)
     end
     
     def set_s3_direct_post
