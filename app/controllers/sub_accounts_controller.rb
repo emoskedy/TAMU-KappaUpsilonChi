@@ -1,5 +1,6 @@
 class SubAccountsController < ApplicationController
     before_action :set_sub_account, only: [:show, :edit, :update, :destroy]
+    before_action :check_admin_role
 
     def index
         @sub_accounts = SubAccount.all
@@ -44,6 +45,13 @@ class SubAccountsController < ApplicationController
     end
 
     private
+
+    def check_admin_role
+        unless current_admin.is_officer? || current_admin.is_admin?
+          flash[:alert] = "You are not allowed to access this page."
+          redirect_to root_path
+        end
+    end   
 
     def set_sub_account
         @sub_account = SubAccount.find(params[:id])

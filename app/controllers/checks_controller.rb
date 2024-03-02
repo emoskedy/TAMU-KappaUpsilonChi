@@ -2,9 +2,14 @@ class ChecksController < ApplicationController
   before_action :set_check, only: %i[ show edit update destroy ]
   before_action :load_sub_accounts, only: [:new, :edit, :update, :update_review, :review]
   before_action :require_officer_or_admin, only: [:review, :update_review, :destroy]
+  before_action :check_profile_existence, only: [:new]
 
   def index
-    @checks = Check.all
+    if current_admin.is_admin? || current_admin.is_officer?
+      @checks = Check.all
+    else
+      @checks = current_admin.checks
+    end
   end
 
   def new
@@ -16,7 +21,7 @@ class ChecksController < ApplicationController
   end
 
   def create
-    @check = Check.new(check_params)
+    @check = current_admin.checks.new(check_params)
 
     respond_to do |format|
       if @check.save
@@ -87,6 +92,14 @@ class ChecksController < ApplicationController
     unless current_admin.officer? || current_admin.admin?
       flash[:alert] = "You are not authorized to perform this."
       redirect_to root_path
+    end
+  end
+
+  def check_profile_existence
+    email = current_admin.email
+    unless Person.exists?(email: email)
+      flash[:alert] = "You need to create a profile first."
+      redirect_to new_person_path
     end
   end
 
