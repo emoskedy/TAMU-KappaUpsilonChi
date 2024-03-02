@@ -61,9 +61,18 @@ class NotesController < ApplicationController
 
     # # delete picture from bucket
     # bucket = S3.bucket(S3_BUCKET.name)
-    # obj = bucket.object(params[:picture])
+    # obj = bucket.object(params[:avatar_url])
     # obj.delete
-  
+    # Initialize S3 client and delete object
+    s3 = Aws::S3::Resource.new(
+      region: ENV['AWS_REGION'],
+      credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'])
+    )
+    bucket = s3.bucket('kappaupsilonchi1-sofcnotes')
+    key = @note.avatar_url.split('amazonaws.com/')[1]
+    bucket.object(key).delete
+    # obj = bucket.object(@note.avatar_url)
+    # obj.delete
   end
 
   private
