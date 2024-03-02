@@ -95,22 +95,46 @@ $(function() {
                 var key = $(data.jqXHR.responseXML).find("Key").text();
                 var url = '//' + form.data('host') + '/' + key;
 
+                console.log(key);
+                console.log(url);
+
                 var filename = data.files[0].name;
                 
-                // Create a new hidden input for the filename
-                var nameInput = $("<input />", {
-                    type: 'hidden',
-                    name: 'note[name]',
-                    value: filename
-                });
-                form.append(nameInput);
+                // // Create a new hidden input for the filename
+                // var nameInput = $("<input />", {
+                //     type: 'hidden',
+                //     name: 'note[name]',
+                //     value: filename
+                // });
+                // form.append(nameInput);
 
-                var input = $("<input />", {
-                    type: 'hidden',
-                    name: fileInput.attr('name'),
-                    value: url
+                // var input = $("<input />", {
+                //     type: 'hidden',
+                //     name: fileInput.attr('name'),
+                //     value: url
+                // });
+                // form.append(input);
+
+                $.ajax({
+                    url: '/notes', // Assuming the endpoint to update notes is '/notes'
+                    method: 'POST', // Assuming you're updating the record
+                    data: {
+                        // input,
+                        note: {
+                            avatar_url: url,
+                            name: filename
+                        }
+                    },
+                    success: function(response) {
+                        // Optionally, handle success response
+                        window.location.href = '/notes';
+                        console.log('Note updated successfully.');
+                    },
+                    error: function(xhr, status, error) {
+                        // Optionally, handle error response
+                        console.error('Error updating note:', error);
+                    }
                 });
-                form.append(input);
             },
             fail: function(e, data) {
                 submitButton.prop('disabled', false);
@@ -123,7 +147,7 @@ $(function() {
 
         // Manually trigger file upload on form submission
         form.on('submit', function(e) {
-            // e.preventDefault(); // Prevent default form submission
+            e.preventDefault(); // when uncommented i can see name and url, when commented i can only see picture and form#
             fileInput.fileupload('send', { files: fileInput[0].files }); // Manually trigger file upload
         });
     });

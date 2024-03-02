@@ -24,7 +24,7 @@ class NotesController < ApplicationController
   # POST /notes or /notes.json
   def create
     @note = Note.new(note_params)
-    @note.name = params[:note][:picture].original_filename
+    # @note.form_id = params[:note][:form_id]
     
     respond_to do |format|
       if @note.save
@@ -74,7 +74,7 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:picture, :form_id, :name)
+      params.require(:note).permit(:picture, :form_id, :name, :avatar_url)
     end
     
     def set_s3_direct_post

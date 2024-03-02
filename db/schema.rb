@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_28_170540) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_01_194324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_170540) do
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role", default: "member"
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
@@ -36,8 +37,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_170540) do
     t.text "payable_address"
     t.string "payment_method"
     t.string "role"
-    t.decimal "dollar_amounts", default: [], array: true
     t.bigint "sub_account_id", null: false
+    t.text "approval_status"
+    t.text "comments"
+    t.decimal "dollar_amount", precision: 10, scale: 2
+    t.decimal "travel", precision: 10, scale: 2, default: "0.0"
+    t.decimal "food", precision: 10, scale: 2, default: "0.0"
+    t.decimal "office_supplies", precision: 10, scale: 2, default: "0.0"
+    t.decimal "utilities", precision: 10, scale: 2, default: "0.0"
+    t.decimal "membership", precision: 10, scale: 2, default: "0.0"
+    t.decimal "clothing", precision: 10, scale: 2, default: "0.0"
+    t.decimal "rent", precision: 10, scale: 2, default: "0.0"
+    t.decimal "other_expenses", precision: 10, scale: 2, default: "0.0"
+    t.decimal "items_for_resale", precision: 10, scale: 2, default: "0.0"
+    t.decimal "services_and_other_income", precision: 10, scale: 2, default: "0.0"
     t.index ["sub_account_id"], name: "index_checks_on_sub_account_id"
   end
 
@@ -47,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_170540) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "avatar_url"
   end
 
   create_table "people", force: :cascade do |t|
