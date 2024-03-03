@@ -13,3 +13,150 @@
  *= require_tree .
  *= require_self
  */
+ body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  background-image: linear-gradient(to right, rgb(238, 217, 196), rgb(238, 217, 196));
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 850px;
+}
+
+.icon-container {
+  padding: 10px;
+  font-family: 'Merryweather';
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-top: 40px;
+  transform: scale(1.5); 
+  z-index: 999; /* Set a high z-index value to ensure it's displayed on top */
+
+}
+
+.icon-image {
+  width: 65px;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  transform: scale(1.75); 
+  padding: 50px;
+  z-index: 999; /* Set a high z-index value to ensure it's displayed on top */
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* max-width: 1000px; */
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  padding: 0 100px 300px 50px;
+}
+
+/* .login-section {
+  background-color: #eed9c4;
+  display: flex;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+} */
+
+.user-icon-container {
+  text-align: center;
+}
+
+.user-icon {
+  font-size: 3em;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 20px;
+  width: 200px
+}
+
+.btn-wide {
+  box-shadow: inset 0 0 0 0 rgb(130, 119, 116);
+  width: 200px;
+  height: 50%;
+  font-size: 1.5em;
+  font-family: 'Roboto';
+  padding: 10px;
+  border: 0px solid rgb(130, 119, 116); /* Set border color */
+  background-color: rgb(238, 217, 196); /* Set background color */
+  color: rgb(130, 119, 116); /* Set text color */
+  transition: color 1s, box-shadow 0.3s ease-in-out;
+}
+
+.btn-wide:hover {
+  color: rgb(238, 217, 196); /* Set text color */
+  /* background-color: rgb(130, 119, 116); Set hover background color */
+  box-shadow: inset 200px 0 30px 0px rgb(130, 119, 116);
+
+}
+
+.picture-section {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 850px;
+  width: 500px;
+}
+
+.picture-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%; /* Adjust the width as needed */
+  height: 100%;
+  background: linear-gradient(to left, 
+  rgb(238, 217, 196, 0), 
+  rgb(238, 217, 196, 0.075), 
+  rgb(238, 217, 196, 0.15),
+  rgb(238, 217, 196, 0.3),
+  rgb(238, 217, 196, 0.45),
+  rgb(238, 217, 196, 0.65),
+  rgb(238, 217, 196, 0.8),  
+  rgb(238, 217, 196, 0.9), 
+  rgb(238, 217, 196, 0.95), 
+  rgb(238, 217, 196, 1));
+}
+
+
+#carousel {
+  width: 100%;
+  height: 850px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .icon-container {
+    flex-direction: column; /* Stack icons vertically on smaller screens */
+    max-width: 98.5%;
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically on smaller screens */
+    max-width: 1100px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    flex: 1; /* Allow the login section to grow to fill available space */
+    padding: 20px;
+  }
+}
