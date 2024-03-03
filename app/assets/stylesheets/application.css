@@ -15,43 +15,51 @@
  */
  body {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   min-height: 100vh;
-  background-image: linear-gradient(to right, rgb(250, 214, 165), rgb(250, 214, 165));
+  background-image: linear-gradient(to right, rgb(238, 217, 196), rgb(238, 217, 196));
   font-family: Arial, sans-serif;
   margin: 0;
+  height: 850px;
 }
 
 .icon-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px;
   font-family: 'Merryweather';
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
+  padding-top: 40px;
+  transform: scale(1.5); 
+  z-index: 999; /* Set a high z-index value to ensure it's displayed on top */
+
 }
 
 .icon-image {
   width: 65px;
   height: auto;
   max-width: 100%;
-  margin-right: 10px;
+  max-height: 100%;
+  transform: scale(1.75); 
+  padding: 50px;
+  z-index: 999; /* Set a high z-index value to ensure it's displayed on top */
 }
 
 .login-container {
   display: flex;
-  max-width: 1100px;
-  height: 600px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* max-width: 1000px; */
+  height: 400px;
   overflow: hidden;
   position: relative;
+  padding: 0 100px 300px 50px;
 }
 
-.login-section {
+/* .login-section {
   background-color: #eed9c4;
   display: flex;
   border: 1px solid #ccc;
@@ -59,7 +67,7 @@
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-}
+} */
 
 .user-icon-container {
   text-align: center;
@@ -77,24 +85,46 @@ h3 {
 .btn-container {
   text-align: center;
   margin-top: 20px;
+  width: 200px
 }
 
 .btn-wide {
   width: 80%;
   font-size: 1em;
   padding: 10px;
+  border: 2px solid rgb(173, 162, 149); /* Set border color */
+  background-color: rgb(238, 217, 196); /* Set background color */
+  color: rgb(173, 162, 149); /* Set text color */
+  transition: background-color 0.5s, color 1s;
+}
+
+.btn-wide:hover {
+  color: rgb(238, 217, 196); /* Set text color */
+  background-color: rgb(173, 162, 149); /* Set hover background color */
 }
 
 .picture-section {
   flex: 1;
+  position: relative;
   overflow: hidden;
-  justify-content: center;
-  display: flex;
+  height: 850px;
+  width: 500px;
 }
+
+.picture-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%; /* Adjust the width as needed */
+  height: 100%;
+  background: linear-gradient(to left, rgb(238, 217, 196, 0), rgb(238, 217, 196, 0.1), rgb(238, 217, 196, 0.5),rgb(238, 217, 196, 0.8), rgb(238, 217, 196, 1));
+}
+
 
 #carousel {
   width: 100%;
-  height: auto;
+  height: 850px;
 }
 
 /* Media query for smaller screens */
@@ -105,6 +135,13 @@ h3 {
   }
 
   .login-container {
+    display: flex;
     flex-direction: column; /* Stack sections vertically on smaller screens */
+    max-width: 1100px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    flex: 1; /* Allow the login section to grow to fill available space */
+    padding: 20px;
   }
 }
