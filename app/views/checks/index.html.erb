@@ -7,7 +7,7 @@
   <p>You're logged in as a member.</p>
 <% end %>
 
-<%= link_to "Sign Out", destroy_admin_session_path %>
+<%= link_to "Sign Out", destroy_admin_session_path, method: :delete, data: { turbo: "false" } %>
 <p style="color: red"><%= alert %></p>
 <p style="color: green"><%= notice %></p>
 
