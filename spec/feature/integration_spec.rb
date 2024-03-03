@@ -18,9 +18,16 @@ RSpec.describe 'Creating a check form', type: :feature do
         expires_at: Time.now + 1.week
       }
     })
-    visit '/admins/sign_in' # Adjust this path based on your actual route
-      # The actual authentication is mocked by OmniAuth, no need to interact with Google's login page
-    click_on 'Google'
+    # Create an admin account
+    @admin_user = Admin.create!(
+      email: 'test@gmail.com', 
+      full_name: 'Test User',
+      is_officer: false,
+      is_admin: true
+    )
+
+    visit '/admins/sign_in'
+    click_on 'Sign In'
   end
 
   before do
@@ -41,12 +48,16 @@ RSpec.describe 'Creating a check form', type: :feature do
 
   scenario 'valid inputs' do
     visit edit_check_path(@check)
-    
+
     expect(page).to have_field("check[organization_name]", with: 'Kappa Upsilon Chi')
     expect(page).to have_field("check[account_number]", with: 945470)
+    
+    visit check_path(@check)
+    visit review_check_path(@check)
     expect(page).to have_field("check[sub_account_id]", with: @sub_account.id)
   end
 
+  scenario ''
 end
 
 

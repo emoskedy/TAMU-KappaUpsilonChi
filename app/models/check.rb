@@ -2,7 +2,7 @@ class Check < ApplicationRecord
     before_validation :set_default_values
     before_save :calculate_dollar_amount
 
-    belongs_to :admin
+    belongs_to :admin, optional: true
     belongs_to :sub_account, optional: true
 
     validates :organization_name, presence: true
@@ -10,7 +10,7 @@ class Check < ApplicationRecord
     validates :date, presence: true
     validates :payable_name, presence: true
     validates :payment_method, inclusion: { in: %w[direct_deposit mail_to_payee pick_up_at_sofc] }
-    validates :sub_account_id, presence: true, allow_nil: true
+    validates :sub_account_id, presence: true
 
 
     enum role: { student: 'student', employee: 'employee', not_affiliated: 'not_affiliated'}
