@@ -116,9 +116,19 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%; /* Adjust the width as needed */
+  width: 40%; /* Adjust the width as needed */
   height: 100%;
-  background: linear-gradient(to left, rgb(238, 217, 196, 0), rgb(238, 217, 196, 0.1), rgb(238, 217, 196, 0.5),rgb(238, 217, 196, 0.8), rgb(238, 217, 196, 1));
+  background: linear-gradient(to left, 
+  rgb(238, 217, 196, 0), 
+  rgb(238, 217, 196, 0.075), 
+  rgb(238, 217, 196, 0.15),
+  rgb(238, 217, 196, 0.3),
+  rgb(238, 217, 196, 0.45),
+  rgb(238, 217, 196, 0.65),
+  rgb(238, 217, 196, 0.8),  
+  rgb(238, 217, 196, 0.9), 
+  rgb(238, 217, 196, 0.95), 
+  rgb(238, 217, 196, 1));
 }
 
 
