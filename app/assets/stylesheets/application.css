@@ -89,12 +89,14 @@ h3 {
 }
 
 .btn-wide {
-  width: 80%;
-  font-size: 1em;
+  width: 100%;
+  height: 50%;
+  font-size: 1.5em;
+  font-family: 'Roboto';
   padding: 10px;
-  border: 2px solid rgb(173, 162, 149); /* Set border color */
+  border: 0px solid rgb(165, 154, 141); /* Set border color */
   background-color: rgb(238, 217, 196); /* Set background color */
-  color: rgb(173, 162, 149); /* Set text color */
+  color: rgb(165, 154, 141); /* Set text color */
   transition: background-color 0.5s, color 1s;
 }
 
