@@ -64,6 +64,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_02_052435) do
     t.index ["sub_account_id"], name: "index_checks_on_sub_account_id"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.string "picture"
+    t.bigint "form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "avatar_url"
+  end
+
   create_table "officer_emails", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
