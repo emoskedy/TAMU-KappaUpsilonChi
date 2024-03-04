@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: %i[ show edit update destroy ]
-  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+  before_action :set_note, only: %i[ show destroy ]
+  before_action :set_s3_direct_post, only: [:new, :create]
 
   # GET /notes or /notes.json
   def index
@@ -17,10 +17,6 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
-  # GET /notes/1/edit
-  def edit
-  end
-
   # POST /notes or /notes.json
   def create
     @note = Note.new(note_params)
@@ -32,19 +28,6 @@ class NotesController < ApplicationController
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /notes/1 or /notes/1.json
-  def update
-    respond_to do |format|
-      if @note.update(note_params)
-        format.html { redirect_to note_url(@note), notice: "Note was successfully updated." }
-        format.json { render :show, status: :ok, location: @note }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
