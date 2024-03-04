@@ -1,22 +1,11 @@
 <div id="<%= dom_id note %>">
   <p>
-    <strong>Picture:</strong>
-    <%= note.picture %>
-  </p>
-
-  <p>
     <strong>Name:</strong>
     <%= note.name %>
   </p>
 
   <p>
-    <strong>Url:</strong>
-    <%= note.avatar_url %>
+    <strong>Url: Click on the link to download and view</strong>
+    <a href="<%= note.avatar_url %>" target="_blank"><%= note.avatar_url %></a>
   </p>
-
-  <p>
-    <strong>Form:</strong>
-    <%= note.form_id %>
-  </p>
-
 </div>
