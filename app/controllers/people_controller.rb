@@ -1,9 +1,12 @@
 class PeopleController < ApplicationController
     before_action :set_person, only: %i[ show edit update destroy ]
 
-
     def index
       @people = Person.all
+      @current_admin_person = Person.find_by(email: current_admin.email)
+      @other_people = Person.where.not(email: current_admin.email)
+      @show_new_profile_button = @current_admin_person.nil?
+
     end
   
     def new
@@ -57,6 +60,8 @@ class PeopleController < ApplicationController
     end
   
     def person_params
-      params.require(:person).permit(:name, :address, :uin, :phone_number, :tamu_student, :tamu_employee, :not_affiliated)
+      params.require(:person).permit(:name, :email, :address, :uin, :phone_number, :affiliation)
     end
+
+
 end
