@@ -17,9 +17,9 @@ class Check < ApplicationRecord
     enum payment_method: { direct_deposit: 'direct_deposit', mail_to_payee: 'mail_to_payee', pick_up_at_sofc: 'pick_up_at_sofc' }
     enum approval_status: { pending: 'Pending', approved: 'Approved', denied: 'Denied'}
 
-    def total_dollar_amount
-        dollar_amounts.map(&:to_f).sum
-    end
+    # def total_dollar_amount
+    #     dollar_amounts.map(&:to_f).sum
+    # end
 
 
     private

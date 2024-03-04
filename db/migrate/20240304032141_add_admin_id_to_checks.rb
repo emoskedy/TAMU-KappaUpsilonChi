@@ -1,5 +1,5 @@
 class AddAdminIdToChecks < ActiveRecord::Migration[7.0]
   def change
-    add_reference :checks, :admin, null: false, foreign_key: true
+    change_column :checks, :admin_id, :bigint, null: true
   end
 end
