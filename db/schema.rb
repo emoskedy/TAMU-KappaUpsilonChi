@@ -14,13 +14,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_02_052435) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admin_emails", force: :cascade do |t|
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admin_emails_on_email"
-  end
-
   create_table "admins", force: :cascade do |t|
     t.string "email", null: false
     t.string "full_name"
@@ -59,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_02_052435) do
     t.decimal "other_expenses", precision: 10, scale: 2, default: "0.0"
     t.decimal "items_for_resale", precision: 10, scale: 2, default: "0.0"
     t.decimal "services_and_other_income", precision: 10, scale: 2, default: "0.0"
-    t.bigint "admin_id"
+    t.bigint "admin_id", null: false
     t.index ["admin_id"], name: "index_checks_on_admin_id"
     t.index ["sub_account_id"], name: "index_checks_on_sub_account_id"
   end
@@ -71,12 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_02_052435) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "avatar_url"
-  end
-
-  create_table "officer_emails", force: :cascade do |t|
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|
