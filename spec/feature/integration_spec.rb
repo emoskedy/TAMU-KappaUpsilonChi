@@ -17,7 +17,7 @@ end
 
 RSpec.describe 'Google OAuth2 authentication', type: :feature do
   before do
-    already_sign_in
+    google_oauth_authentication
   end
 
   scenario 'already sign in' do
@@ -135,7 +135,6 @@ RSpec.describe 'Creating a check form as a member', type: :feature do
     fill_in 'check[services_and_other_income]', with: 18.0
     click_on 'Update Check'
     visit check_path(@check)
-    puts page.html
     expect(page).to have_content('Total: 150')
   end
 end

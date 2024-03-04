@@ -49,28 +49,6 @@ module OmniAuthHelpers
     click_on 'Sign In'
   end
 
-  def already_sign_in
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
-      provider: 'google_oauth2',
-      uid: '123456789',
-      info: {
-        name: 'Test User',
-        email: 'test@gmail.com',
-        image: 'http://example.com/image.png'
-      },
-      credentials: {
-        token: 'mock_token',
-        refresh_token: 'mock_refresh_token',
-        expires_at: Time.now + 1.week
-      }
-    })
-
-    visit destroy_admin_session_path
-    visit '/admins/sign_in'
-    click_on 'Sign In'
-  end
-
   def check_and_sub_account
     @check = Check.new(
       description: 'This is a testing description',

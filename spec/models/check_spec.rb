@@ -50,8 +50,23 @@ RSpec.describe Check, type: :model do
         expect(check).to_not be_valid
     end
 
-
-
+    it "sets the approval status to pending" do
+        check = Check.new(
+            organization_name: 'Kappa Upsilon Chi',
+            account_number: 945470,
+            payable_name: 'Test Payee',
+            approval_status: 'approved',
+            date: Date.today
+        )
+        @sub_account = SubAccount.create(
+            sub_account_number: 12344321,
+            owner_name: "Test User",
+          )
+        check.sub_account = @sub_account # Associate models directly
+        check.save! # Save the check object
+        check.reset_status_to_pending
+        expect(check.approval_status).to eq('pending')
+    end
 
    
 end
