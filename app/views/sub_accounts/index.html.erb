@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+
+<h1>SubAccounts#index</h1>
+<p>Find me in app/views/sub_accounts/index.html.erb</p>
+
+<div id="sub_accounts">
+    <% @sub_accounts.each do |sub_account| %>
+        <%= render sub_account %>
+        <p>
+            <%= link_to "Show this sub_account", sub_account %>
+        </p>
+    <% end %>
+</div>
+
+<%= link_to "New sub-account", new_sub_account_path %>
+<%= link_to "Back to main page", checks_path %>
