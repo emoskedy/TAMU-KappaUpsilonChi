@@ -1,7 +1,11 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/feature/integration_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/feature/integration_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           1,
@@ -45,12 +49,18 @@
           null,
           null,
           1,
-          1,
+          0,
           null,
+<<<<<<< HEAD
+          0,
+          0,
+          0,
+=======
           1,
           1,
           1,
           1,
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
           null,
           null,
           null,
@@ -58,7 +68,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/rails_helper.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/rails_helper.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -127,7 +141,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/environment.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/environment.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -138,7 +156,11 @@
           1
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/application.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/application.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -166,7 +188,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/boot.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/boot.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -176,7 +202,11 @@
           1
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/environments/test.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/environments/test.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -242,7 +272,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/initializers/assets.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/initializers/assets.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -260,7 +294,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/initializers/content_security_policy.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/initializers/content_security_policy.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -290,7 +328,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/initializers/devise.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/initializers/devise.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -612,7 +654,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/initializers/filter_parameter_logging.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/initializers/filter_parameter_logging.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -626,7 +672,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/initializers/inflections.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/initializers/inflections.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -647,7 +697,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/initializers/permissions_policy.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/initializers/permissions_policy.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -663,7 +717,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/config/routes.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/config/routes.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -700,7 +758,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/models/admin.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/models/admin.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -743,7 +805,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/models/application_record.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/models/application_record.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -752,7 +818,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/helpers/application_helper.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/helpers/application_helper.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -760,25 +830,41 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/helpers/checks_helper.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/helpers/checks_helper.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/helpers/people_helper.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/helpers/people_helper.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/helpers/sub_accounts_helper.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/helpers/sub_accounts_helper.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/helpers/checks_helper_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/helpers/checks_helper_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -797,7 +883,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/helpers/people_helper_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/helpers/people_helper_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -816,7 +906,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/helpers/sub_accounts_helper_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/helpers/sub_accounts_helper_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -835,7 +929,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/models/check_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/models/check_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -855,7 +953,7 @@
           1,
           1,
           null,
-          1,
+          0,
           null,
           null,
           1,
@@ -884,9 +982,9 @@
           1,
           1,
           null,
-          1,
+          0,
           null,
-          1,
+          0,
           null,
           null,
           null,
@@ -897,7 +995,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/models/check.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/models/check.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           1,
@@ -926,20 +1028,24 @@
           1,
           null,
           1,
-          6,
-          6,
-          6,
-          6,
+          4,
+          4,
+          4,
+          4,
           null,
           null,
           1,
-          3,
+          0,
           null,
           null,
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/models/person_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/models/person_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -948,13 +1054,22 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/models/person.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/models/person.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
+          1,
           1,
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/models/sub_account_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/models/sub_account_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -979,7 +1094,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/models/sub_account.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/models/sub_account.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           1,
@@ -989,7 +1108,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/requests/checks_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/requests/checks_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -1021,7 +1144,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/requests/people_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/requests/people_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -1032,7 +1159,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/requests/sub_accounts_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/requests/sub_accounts_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -1065,7 +1196,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/views/checks/edit.html.erb_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/views/checks/edit.html.erb_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -1074,7 +1209,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/views/checks/index.html.erb_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/views/checks/index.html.erb_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -1083,7 +1222,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/spec/views/checks/new.html.erb_spec.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/spec/views/checks/new.html.erb_spec.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           null,
@@ -1092,7 +1235,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/controllers/admins/sessions_controller.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/controllers/admins/sessions_controller.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           1,
@@ -1105,7 +1252,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/controllers/application_controller.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/controllers/application_controller.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           null,
           null,
@@ -1114,7 +1265,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/controllers/admins/omniauth_callbacks_controller.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/controllers/admins/omniauth_callbacks_controller.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           1,
@@ -1157,12 +1312,17 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/controllers/checks_controller.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/controllers/checks_controller.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           1,
           1,
           1,
+          1,
           null,
           1,
           1,
@@ -1183,21 +1343,6 @@
           1,
           0,
           null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
           0,
           0,
           0,
@@ -1210,6 +1355,21 @@
           null,
           null,
           1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
           0,
           null,
           0,
@@ -1235,12 +1395,12 @@
           1,
           null,
           1,
-          1,
+          0,
           null,
           null,
           null,
           1,
-          1,
+          0,
           null,
           null,
           null,
@@ -1249,6 +1409,14 @@
           null,
           null,
           1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
           0,
           0,
           0,
@@ -1261,7 +1429,11 @@
           null
         ]
       },
+<<<<<<< HEAD
+      "/csce431docker/KappaUpsilonChi/sprint-1-kappaupsilonchi/app/controllers/sub_accounts_controller.rb": {
+=======
       "/csce431/kappa/sprint-1-kappaupsilonchi/app/controllers/sub_accounts_controller.rb": {
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
         "lines": [
           1,
           1,
@@ -1332,6 +1504,10 @@
         ]
       }
     },
+<<<<<<< HEAD
+    "timestamp": 1709439677
+=======
     "timestamp": 1709490864
+>>>>>>> 93bc50eaf40cd1d5158c70c0fc66cdddb4ae4a3a
   }
 }
