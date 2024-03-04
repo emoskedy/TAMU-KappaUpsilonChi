@@ -1,22 +1,29 @@
-<h1>You're logged in! Welcome to the Admin Dashboard!</h1>
-<%= link_to "Sign Out", destroy_admin_session_path %>
-=======
-<p style="color: green"><%= notice %></p>
+<h1>Welcome, <%= current_admin.full_name %>!</h1>
+<% if current_admin.is_admin? %>
+  <p>You're logged in as an admin.</p>
+<% elsif current_admin.is_officer? %>
+  <p>You're logged in as an officer.</p>
+<% else %>
+  <p>You're logged in as a member.</p>
+<% end %>
 
+<%= link_to "Sign Out", destroy_admin_session_path, method: :delete, data: { turbo: "false" } %>
+<p style="color: red"><%= alert %></p>
+<p style="color: green"><%= notice %></p>
 
 <h1>Checks#index</h1>
 <p>Find me in app/views/checks/index.html.erb</p>
 
 <div id="checks">
-    <% @checks.each do |check| %>
-        <%= render check%>
-        <p>
-            <%= link_to "Show this form", check %>
-        </p>
-    <% end %>
+  <% @checks.each do |check| %>
+    <%= render check %>
+    <p>
+      <%= link_to "Show this form", check %>
+    </p>
+  <% end %>
 </div>
 
 <%= link_to "New form", new_check_path %>
-
 <%= link_to "View sub-accounts", sub_accounts_path %>
-<%= link_to "View sofc notes", notes_path %>
+<%= link_to "Admin Page", admins_admin_index_path %>
+<%= link_to "View Profile", people_path %>
