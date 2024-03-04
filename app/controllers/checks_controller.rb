@@ -35,6 +35,9 @@ class ChecksController < ApplicationController
   end
 
   def edit
+    if @check.approved?
+      redirect_to checks_url, alert: "Cannot edit a check that has been approved"
+    end
   end
 
   def update

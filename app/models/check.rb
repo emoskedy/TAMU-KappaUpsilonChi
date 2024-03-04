@@ -1,6 +1,7 @@
 class Check < ApplicationRecord
     before_validation :set_default_values
     before_save :calculate_dollar_amount
+    before_update :reset_status_to_pending, if: -> { approval_status_was == 'denied' }
 
     belongs_to :admin
     belongs_to :sub_account, optional: true
@@ -19,6 +20,10 @@ class Check < ApplicationRecord
 
     def total_dollar_amount
         dollar_amounts.map(&:to_f).sum
+    end
+
+    def reset_status_to_pending
+        self.approval_status = 'pending'
     end
 
 
