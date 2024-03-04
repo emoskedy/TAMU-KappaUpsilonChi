@@ -1,5 +1,6 @@
 class ChecksController < ApplicationController
   before_action :set_check, only: %i[ show edit update destroy ]
+  before_action :load_sub_accounts, only: [:new, :edit]
 
 
   def index
@@ -53,16 +54,23 @@ class ChecksController < ApplicationController
     end
   end
 
+  private
+
   def set_check
     @check = Check.find(params[:id])
   end
+
+  
+  def load_sub_accounts
+    @sub_accounts = SubAccount.all
+  end
+  
 
   def show
     @check = Check.find(params[:id])
   end
 
   def check_params
-    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, dollar_amounts: [])
+    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, :sub_account_id, dollar_amounts: [])
   end
 end
-

@@ -1,6 +1,7 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< HEAD
       "/csce431docker/sprint-1-kappaupsilonchi/spec/helpers/checks_helper_spec.rb": {
         "lines": [
           1,
@@ -692,5 +693,9 @@
       }
     },
     "timestamp": 1707802652
+=======
+    },
+    "timestamp": 1708796776
+>>>>>>> b7330b202e539b4976bc6b3fd7408d7fa920cfd0
   }
 }
