@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'checks#index'
+  root to: 'checks#index'
 
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
   devise_scope :admin do
@@ -13,6 +13,22 @@ Rails.application.routes.draw do
     get 'admins/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
   end
 
-  resources :checks
+  resources :checks do
+    member do
+      get 'review'
+      patch 'update_review'
+    end
+  end
+  
   resources :people
+  resources :sub_accounts
+  resources :notes
+  get '/admin', to: 'admins/admin#admin'
+  post '/update', to: 'admins/admin#update'
+
+  namespace :admins do
+    resources :admin, only: [:index, :create, :new, :destroy] 
+    post 'update', to: 'admin#update', as: 'update'
+    get 'search', to: 'admin#search', as: 'search'  
+  end
 end

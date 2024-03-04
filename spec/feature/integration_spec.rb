@@ -22,17 +22,31 @@ RSpec.describe 'Creating a check form', type: :feature do
       # The actual authentication is mocked by OmniAuth, no need to interact with Google's login page
     click_on 'Google'
   end
-    
-  scenario 'valid inputs' do
-    visit new_check_path
-    fill_in "check[organization_name]", with: 'Kappa Upsilon Chi'
-    fill_in "check[account_number]", with: 945470
-    # select 'direct_deposit', from: "check[payment_method]"
-    click_on 'Create Check'
-    visit checks_path
-    # expect(page).to have_current_path(checks_path)
-    expect(page).to have_content('Welcome to the Admin Dashboard')
+
+  before do
+    @check = Check.new(
+      organization_name: 'Kappa Upsilon Chi',
+      account_number: 945470,
+      payable_name: 'Test Payee',
+      date: Date.today
+    )
+    @sub_account = SubAccount.create(
+      sub_account_number: 12344321,
+      owner_name: "Test User",
+    )
+    @check.sub_account = @sub_account # Associate models directly
+    @check.save! # Save the check object
   end
+  
+
+  scenario 'valid inputs' do
+    visit edit_check_path(@check)
+    
+    expect(page).to have_field("check[organization_name]", with: 'Kappa Upsilon Chi')
+    expect(page).to have_field("check[account_number]", with: 945470)
+    expect(page).to have_field("check[sub_account_id]", with: @sub_account.id)
+  end
+
 end
 
 
