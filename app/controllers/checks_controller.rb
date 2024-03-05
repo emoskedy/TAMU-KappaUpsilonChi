@@ -56,7 +56,7 @@ class ChecksController < ApplicationController
     @check.destroy
 
     respond_to do |format|
-      format.html { redirect_to checks_url, notice: "Form was successfuly destroyed" }
+      format.html { redirect_to checks_url, notice: "Form was successfully destroyed" }
       format.json { head :no_content }
     end
   end
@@ -65,15 +65,15 @@ class ChecksController < ApplicationController
     @check = Check.find(params[:id])
   end
 
-  def update_review
-    @check = Check.find(params[:id])
+  # def update_review
+  #   @check = Check.find(params[:id])
 
-    if @check.update(check_params)
-      redirect_to @check, notice: 'Form reviewed successfully.'
-    else
-      render :review
-    end
-  end
+  #   if @check.update(check_params)
+  #     redirect_to @check, notice: 'Form reviewed successfully.'
+  #   else
+  #     render :review
+  #   end
+  # end
 
   private
 
@@ -88,7 +88,7 @@ class ChecksController < ApplicationController
   
 
   def show
-    @check = Check.find(params[:id])
+    # @check = Check.find(params[:id])
   end
 
   def require_officer_or_admin

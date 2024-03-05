@@ -20,15 +20,11 @@ RSpec.describe Check, type: :model do
     end
 
     it "is not valid without sub-account" do
-        check = Check.new(
-            organization_name: 'Kappa Upsilon Chi',
-            account_number: 945470,
-            payable_name: 'Test Payee',
-            date: Date.today,
-            sub_account_id:nil
-        )
-
-        expect(check).to_not be_valid
+        sub_account = SubAccount.new(
+            sub_account_number: nil,
+            owner_name: "Test User",
+          )
+        expect(sub_account).to_not be_valid
     end
 
     it "is not valid without date" do

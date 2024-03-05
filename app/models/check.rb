@@ -11,7 +11,7 @@ class Check < ApplicationRecord
     validates :date, presence: true
     validates :payable_name, presence: true
     validates :payment_method, inclusion: { in: %w[direct_deposit mail_to_payee pick_up_at_sofc] }
-    validates :sub_account_id, presence: true
+    validates :sub_account_id, presence: true, allow_nil: true
 
 
     enum role: { student: 'student', employee: 'employee', not_affiliated: 'not_affiliated'}
