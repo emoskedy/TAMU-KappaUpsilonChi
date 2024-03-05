@@ -1,0 +1,18 @@
+<% admins.each do |admin| %>
+  <tr>
+    <td><%= admin.email %></td>
+    <td><%= admin.full_name %></td>
+    <td><%= admin.created_at %></td>
+    <td><%= admin.updated_at %></td>
+    <td>
+      <%= form_tag admins_update_path, method: :post do %>
+        <%= hidden_field_tag "admins[#{admin.id}][role]", admin.admin? ? 'admin' : (admin.officer? ? 'officer' : 'member') %>
+        <%= select_tag "admins[#{admin.id}][role]", options_for_select(['admin', 'officer', 'member'].map { |role| [role.capitalize, role] }, admin.admin? ? 'admin' : (admin.officer? ? 'officer' : 'member')), include_blank: true %>
+        <%= submit_tag "Update Role" %>
+      <% end %>
+    </td>
+    <td>
+      <%= button_to "Delete", admins_admin_path(admin), method: :delete, data: { confirm: "Are you sure you want to delete this admin?" }, class: "btn btn-danger" %>
+    </td>
+  </tr>
+<% end %>

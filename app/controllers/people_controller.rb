@@ -1,9 +1,12 @@
 class PeopleController < ApplicationController
     before_action :set_person, only: %i[ show edit update destroy ]
 
-
     def index
       @people = Person.all
+      @current_admin_person = Person.find_by(email: current_admin.email)
+      @other_people = Person.where.not(email: current_admin.email)
+      @show_new_profile_button = @current_admin_person.nil?
+
     end
   
     def new
@@ -15,11 +18,8 @@ class PeopleController < ApplicationController
   
       respond_to do |format|
         if @person.save
-          format.html { redirect_to person_url(@person), notice: "Form was successfully created" }
+          format.html { redirect_to person_url(@person), notice: "Person was successfully created" }
           format.json { render :show, status: :created, location: @person }
-        else
-          format.html { render :new, status: :unprocessable_entity}
-          format.json { render json: @person.errors, status: :unprocessable_entity}
         end
       end
     end
@@ -30,11 +30,8 @@ class PeopleController < ApplicationController
     def update
       respond_to do |format|
         if @person.update(person_params)
-          format.html {redirect_to person_url(@person), notice: "Form was successfully updated"}
+          format.html {redirect_to person_url(@person), notice: "Person was successfully updated"}
           format.json { render :show, status: :ok, location: @person }
-        else
-          format.html { render :edit, status: unprocessable_entity }
-          format.json { render josn: @person.errors, status: unprocessable_entity }
         end
       end
     end
@@ -43,7 +40,7 @@ class PeopleController < ApplicationController
       @person.destroy
   
       respond_to do |format|
-        format.html { redirect_to people_url, notice: "Form was successfuly destroyed" }
+        format.html { redirect_to people_url, notice: "Person was successfully destroyed" }
         format.json { head :no_content }
       end
     end
@@ -57,6 +54,8 @@ class PeopleController < ApplicationController
     end
   
     def person_params
-      params.require(:person).permit(:name, :address, :uin, :phone_number, :tamu_student, :tamu_employee, :not_affiliated)
+      params.require(:person).permit(:name, :email, :address, :uin, :phone_number, :affiliation)
     end
+
+
 end

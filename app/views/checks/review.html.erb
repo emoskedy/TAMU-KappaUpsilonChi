@@ -1,0 +1,30 @@
+<h1> Review Form </h1>
+
+<%= render @check %>
+
+<h2> Change approval status and add comments: </h2>
+
+<%= form_with(model: @check, method: :patch) do |form| %>
+    <div class="field">
+      <%= form.label :approval_status %>
+      <% Check.approval_statuses.each do |status, label| %>
+        <%= form.radio_button :approval_status, status %>
+        <%= form.label "approval_status_#{status}", label %><br>
+      <% end %>
+    </div>
+  
+    <div>
+        <%= form.label :sub_account_id %>
+        <%= form.select :sub_account_id, options_from_collection_for_select(@sub_accounts, :id, :sub_account_number, :owner_name), {} %>
+    </div>
+
+  
+    <div class="field">
+      <%= form.label :comments %>
+      <%= form.text_area :comments, rows: 4 %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit "Update Approval Status and Comments" %>
+    </div>
+  <% end %>
