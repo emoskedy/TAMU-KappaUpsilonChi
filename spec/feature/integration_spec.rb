@@ -224,6 +224,12 @@ RSpec.describe 'Creating a check form as an officer/admin', type: :feature do
     expect(page).to have_content('Form was successfully destroyed')
   end
 
+  scenario 'delete with a sub-account' do
+    visit sub_account_path(@sub_account)
+    click_on 'Destroy this sub-account'
+    expect(page).to have_content('You cannot delete a sub-account with associated checks')
+  end
+
   scenario 'valid review' do
     visit check_path(@check)
     visit review_check_path(@check)

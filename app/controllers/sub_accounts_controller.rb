@@ -45,7 +45,7 @@ class SubAccountsController < ApplicationController
             redirect_to sub_accounts_url
         else
             @sub_account.destroy
-            redirect_to sub_accounts_url, notice: 'Sub-account successfully destroyed.'
+            redirect_to sub_accounts_url, notice: 'Sub-account was successfully destroyed.'
         end
     end
 
