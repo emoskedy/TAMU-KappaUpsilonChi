@@ -33,7 +33,7 @@ class SubAccountsController < ApplicationController
 
     def update
         if @sub_account.update(sub_account_params)
-            redirect_to @sub_account, notice: 'Sub-account sucessfully updated.'
+            redirect_to @sub_account, notice: 'Sub-account was successfully updated.'
         else
             render :edit
         end

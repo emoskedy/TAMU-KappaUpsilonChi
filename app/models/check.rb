@@ -1,8 +1,9 @@
 class Check < ApplicationRecord
     before_validation :set_default_values
     before_save :calculate_dollar_amount
+    before_update :reset_status_to_pending, if: -> { approval_status_was == 'denied' }
 
-    belongs_to :admin
+    belongs_to :admin, optional: true
     belongs_to :sub_account, optional: true
 
     validates :organization_name, presence: true
@@ -17,8 +18,12 @@ class Check < ApplicationRecord
     enum payment_method: { direct_deposit: 'direct_deposit', mail_to_payee: 'mail_to_payee', pick_up_at_sofc: 'pick_up_at_sofc' }
     enum approval_status: { pending: 'Pending', approved: 'Approved', denied: 'Denied'}
 
-    def total_dollar_amount
-        dollar_amounts.map(&:to_f).sum
+    # def total_dollar_amount
+    #     dollar_amounts.map(&:to_f).sum
+    # end
+
+    def reset_status_to_pending
+        self.approval_status = 'pending'
     end
 
 
