@@ -33,15 +33,20 @@ class SubAccountsController < ApplicationController
 
     def update
         if @sub_account.update(sub_account_params)
-            redirect_to @sub_account, notice: 'Sub-account sucessfully updated.'
+            redirect_to @sub_account, notice: 'Sub-account was successfully updated.'
         else
             render :edit
         end
     end
 
     def destroy
-        @sub_account.destroy
-        redirect_to sub_accounts_url, notice: 'Sub-account successfully destroyed.'
+        if @sub_account.checks.exists?
+            flash[:alert] = "You cannot delete a sub-account with associated checks."
+            redirect_to sub_accounts_url
+        else
+            @sub_account.destroy
+            redirect_to sub_accounts_url, notice: 'Sub-account was successfully destroyed.'
+        end
     end
 
     private

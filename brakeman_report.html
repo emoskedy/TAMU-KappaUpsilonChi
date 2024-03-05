@@ -185,12 +185,12 @@ p {
   </thead>
   <tbody>
     <tr>
-      <td>/csce431/kappa_upsilon_chi</td>
+      <td>/csce431/kappa/sprint-1-kappaupsilonchi</td>
       <td>7.0.8</td>
       <td>5.2.3
       <td>
-        2024-02-17 02:32:23 +0000<br><br>
-        7.248435224 seconds
+        2024-03-05 03:55:12 +0000<br><br>
+        91.537307413 seconds
       </td>
       <td>BasicAuth, BasicAuthTimingAttack, CSRFTokenForgeryCVE, ContentTag, CookieSerialization, CreateWith, CrossSiteScripting, DefaultRoutes, Deserialize, DetailedExceptions, DigestDoS, DynamicFinders, EOLRails, EOLRuby, EscapeFunction, Evaluation, Execute, FileAccess, FileDisclosure, FilterSkipping, ForgerySetting, HeaderDoS, I18nXSS, JRubyXML, JSONEncoding, JSONEntityEscape, JSONParsing, LinkTo, LinkToHref, MailTo, MassAssignment, MimeTypeDoS, ModelAttrAccessible, ModelAttributes, ModelSerialize, NestedAttributes, NestedAttributesBypass, NumberToCurrency, PageCachingCVE, PermitAttributes, QuoteTableName, Redirect, RegexDoS, Render, RenderDoS, RenderInline, ResponseSplitting, RouteDoS, SQL, SQLCVEs, SSLVerify, SafeBufferManipulation, SanitizeMethods, SelectTag, SelectVulnerability, Send, SendFile, SessionManipulation, SessionSettings, SimpleFormat, SingleQuotes, SkipBeforeFilter, SprocketsPathTraversal, StripTags, SymbolDoSCVE, TemplateInjection, TranslateBug, UnsafeReflection, UnsafeReflectionMethods, ValidationRegex, VerbConfusion, WithoutProtection, XMLDoS, YAMLParsing</td>
     </tr>
@@ -208,15 +208,15 @@ p {
   <tbody>
     <tr>
       <td>Controllers</td>
-      <td>5</td>
+      <td>8</td>
     </tr>
     <tr>
       <td>Models</td>
-      <td>4</td>
+      <td>6</td>
     </tr>
     <tr>
       <td>Templates</td>
-      <td>15</td>
+      <td>33</td>
     </tr>
     <tr>
       <td>Errors</td>
@@ -224,7 +224,7 @@ p {
     </tr>
     <tr>
       <td>Security Warnings</td>
-      <td>1 <span class='high-confidence'>(0)</span></td>
+      <td>0 <span class='high-confidence'>(0)</span></td>
     </tr>
   
     <tr>
@@ -235,107 +235,4 @@ p {
   </tbody>
 </table>
 <br>
-<table>
-  <thead>
-    <tr>
-      <th>Warning Type</th>
-      <th>Total</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-    <tr>
-      <td>Mass Assignment</td>
-      <td>1</td>
-    </tr>
-  
-  </tbody>
-</table>
-<br>
-<h2>Security Warnings</h2>  
-<table>
-  <thead>
-    <tr>
-      <th>Confidence</th>
-      <th>Class</th>
-      <th>Method</th>
-      <th>Warning Type</th>
-      <th>Message</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-    <tr>
-      <td><span class='med-confidence'>Medium</span></td>
-      <td>ChecksController</td>
-      <td>check_params</td>
-      <td><a rel="noreferrer" href="https://brakemanscanner.org/docs/warning_types/mass_assignment/">Mass Assignment</a></td>
-      <td><div class='warning_message' onClick="toggle('context1');toggle('message1');toggle('full_message1')" >Potentially dangerous key allowed for mass assignment near line 65: <span class="code">params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, <span class="user_input">:role</span>, :payment_method, :date, :payable_name, :dollar_amounts =&gt; ([]))</span><table id='context1' class='context' style='display:none'><caption>app/controllers/checks_controller.rb</caption>      <thead style='display:none'>
-        <tr>
-          <th>line number</th>
-          <th>line content</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class='context first'>
-          <td class='context_line'>
-            <pre class='context'>60</pre>
-          </td>
-          <td class='context'>
-            <pre class='context'>  def show</pre>
-          </td>
-        </tr>
-          <tr class='context alt'>
-            <td class='context_line'>
-              <pre class='context'>61</pre>
-            </td>
-            <td class='context'>
-              <pre class='context'>    @check = Check.find(params[:id])</pre>
-            </td>
-          </tr>
-          <tr class='context'>
-            <td class='context_line'>
-              <pre class='context'>62</pre>
-            </td>
-            <td class='context'>
-              <pre class='context'>  end</pre>
-            </td>
-          </tr>
-          <tr class='context alt near_error'>
-            <td class='context_line'>
-              <pre class='context'>64</pre>
-            </td>
-            <td class='context'>
-              <pre class='context'>  def check_params</pre>
-            </td>
-          </tr>
-          <tr class='context error'>
-            <td class='context_line'>
-              <pre class='context'>65</pre>
-            </td>
-            <td class='context'>
-              <pre class='context'>    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, dollar_amounts: [])</pre>
-            </td>
-          </tr>
-          <tr class='context alt near_error'>
-            <td class='context_line'>
-              <pre class='context'>66</pre>
-            </td>
-            <td class='context'>
-              <pre class='context'>  end</pre>
-            </td>
-          </tr>
-          <tr class='context'>
-            <td class='context_line'>
-              <pre class='context'>67</pre>
-            </td>
-            <td class='context'>
-              <pre class='context'>end</pre>
-            </td>
-          </tr>
-</tbody></table></div></td>
-    </tr>
-  
-  </tbody>
-</table>
 </body></html>
