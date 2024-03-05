@@ -107,6 +107,6 @@ class ChecksController < ApplicationController
   end
 
   def check_params
-    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :role, :payment_method, :date, :payable_name, :sub_account_id, :approval_status, :comments, :dollar_amount, :travel, :food, :office_supplies, :utilities, :membership, :services_and_other_income, :clothing, :rent, :other_expenses, :items_for_resale)
+    params.require(:check).permit(:description, :organization_name, :account_number, :date, :payable_phone_number, :payable_address, :payment_method, :date, :payable_name, :sub_account_id, :approval_status, :comments, :dollar_amount, :travel, :food, :office_supplies, :utilities, :membership, :services_and_other_income, :clothing, :rent, :other_expenses, :items_for_resale)
   end
 end

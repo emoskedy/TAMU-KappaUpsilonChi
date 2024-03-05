@@ -78,6 +78,6 @@ class Admins::AdminController < ApplicationController
     end   
 
     def admin_params
-      params.require(:admin).permit(:email, :full_name, :role)
+      params.require(:admin).permit(:email, :full_name)
     end
 end
