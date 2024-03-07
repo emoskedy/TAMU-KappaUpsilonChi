@@ -9,8 +9,7 @@
       <%= image_tag("logos/KYXCrest.png", class: "icon-image", alt: "KYX Crest") %>
     <div class="btn-container">
       <%= button_to admin_google_oauth2_omniauth_authorize_path, class: "btn btn-danger btn-wide", method: :post, data: { turbo: "false" } do %>
-        <%# <i class="fab fa-google login"></i> %>
-        <strong><span class="login">&nbsp;Sign In</span></strong>
+        <strong>&nbsp;Sign In</strong>
       <% end %>
     </div>
   </div>

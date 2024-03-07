@@ -1,0 +1,52 @@
+<%= stylesheet_link_tag "home" %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous">
+
+<header>
+
+  <div>
+    <% if current_admin.is_admin? %>
+      <h1>Welcome, Admin <%= current_admin.full_name %>! </h1>
+    <% elsif current_admin.is_officer? %>
+      <h1>Welcome, Officer <%= current_admin.full_name %>! </h1>
+    <% else %>
+      <h1>Welcome, <%= current_admin.full_name %>! </h1>
+    <% end %>
+  </div>
+
+   <a href="#" class="navbar">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </a>
+</header>
+
+<body>
+  
+
+  <div>
+    <div>
+      <h1 class="title">Kappa Upsilon Chi</h1>
+      <p class="description">Budget Request</p>
+    </div>
+
+    <div class="btn-container">
+      <div>
+        <%= button_to checks_path, class: "btn-wide" do %>
+          <strong>Checks</strong>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <div>
+        <%= button_to destroy_admin_session_path, method: :delete, class: "btn-wide" do %>
+          <strong>Sign Out</strong>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<%= javascript_include_tag "image" %>
+</body>
+
+

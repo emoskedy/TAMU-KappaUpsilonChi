@@ -1,0 +1,78 @@
+header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    color: rgb(130, 119, 116); /* Set text color */
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, rgb(238, 217, 196), rgb(238, 217, 196));
+    margin: 0;
+    height: 450px;
+    color: rgb(130, 119, 116); /* Set text color */
+
+}
+
+.btn-container {
+    text-align: center;
+    margin-top: 20px;
+    width: 200px
+  }
+  
+.btn-wide {
+    box-shadow: inset 0 0 0 0 rgb(130, 119, 116);
+    width: 200px;
+    height: 50%;
+    font-size: 1.5em;
+    font-family: 'Roboto';
+    padding: 5px;
+    border: 0px solid rgb(130, 119, 116); /* Set border color */
+    background-color: rgb(238, 217, 196); /* Set background color */
+    color: rgb(130, 119, 116); /* Set text color */
+    transition: color 1s, box-shadow 0.3s ease-in-out;
+}
+
+.btn-wide:hover {
+    color: rgb(238, 217, 196); /* Set text color */
+    /* background-color: rgb(130, 119, 116); Set hover background color */
+    box-shadow: inset 200px 0 30px 0px rgb(130, 119, 116);
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar {
+    width: 40px;
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 10px;
+    padding: 3px 10px;
+    transition: all 0.5s;
+  }
+  
+  .navbar div {
+    height: 5px;
+    background: rgb(130, 119, 116);
+    margin: 7px 0px 7px 0px;
+    border-radius: 20px;
+    transition: all 0.5s;
+  }
+  
+  .navbar .two {
+    width: 25px;
+  }
+  
+  .navbar .three {
+    width: 32px;
+  }
+  
+  .navbar:hover div {
+    width: 38px;
+  }
+  

@@ -21,11 +21,7 @@ class Admin < ApplicationRecord
   end
 
   def member?
-    is_member
-  end
-
-  def member=(value)
-    self.is_member = value
+    !is_officer && !is_admin
   end
 
   def self.from_google(email:, full_name:, uid:, avatar_url:)

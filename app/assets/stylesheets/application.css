@@ -25,21 +25,20 @@
     color:   white;
     display: none;
 }
- body {
+
+body {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
   background-image: linear-gradient(to right, rgb(238, 217, 196), rgb(238, 217, 196));
-  font-family: Arial, sans-serif;
   margin: 0;
   height: 850px;
 }
 
 .icon-container {
   padding: 10px;
-  font-family: 'Merryweather';
   position: fixed;
   top: 0;
   width: 100%;
@@ -70,16 +69,6 @@
   position: relative;
   padding: 0 100px 300px 50px;
 }
-
-/* .login-section {
-  background-color: #eed9c4;
-  display: flex;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-} */
 
 .user-icon-container {
   text-align: center;
