@@ -24,100 +24,6 @@
     <div class="two"></div>
     <div class="three"></div>
   </a>
-</header>
-
-<body>
-  <div class="nav-overlay"> <!-- This element will overlay the entire page -->
-    <nav class="nav-content">
-      <div class="btn-container">
-        <div>
-          <%= link_to root_path, class: "root" do %>
-            <strong>Kappa Upsilon Chi</strong>
-          <% end %>
-        </div>
-        <br>
-        <div>
-          <%= link_to root_path, class: "btn" do %>
-            <strong>Home</strong>
-          <% end %>
-        </div>
-
-        <div>
-          <% if current_admin.is_admin?  || current_admin.is_officer? %>
-            <%= link_to sub_accounts_path, class: "btn" do %>
-              <strong>Sub-account</strong>
-            <% end %>
-          <% end %>
-        </div>
-
-        <div>
-          <%= link_to checks_path, class: "btn" do %>
-            <strong>Checks</strong>
-          <% end %>
-        </div>
-      
-        <div>
-          <%= link_to people_path, class: "btn" do %>
-            <strong>Profile</strong>
-          <% end %>
-        </div>
-
-        <div>
-          <%= link_to notes_path, class: "btn" do %>
-            <strong>Note</strong>
-          <% end %>
-        </div>
-
-        <div>
-          <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
-            <strong>Sign Out</strong>
-          <% end %>
-        </div>
-      
-    </nav>
-  </div>
-
-  <h1>Welcome to the Admin Page</h1>
-  <p style="color: red"><%= alert %></p>
-  <p style="color: green"><%= notice %></p>
-  <%= form_tag update_path, method: :post do %>
-    <h2>Your Account:</h2>
-    <table border="6" style="width: 100%;">
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>Full Name</th>
-          <th>Role</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= current_admin.email %></td>
-          <td><%= current_admin.full_name %></td>
-          <td><%= current_admin.admin? ? 'Admin' : (current_admin.officer? ? 'Officer' : 'Member') %></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>All Other Accounts :</h2>
-    
-    <table border="6" style="width: 100%;">
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th>Full Name</th>
-          <th>Created At</th>
-          <th>Updated At</th>
-          <th>Role</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render partial: 'table', locals: { admins: @all_admins } %>
-      </tbody>
-    </table>
-  <% end %>
-
-  <%= link_to "Add New User", new_admins_admin_path, class: "btn btn-primary" %>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -136,5 +42,107 @@
       });
     });
   </script>
+</header>
 
+<body>
+  <div class="nav-overlay"> <!-- This element will overlay the entire page -->
+      <nav class="nav-content">
+        <div class="btn-container">
+          <div>
+            <%= link_to root_path, class: "root" do %>
+              <strong>Kappa Upsilon Chi</strong>
+            <% end %>
+          </div>
+          <br>
+          <div>
+            <%= link_to root_path, class: "btn" do %>
+              <strong>Home</strong>
+            <% end %>
+          </div>
+
+          <div>
+            <% if current_admin.is_admin? %>
+              <%= link_to admins_admin_index_path, class: "btn" do %>
+                <strong>Admin</strong>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div>
+            <% if current_admin.is_admin?  || current_admin.is_officer? %>
+              <%= link_to sub_accounts_path, class: "btn" do %>
+                <strong>Sub-account</strong>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to checks_path, class: "btn" do %>
+              <strong>Checks</strong>
+            <% end %>
+          </div>
+        
+          <div>
+            <%= link_to people_path, class: "btn" do %>
+              <strong>Profile</strong>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to notes_path, class: "btn" do %>
+              <strong>Note</strong>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
+              <strong>Sign Out</strong>
+            <% end %>
+          </div>
+        
+      </nav>
+    </div>
+
+    <h1>Welcome to the Admin Page</h1>
+    <p style="color: red"><%= alert %></p>
+    <p style="color: green"><%= notice %></p>
+    <%= form_tag update_path, method: :post do %>
+      <h2>Your Account:</h2>
+      <table border="6" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= current_admin.email %></td>
+            <td><%= current_admin.full_name %></td>
+            <td><%= current_admin.admin? ? 'Admin' : (current_admin.officer? ? 'Officer' : 'Member') %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>All Other Accounts :</h2>
+      
+      <table border="6" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: 'table', locals: { admins: @all_admins } %>
+        </tbody>
+      </table>
+    <% end %>
+
+    <%= link_to "Add New User", new_admins_admin_path, class: "btn btn-primary" %>
+  </div>
 </body>

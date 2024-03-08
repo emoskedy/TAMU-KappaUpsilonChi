@@ -24,6 +24,24 @@
     <div class="two"></div>
     <div class="three"></div>
   </a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbar = document.querySelector('.navbar');
+      const navOverlay = document.querySelector('.nav-overlay');
+      const navContent = document.querySelector('.nav-content');
+
+      navbar.addEventListener('click', function() {
+        navOverlay.classList.toggle('show');
+        navContent.classList.toggle('show');
+      });
+
+      navOverlay.addEventListener('click', function() {
+        navOverlay.classList.remove('show');
+        navContent.classList.remove('show');
+      });
+    });
+  </script>
 </header>
 
 <body>
@@ -71,6 +89,12 @@
         </div>
 
         <div>
+          <%= link_to notes_path, class: "btn" do %>
+            <strong>Note</strong>
+          <% end %>
+        </div>
+
+        <div>
           <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
             <strong>Sign Out</strong>
           <% end %>
@@ -94,21 +118,4 @@
 
   <%= link_to "New note", new_note_path %>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const navbar = document.querySelector('.navbar');
-      const navOverlay = document.querySelector('.nav-overlay');
-      const navContent = document.querySelector('.nav-content');
-
-      navbar.addEventListener('click', function() {
-        navOverlay.classList.toggle('show');
-        navContent.classList.toggle('show');
-      });
-
-      navOverlay.addEventListener('click', function() {
-        navOverlay.classList.remove('show');
-        navContent.classList.remove('show');
-      });
-    });
-  </script>
 </body>

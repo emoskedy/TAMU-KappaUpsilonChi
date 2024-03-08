@@ -24,6 +24,24 @@
     <div class="two"></div>
     <div class="three"></div>
   </a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbar = document.querySelector('.navbar');
+      const navOverlay = document.querySelector('.nav-overlay');
+      const navContent = document.querySelector('.nav-content');
+
+      navbar.addEventListener('click', function() {
+        navOverlay.classList.toggle('show');
+        navContent.classList.toggle('show');
+      });
+
+      navOverlay.addEventListener('click', function() {
+        navOverlay.classList.remove('show');
+        navContent.classList.remove('show');
+      });
+    });
+  </script>
 </header>
 
 <body>
@@ -48,6 +66,14 @@
                 <strong>Admin</strong>
                 <% end %>
             <% end %>
+        </div>
+
+        <div>
+          <% if current_admin.is_admin?  || current_admin.is_officer? %>
+            <%= link_to sub_accounts_path, class: "btn" do %>
+              <strong>Sub-account</strong>
+            <% end %>
+          <% end %>
         </div>
 
         <div>
@@ -94,21 +120,4 @@
 
     <%= link_to "New sub-account", new_sub_account_path %>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const navbar = document.querySelector('.navbar');
-        const navOverlay = document.querySelector('.nav-overlay');
-        const navContent = document.querySelector('.nav-content');
-
-        navbar.addEventListener('click', function() {
-          navOverlay.classList.toggle('show');
-          navContent.classList.toggle('show');
-        });
-
-        navOverlay.addEventListener('click', function() {
-          navOverlay.classList.remove('show');
-          navContent.classList.remove('show');
-        });
-      });
-    </script>
 </body>
