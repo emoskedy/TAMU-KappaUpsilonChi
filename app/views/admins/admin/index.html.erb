@@ -1,45 +1,140 @@
-<h1>Welcome to the Admin Page</h1>
-<p style="color: red"><%= alert %></p>
-<p style="color: green"><%= notice %></p>
-<%= form_tag update_path, method: :post do %>
-  <h2>Your Account:</h2>
-  <table border="6" style="width: 100%;">
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>Full Name</th>
-        <th>Role</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= current_admin.email %></td>
-        <td><%= current_admin.full_name %></td>
-        <td><%= current_admin.admin? ? 'Admin' : (current_admin.officer? ? 'Officer' : 'Member') %></td>
-      </tr>
-    </tbody>
-  </table>
+<%= stylesheet_link_tag "application" %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-  <div>
-    <%= link_to "Back to homepage", root_path %><br>
+<header>
+  <div class="profile">
+    <i class="fas fa-user-circle"></i>
+    <strong ><%= current_admin.full_name %></strong>
+    <div class="dropdown-content">
+        <span><strong>Email: </strong><i><%= current_admin.email %></i> </span><br>
+        <span>
+          <% if current_admin.is_admin? %>
+            <strong>Role: </strong><i>admin</i>
+          <% elsif current_admin.is_officer? %>
+            <strong>Role: </strong><i>officer</i>
+          <% else %>
+            <strong>Role: </strong><i>member</i>
+          <% end %>
+        </span>
+    </div>
   </div>
 
-  <h2>All Other Accounts :</h2>
-  
-  <table border="6" style="width: 100%;">
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>Full Name</th>
-        <th>Created At</th>
-        <th>Updated At</th>
-        <th>Role</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: 'table', locals: { admins: @all_admins } %>
-    </tbody>
-  </table>
-<% end %>
+   <a href="#" class="navbar">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </a>
+</header>
 
-<%= link_to "Add New User", new_admins_admin_path, class: "btn btn-primary" %>
+<body>
+  <div class="nav-overlay"> <!-- This element will overlay the entire page -->
+    <nav class="nav-content">
+      <div class="btn-container">
+        <div>
+          <%= link_to root_path, class: "root" do %>
+            <strong>Kappa Upsilon Chi</strong>
+          <% end %>
+        </div>
+        <br>
+        <div>
+          <%= link_to root_path, class: "btn" do %>
+            <strong>Home</strong>
+          <% end %>
+        </div>
+
+        <div>
+          <% if current_admin.is_admin?  || current_admin.is_officer? %>
+            <%= link_to sub_accounts_path, class: "btn" do %>
+              <strong>Sub-account</strong>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to checks_path, class: "btn" do %>
+            <strong>Checks</strong>
+          <% end %>
+        </div>
+      
+        <div>
+          <%= link_to people_path, class: "btn" do %>
+            <strong>Profile</strong>
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to notes_path, class: "btn" do %>
+            <strong>Note</strong>
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
+            <strong>Sign Out</strong>
+          <% end %>
+        </div>
+      
+    </nav>
+  </div>
+
+  <h1>Welcome to the Admin Page</h1>
+  <p style="color: red"><%= alert %></p>
+  <p style="color: green"><%= notice %></p>
+  <%= form_tag update_path, method: :post do %>
+    <h2>Your Account:</h2>
+    <table border="6" style="width: 100%;">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Full Name</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= current_admin.email %></td>
+          <td><%= current_admin.full_name %></td>
+          <td><%= current_admin.admin? ? 'Admin' : (current_admin.officer? ? 'Officer' : 'Member') %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>All Other Accounts :</h2>
+    
+    <table border="6" style="width: 100%;">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Full Name</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'table', locals: { admins: @all_admins } %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <%= link_to "Add New User", new_admins_admin_path, class: "btn btn-primary" %>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbar = document.querySelector('.navbar');
+      const navOverlay = document.querySelector('.nav-overlay');
+      const navContent = document.querySelector('.nav-content');
+
+      navbar.addEventListener('click', function() {
+        navOverlay.classList.toggle('show');
+        navContent.classList.toggle('show');
+      });
+
+      navOverlay.addEventListener('click', function() {
+        navOverlay.classList.remove('show');
+        navContent.classList.remove('show');
+      });
+    });
+  </script>
+
+</body>

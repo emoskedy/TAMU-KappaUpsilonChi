@@ -1,31 +1,113 @@
-<h1>Welcome, <%= current_admin.full_name %>!</h1>
-<% if current_admin.is_admin? %>
-  <p>You're logged in as an admin.</p>
-<% elsif current_admin.is_officer? %>
-  <p>You're logged in as an officer.</p>
-<% else %>
-  <p>You're logged in as a member.</p>
-<% end %>
+<%= stylesheet_link_tag "application" %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-<%= link_to "Sign Out", destroy_admin_session_path, method: :delete, data: { turbo: "false" } %>
-<p style="color: red"><%= alert %></p>
-<p style="color: green"><%= notice %></p>
+<header>
+  <div class="profile">
+    <i class="fas fa-user-circle"></i>
+    <strong ><%= current_admin.full_name %></strong>
+    <div class="dropdown-content">
+        <span><strong>Email: </strong><i><%= current_admin.email %></i> </span><br>
+        <span>
+            <% if current_admin.is_admin? %>
+            <strong>Role: </strong><i>admin</i>
+            <% elsif current_admin.is_officer? %>
+            <strong>Role: </strong><i>officer</i>
+            <% else %>
+            <strong>Role: </strong><i>member</i>
+            <% end %>
+        </span>
+    </div>
+  </div>
 
-<h1>Checks#index</h1>
-<p>Find me in app/views/checks/index.html.erb</p>
+   <a href="#" class="navbar">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </a>
+</header>
 
-<div id="checks">
-  <% @checks.each do |check| %>
-    <%= render check %>
-    <p>
-      <%= link_to "Show this form", check %>
-    </p>
-  <% end %>
-</div>
+<body>
+  <div class="nav-overlay"> <!-- This element will overlay the entire page -->
+    <nav class="nav-content">
+      <div class="btn-container">
+        <div>
+          <%= link_to root_path, class: "root" do %>
+            <strong>Kappa Upsilon Chi</strong>
+          <% end %>
+        </div>
+        <br>
+        <div>
+          <%= link_to root_path, class: "btn" do %>
+            <strong>Home</strong>
+          <% end %>
+        </div>
 
-<%= link_to "New form", new_check_path %>
-<%= link_to "View sub-accounts", sub_accounts_path %>
-<%= link_to "Admin Page", admins_admin_index_path %>
-<%= link_to "View Profile", people_path %>
-<%= link_to "Sofc notes", notes_path %>
-<%= link_to "Back to homepage", root_path%>
+        <div>
+            <% if current_admin.is_admin? %>
+                <%= link_to admins_admin_index_path, class: "btn" do %>
+                <strong>Admin</strong>
+                <% end %>
+            <% end %>
+        </div>
+
+        <div>
+          <% if current_admin.is_admin?  || current_admin.is_officer? %>
+            <%= link_to sub_accounts_path, class: "btn" do %>
+              <strong>Sub-account</strong>
+            <% end %>
+          <% end %>
+        </div>
+      
+        <div>
+          <%= link_to people_path, class: "btn" do %>
+            <strong>Profile</strong>
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to notes_path, class: "btn" do %>
+            <strong>Note</strong>
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
+            <strong>Sign Out</strong>
+          <% end %>
+        </div>
+      
+    </nav>
+  </div>
+
+  <h1>Checks#index</h1>
+  <p>Find me in app/views/checks/index.html.erb</p>
+
+  <div id="checks">
+    <% @checks.each do |check| %>
+      <%= render check %>
+      <p>
+        <%= link_to "Show this form", check %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New form", new_check_path %>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbar = document.querySelector('.navbar');
+      const navOverlay = document.querySelector('.nav-overlay');
+      const navContent = document.querySelector('.nav-content');
+
+      navbar.addEventListener('click', function() {
+        navOverlay.classList.toggle('show');
+        navContent.classList.toggle('show');
+      });
+
+      navOverlay.addEventListener('click', function() {
+        navOverlay.classList.remove('show');
+        navContent.classList.remove('show');
+      });
+    });
+  </script>
+</body>
