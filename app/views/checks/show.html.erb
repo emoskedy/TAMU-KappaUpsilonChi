@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @check %>
+
+<div>
+  <%= link_to "Edit this form", edit_check_path(@check) %> |
+  <%= link_to "Back to forms", checks_path %> |
+  <%= link_to "Review this form", review_check_path(@check) %>
+
+  <%= button_to "Destroy this form", @check, method: :delete %>
+</div>

@@ -1,16 +1,24 @@
-<%= stylesheet_link_tag "home" %>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous">
+
+<%= stylesheet_link_tag "application" %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+
 
 <header>
-
-  <div>
-    <% if current_admin.is_admin? %>
-      <h1>Welcome, Admin <%= current_admin.full_name %>! </h1>
-    <% elsif current_admin.is_officer? %>
-      <h1>Welcome, Officer <%= current_admin.full_name %>! </h1>
-    <% else %>
-      <h1>Welcome, <%= current_admin.full_name %>! </h1>
-    <% end %>
+  <div class="profile">
+    <i class="fas fa-user-circle"></i>
+    <strong ><%= current_admin.full_name %></strong>
+    <div class="dropdown-content">
+        <span><strong>Email: </strong><i><%= current_admin.email %></i> </span><br>
+        <span>
+          <% if current_admin.is_admin? %>
+            <strong>Role: </strong><i>admin</i>
+          <% elsif current_admin.is_officer? %>
+            <strong>Role: </strong><i>officer</i>
+          <% else %>
+            <strong>Role: </strong><i>member</i>
+          <% end %>
+        </span>
+    </div>
   </div>
 
    <a href="#" class="navbar">
@@ -21,32 +29,85 @@
 </header>
 
 <body>
-  
+  <div class="home">
+    <div class="nav-overlay"> <!-- This element will overlay the entire page -->
+      <nav class="nav-content">
+        <div class="btn-container">
+          <div>
+            <%= link_to root_path, class: "root" do %>
+              <strong>Kappa Upsilon Chi</strong>
+            <% end %>
+          </div>
+          <br>
+          <div>
+            <% if current_admin.is_admin? %>
+              <%= link_to admins_admin_index_path, class: "btn" do %>
+                <strong>Admin</strong>
+              <% end %>
+            <% end %>
+          </div>
 
-  <div>
+          <div>
+            <% if current_admin.is_admin?  || current_admin.is_officer? %>
+              <%= link_to sub_accounts_path, class: "btn" do %>
+                <strong>Sub-account</strong>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to checks_path, class: "btn" do %>
+              <strong>Checks</strong>
+            <% end %>
+          </div>
+        
+          <div>
+            <%= link_to people_path, class: "btn" do %>
+              <strong>Profile</strong>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to notes_path, class: "btn" do %>
+              <strong>Note</strong>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
+              <strong>Sign Out</strong>
+            <% end %>
+          </div>
+        
+      </nav>
+    </div>
+
+
     <div>
       <h1 class="title">Kappa Upsilon Chi</h1>
       <p class="description">Budget Request</p>
     </div>
 
-    <div class="btn-container">
-      <div>
-        <%= button_to checks_path, class: "btn-wide" do %>
-          <strong>Checks</strong>
-        <% end %>
-      </div>
-    </div>
+    <%= javascript_include_tag "image" %>
 
-    <div class="btn-container">
-      <div>
-        <%= button_to destroy_admin_session_path, method: :delete, class: "btn-wide" do %>
-          <strong>Sign Out</strong>
-        <% end %>
-      </div>
-    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const navbar = document.querySelector('.navbar');
+        const navOverlay = document.querySelector('.nav-overlay');
+        const navContent = document.querySelector('.nav-content');
+
+        navbar.addEventListener('click', function() {
+          navOverlay.classList.toggle('show');
+          navContent.classList.toggle('show');
+        });
+
+        navOverlay.addEventListener('click', function() {
+          navOverlay.classList.remove('show');
+          navContent.classList.remove('show');
+        });
+      });
+    </script>
   </div>
-
-<%= javascript_include_tag "image" %>
 </body>
 
 
