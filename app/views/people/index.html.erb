@@ -105,26 +105,24 @@
 
   <p style="color: green"><%= notice %></p>
 
-  <h1>People#index</h1>
-  <p>Find me in app/views/people/index.html.erb</p>
-
   <% if @show_new_profile_button %>
-    <%= link_to "Create Your Profile", new_person_path %><br>
+    <h2>You Must Create A Profile</h2>
+    <%= link_to "Create", new_person_path , class: "create-person" %><br>
   <% end %>
 
   <div id="current_admin_person">
     <% if @current_admin_person %>
       <h2>Your Profile</h2>
-      <%= link_to @current_admin_person, class: "btn-wide" do %>
-        <strong style="padding: 75px">Show My Profile</strong>
+      <%= link_to @current_admin_person, class: "modify-person" do %>
+        <strong>Modify My Profile</strong>
       <% end %>
       <%= render partial: 'person', locals: { person: @current_admin_person } %>
       <% end %>
   </div>
 
+  <h2>Other Profiles(s)</h2>
   <div id="other_people">
     <% if @other_people.any? %>
-      <h2>Other Profiles(s)</h2>
       <% @other_people.each do |person| %>
         <%= render partial: 'person', locals: { person: person } %>
         <% if @current_admin.admin? %>
