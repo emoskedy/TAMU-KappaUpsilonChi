@@ -296,22 +296,40 @@ body {
   text-align: center; /* Center align the description */
 }
 
+.my-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.other-profile {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto multiple lines */
+  justify-content: space-around; /* Distributes items evenly with space around them */
+  padding-left: 0px;
+  gap: 20px; /* Adds space between the forms */
+}
+
 .modify-person {
   text-decoration: none;
   letter-spacing: 2px;
   color: rgb(130, 119, 116);
-  text-align: center;
   /* border: 2px solid rgb(130, 119, 116); */
-  width: 300px;
-  height: 270px;
+  width: 600px;
+  height: 170px;
+  font-size: 15px;
   padding-top: 10px;
   display: flex;
-  justify-content: center;
   position: relative;
   top: 0;
   left: 0;
-  margin-bottom: -250px; /* Adjust this value to control the overlap */
+  margin-bottom: -150px; /* Adjust this value to control the overlap */
+  transition: font-size 0.2s;
   
+}
+
+.modify-person:hover {
+  font-size: 16px;
 }
 
 .create-person {

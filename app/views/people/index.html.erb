@@ -104,35 +104,50 @@
   </div>
 
   <p style="color: green"><%= notice %></p>
+    
 
-  <% if @show_new_profile_button %>
-    <h2>You Must Create A Profile</h2>
-    <%= link_to "Create", new_person_path , class: "create-person" %><br>
-  <% end %>
+  <div class="my-profile">
+    <div>
+      <h2>My Profile</h2>
+    </div>
 
-  <div id="current_admin_person">
-    <% if @current_admin_person %>
-      <h2>Your Profile</h2>
-      <%= link_to @current_admin_person, class: "modify-person" do %>
-        <strong>Modify My Profile</strong>
+    <div>
+      <% if @show_new_profile_button %>
+        <%= link_to "Create", new_person_path , class: "create-person" %><br>
       <% end %>
-      <%= render partial: 'person', locals: { person: @current_admin_person } %>
-      <% end %>
+    </div>
+
+    <div id="current_admin_person">
+      <% if @current_admin_person %>
+        <%= link_to @current_admin_person, class: "modify-person" do %>
+          <strong>Modify My Profile</strong>
+        <% end %>
+        <%= render partial: 'person', locals: { person: @current_admin_person } %>
+        <% end %>
+    </div>
   </div>
 
-  <h2>Other Profiles(s)</h2>
   <div id="other_people">
-    <% if @other_people.any? %>
-      <% @other_people.each do |person| %>
-        <%= render partial: 'person', locals: { person: person } %>
-        <% if @current_admin.admin? %>
-          <p>
-              <%= button_to "Delete this profile", person_path(person), method: :delete, data: { confirm: "Are you sure you want to delete this profile?" }, class: "btn-wide" %>
-          </p>
-        <% end %>
+    <br>
+    <br>
+    <% if @current_admin.admin? || @current_admin.officer? %>
+      <div class= "my-profile">
+        <h2>Other Profiles(s)</h2>
+      </div>
+      <% if @other_people.any? %>
+        <div class="other-profile">
+          <% @other_people.each do |person| %>
+            <div class="person-profile">
+              <%= render partial: 'person', locals: { person: person } %>
+              <p>
+                <%= link_to "Delete this profile", person_path(person), method: :delete, data: { confirm: "Are you sure you want to delete this profile?" }, class: "create-person" %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>No profile found.</p>
       <% end %>
-    <% else %>
-      <p>No profile found.</p>
     <% end %>
   </div>
 
