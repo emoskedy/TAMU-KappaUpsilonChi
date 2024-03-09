@@ -96,7 +96,7 @@
 
         <div>
           <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
-            <strong>Sign Out</strong>
+              <strong>Sign Out</strong>
           <% end %>
         </div>
       
@@ -115,8 +115,10 @@
   <div id="current_admin_person">
     <% if @current_admin_person %>
       <h2>Your Profile</h2>
+      <%= link_to @current_admin_person, class: "btn-wide" do %>
+        <strong style="padding: 75px">Show My Profile</strong>
+      <% end %>
       <%= render partial: 'person', locals: { person: @current_admin_person } %>
-          <%= link_to "Show this Profile", @current_admin_person %>
       <% end %>
   </div>
 
@@ -127,7 +129,7 @@
         <%= render partial: 'person', locals: { person: person } %>
         <% if @current_admin.admin? %>
           <p>
-              <%= button_to "Delete this profile", person_path(person), method: :delete, data: { confirm: "Are you sure you want to delete this profile?" } %>
+              <%= button_to "Delete this profile", person_path(person), method: :delete, data: { confirm: "Are you sure you want to delete this profile?" }, class: "btn-wide" %>
           </p>
         <% end %>
       <% end %>
