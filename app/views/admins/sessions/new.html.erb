@@ -1,24 +1,20 @@
 <%= stylesheet_link_tag "application" %>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous">
-
 
 
 <body>
-  
-  <div class="login-container">
-      <%= image_tag("logos/KYXCrest.png", class: "icon-image", alt: "KYX Crest") %>
-    <div class="btn-container">
-      <%= button_to admin_google_oauth2_omniauth_authorize_path, class: "btn btn-danger btn-wide", method: :post, data: { turbo: "false" } do %>
-        <%# <i class="fab fa-google login"></i> %>
-        <strong><span class="login">&nbsp;Sign In</span></strong>
-      <% end %>
+  <div class="admins-sessions-new">
+    <div class="login-contain">
+        <%= image_tag("logos/KYXCrest.png", class: "icon-image", alt: "KYX Crest") %>
+
+        <%= link_to admin_google_oauth2_omniauth_authorize_path, class: "btn-contain btn-wide", method: :post, data: { turbo: "false" } do %>
+          <strong>Sign In</strong>
+        <% end %>
+    </div>
+      
+    <div class="picture-section">
+      <%= image_tag("homepage/image1.png", id: "carousel", alt: "Image 1") %>
     </div>
   </div>
-    
-  <div class="picture-section">
-    <%= image_tag("homepage/image1.png", id: "carousel", alt: "Image 1") %>
-  </div>
 </body>
-
 
 <%= javascript_include_tag "image" %>
