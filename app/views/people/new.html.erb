@@ -1,12 +1,15 @@
 <%= stylesheet_link_tag "application" %>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"><h1>Create a new profile</h1>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-<p>Find me in app/views/people/new.html.erb</p>
+<body>
+    <div class="my-profile">
+        <h1>Create Your Profile</h1>
+        <%= render "form", person: @person %>
 
-<%= render "form", person: @person %>
-
-<br>
-
-<div>
-    <%= link_to "Back to homepage", people_path%>
-</div>
+        <br>
+        <br>
+        <div>
+            <%= link_to "Back to homepage", people_path, class: "create-person", style: "padding-left: 500px" %>
+        </div>
+    </div>
+</body>
