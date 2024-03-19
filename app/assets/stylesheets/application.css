@@ -348,3 +348,11 @@ body {
 .create-person:hover {
   font-size: 21px;
 }
+
+.edit-person {
+  background-color: rgb(238, 217, 196); 
+  color: rgb(130, 119, 116); 
+  font-family: Arial; 
+  border: 0; 
+  font-size: 16px;
+}

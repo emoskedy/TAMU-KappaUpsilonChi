@@ -119,11 +119,16 @@
 
     <div id="current_admin_person">
       <% if @current_admin_person %>
-        <%= link_to @current_admin_person, class: "modify-person" do %>
+        <%= link_to edit_person_path(@current_admin_person), class: "modify-person" do %>
           <strong>Modify My Profile</strong>
         <% end %>
+
         <%= render partial: 'person', locals: { person: @current_admin_person } %>
-        <% end %>
+        <p>
+          <%= link_to "Delete my profile", person_path(@current_admin_person), method: :delete, data: { confirm: "Are you sure you want to delete this profile?" }, class: "create-person" %>
+        </p>
+
+      <% end %>
     </div>
   </div>
 
