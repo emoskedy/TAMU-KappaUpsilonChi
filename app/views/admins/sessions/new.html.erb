@@ -1,14 +1,14 @@
 <%= stylesheet_link_tag "application" %>
 
-
 <body>
+  <p style="color: red"><%= alert %></p>
   <div class="admins-sessions-new">
     <div class="login-contain">
-        <%= image_tag("logos/KYXCrest.png", class: "icon-image", alt: "KYX Crest") %>
+      <%= image_tag("logos/KYXCrest.png", class: "icon-image", alt: "KYX Crest") %>
 
-        <%= link_to admin_google_oauth2_omniauth_authorize_path, class: "btn-contain btn-wide", method: :post, data: { turbo: "false" } do %>
-          <strong>Sign In</strong>
-        <% end %>
+      <%= link_to admin_google_oauth2_omniauth_authorize_path, class: "btn-contain btn-wide", method: :post, data: { turbo: "false" } do %>
+        <strong> Sign In</strong>
+      <% end %>
     </div>
       
     <div class="picture-section">
