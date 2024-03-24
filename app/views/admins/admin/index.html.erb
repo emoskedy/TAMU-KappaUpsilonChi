@@ -103,31 +103,33 @@
       </nav>
     </div>
 
-    <h1>Welcome to the Admin Page</h1>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h1>Welcome to the Admin Page</h1>
+      <%= link_to "Add New User", new_admins_admin_path, style: "margin-left: auto;", class: "create-person" %>
+    </div>
+
     <p style="color: red"><%= alert %></p>
     <p style="color: green"><%= notice %></p>
-    <%= form_tag update_path, method: :post do %>
-      <h2>Your Account:</h2>
-      <table border="6" style="width: 100%;">
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Full Name</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= current_admin.email %></td>
-            <td><%= current_admin.full_name %></td>
-            <td><%= current_admin.admin? ? 'Admin' : (current_admin.officer? ? 'Officer' : 'Member') %></td>
-          </tr>
-        </tbody>
-      </table>
 
-      <h2>All Other Accounts :</h2>
-      
-      <table border="6" style="width: 100%;">
+    <div style="display: flex; justify-content: space-between; padding: 10px;">
+      <!-- Filter Dropdown -->
+      <div class="filter-by-status">
+        <label for="status-filter">Filter by Status</label>
+        <select id="status-filter" name="status">
+          <option value="a-z">a-z</option>
+          <option value="Role">Role</option>
+        </select>
+      </div>
+
+      <!-- Search Bar -->
+      <div>
+        <input type="text" id="search" name="search" placeholder="Search...">
+        <%= submit_tag("Search", name: nil, class: "create-person") %>
+      </div>
+    </div>
+
+    <%= form_tag update_path, method: :post do %>
+      <table border="1" style="width: 100%;">
         <thead>
           <tr>
             <th>Email</th>
@@ -135,6 +137,7 @@
             <th>Created At</th>
             <th>Updated At</th>
             <th>Role</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -142,7 +145,5 @@
         </tbody>
       </table>
     <% end %>
-
-    <%= link_to "Add New User", new_admins_admin_path, class: "btn btn-primary" %>
   </div>
 </body>
