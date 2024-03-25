@@ -122,10 +122,16 @@
       </div>
 
       <!-- Search Bar -->
-      <div>
-        <input type="text" id="search" name="search" placeholder="Search...">
-        <%= submit_tag("Search", name: nil, class: "create-person") %>
+      <div class="refresh-icon-container">
+        <%= link_to admins_admin_index_path, class: 'refresh-button', title: 'Refresh' do %>
+          <i class="fas fa-sync"></i>
+        <% end %>
       </div>
+
+      <%= form_tag(admins_search_path, method: :get, class: "search-bar-form") do %>
+        <input type="text" id="search" name="search" placeholder="Search by name..." class="search-input">
+        <%= submit_tag("Search", class: "adminpage") %>
+      <% end %>
     </div>
 
     <%= form_tag update_path, method: :post do %>
@@ -144,6 +150,11 @@
           <%= render partial: 'table', locals: { admins: @all_admins } %>
         </tbody>
       </table>
+      <% if @all_admins.empty? %>
+        <div class="no-results">
+          <p style="font-size: 20px;">I can't find that person...</p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </body>
