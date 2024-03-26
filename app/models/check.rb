@@ -39,5 +39,4 @@ class Check < ApplicationRecord
     def calculate_dollar_amount
         self.dollar_amount = travel.to_f + food.to_f + office_supplies.to_f + utilities.to_f + membership.to_f + services_and_other_income.to_f + clothing.to_f + rent.to_f + other_expenses.to_f + items_for_resale.to_f
     end
-
 end

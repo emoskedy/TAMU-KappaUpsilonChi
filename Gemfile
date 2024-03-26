@@ -92,7 +92,7 @@ gem 'omniauth-google-oauth2'
 # gem "devise", github: "heartcombo/devise", branch: "master"
 gem 'omniauth-rails_csrf_protection'
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: %i[development test]
 
 gem 'aws-sdk', '~> 3'
 
