@@ -11,7 +11,7 @@ class Admin < ApplicationRecord
   def officer=(value)
     self.is_officer = value
   end
-  
+
   def admin?
     is_admin
   end
@@ -29,7 +29,7 @@ class Admin < ApplicationRecord
     create_with(uid: uid, full_name: full_name, avatar_url: avatar_url).find_or_create_by!(email: email)
   end
 
-  validates :email, presence: true  # Add other validations as needed
+  validates :email, presence: true # Add other validations as needed
   validates :full_name, presence: true
   attr_accessor :role
 end

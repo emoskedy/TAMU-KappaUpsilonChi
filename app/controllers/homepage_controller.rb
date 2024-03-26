@@ -1,6 +1,5 @@
 class HomepageController < ApplicationController
-    def index
-      # Logic for displaying the homepage
-    end
+  def index
+    # Logic for displaying the homepage
   end
-  
+end

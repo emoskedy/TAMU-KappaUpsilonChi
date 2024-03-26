@@ -6,7 +6,7 @@ class CreatePeople < ActiveRecord::Migration[6.0]
       t.string :address
       t.string :uin
       t.string :phone_number
-      t.string :affiliation 
+      t.string :affiliation
       t.timestamps
     end
   end

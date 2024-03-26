@@ -6,7 +6,6 @@ class PeopleController < ApplicationController
       @current_admin_person = Person.find_by(email: current_admin.email)
       @other_people = Person.where.not(email: current_admin.email)
       @show_new_profile_button = @current_admin_person.nil?
-
     end
   
     def new
@@ -56,6 +55,4 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(:name, :email, :address, :uin, :phone_number, :affiliation)
     end
-
-
 end
