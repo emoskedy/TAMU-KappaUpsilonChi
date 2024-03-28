@@ -14,72 +14,56 @@
  *= require_self
  */
 
-.progress {
-    max-width: 600px;
-    margin:    0.2em 0 0.2em 0;
+header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  color: rgb(130, 119, 116); /* Set text color */
+  font-family: "Arial";
 }
-  
-.progress .bar {
-    height:  1.2em;
-    padding-left: 0.2em;
-    color:   white;
-    display: none;
+
+body {
+  min-height: 100vh;
+  font-family: "Arial";
+  background-color: rgb(238, 217, 196);
+  color: rgb(130, 119, 116); /* Set text color */
 }
- body {
+
+.admins-sessions-new {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-height: 100vh;
-  background-image: linear-gradient(to right, rgb(238, 217, 196), rgb(238, 217, 196));
-  font-family: Arial, sans-serif;
   margin: 0;
   height: 850px;
 }
 
 .icon-container {
-  padding: 10px;
-  font-family: 'Merryweather';
   position: fixed;
   top: 0;
   width: 100%;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   transform: scale(1.5); 
   z-index: 999; /* Set a high z-index value to ensure it's displayed on top */
 
 }
 
 .icon-image {
-  width: 65px;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 100px;
+  max-height: 100px;
   transform: scale(1.75); 
-  padding: 50px;
+  padding-bottom: 70px;
   z-index: 999; /* Set a high z-index value to ensure it's displayed on top */
 }
 
-.login-container {
+.login-contain {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  /* max-width: 1000px; */
-  height: 400px;
-  overflow: hidden;
-  position: relative;
-  padding: 0 100px 300px 50px;
-}
-
-/* .login-section {
-  background-color: #eed9c4;
-  display: flex;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
-  flex-direction: column;
   justify-content: center;
-  box-sizing: border-box;
-} */
+  padding: 0px 100px 200px 70px;
+}
 
 .user-icon-container {
   text-align: center;
@@ -89,35 +73,28 @@
   font-size: 3em;
 }
 
-h3 {
+.btn-contain {
   text-align: center;
-  font-size: 1.5em;
-}
-
-.btn-container {
-  text-align: center;
-  margin-top: 20px;
-  width: 200px
+  display: inline-block;
+  color: rgb(130, 119, 116); /* Set text color */
+  font-size: 27px;
+  height: 40px;
+  width: 150px;
+  padding-top: 80px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: font-size 0.2s ease-in-out;
 }
 
 .btn-wide {
-  box-shadow: inset 0 0 0 0 rgb(130, 119, 116);
-  width: 200px;
-  height: 50%;
-  font-size: 1.5em;
-  font-family: 'Roboto';
-  padding: 10px;
-  border: 0px solid rgb(130, 119, 116); /* Set border color */
-  background-color: rgb(238, 217, 196); /* Set background color */
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: font-size 0.2s ease-in-out;
   color: rgb(130, 119, 116); /* Set text color */
-  transition: color 1s, box-shadow 0.3s ease-in-out;
 }
 
-.btn-wide:hover {
-  color: rgb(238, 217, 196); /* Set text color */
-  /* background-color: rgb(130, 119, 116); Set hover background color */
-  box-shadow: inset 200px 0 30px 0px rgb(130, 119, 116);
-
+.btn-contain:hover {
+  font-size: 30px;
 }
 
 .picture-section {
@@ -171,4 +148,211 @@ h3 {
     flex: 1; /* Allow the login section to grow to fill available space */
     padding: 20px;
   }
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 550px;
+  padding-top: 50px;
+}
+
+.profile {
+  font-size: 25px; /* Increase font size */
+  padding-top: 25px; /* Add padding to the top */
+  padding-left: 20px; /* Add padding to the left */
+  font-family: "Arial";
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(238, 217, 196);
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+/* Show the dropdown content on hover */
+.profile:hover .dropdown-content {
+  display: block;
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 5px;
+  width: 100%;
+  height: 80px;
+  padding-bottom: 290px;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 20px;
+  font-size: 20px;
+  height: 25px;
+  color: rgb(238, 217, 196); /* Set text color */
+  text-decoration: none;
+  transition: font-size 0.2s, color 1s ease-in-out;
+  letter-spacing: 1.5px;
+}
+
+.btn:hover {
+  font-size: 22px;
+}
+
+.root {
+  font-weight: 1000;
+  font-size: 54px;
+  color: rgb(238, 217, 196); /* Set text color */
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.navbar {
+  width: 38px;
+  display: block;
+  position: fixed;
+  top: 15px;
+  right: 10px;
+  padding: 3px 10px;
+  transition: all 0.5s;
+}
+
+.navbar div {
+  height: 4px;
+  background: rgb(130, 119, 116);
+  margin: 8px 0px 7px 0px;
+  border-radius: 20px;
+  transition: all 0.5s;
+}
+
+.navbar .two {
+  width: 30px;
+}
+
+.navbar .three {
+  width: 35px;
+}
+
+.navbar:hover div {
+  width: 40px;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 999; /* Ensure it appears above other content */
+  opacity: 0; /* Initially transparent */
+  transition: opacity 0.75s; /* Smooth transition for opacity */
+  pointer-events: none; /* Make it ignore mouse events when hidden */
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0; /* Initially off-screen to the right */
+  width: 100%; 
+  height: 100%;
+  background-color: rgb(130, 119, 116); 
+  z-index: 1000; /* Ensure it appears above the overlay */
+  transform: translateX(100%); /* Initially off-screen */
+  transition: transform 0.5s; /* Smooth transition */
+}
+
+.nav-overlay.show {
+  opacity: 1; /* Make it fully opaque when shown */
+  pointer-events: auto; /* Enable mouse events when shown */
+}
+
+.nav-content.show {
+  transform: translateX(0); 
+  opacity: 0.99;
+}
+
+.title {
+  font-size: 99px; /* Increase font size for the title */
+  text-align: center; /* Center align the title */
+}
+
+.description {
+  padding-top: -20px;
+  font-size: 36px; /* Increase font size for the description */
+  text-align: center; /* Center align the description */
+}
+
+.my-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.other-profile {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto multiple lines */
+  justify-content: space-around; /* Distributes items evenly with space around them */
+  padding-left: 0px;
+  gap: 20px; /* Adds space between the forms */
+}
+
+.modify-person {
+  text-decoration: none;
+  letter-spacing: 2px;
+  color: rgb(130, 119, 116);
+  /* border: 2px solid rgb(130, 119, 116); */
+  width: 600px;
+  height: 170px;
+  font-size: 15px;
+  padding-top: 10px;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-bottom: -150px; /* Adjust this value to control the overlap */
+  transition: font-size 0.2s;
+  
+}
+
+.modify-person:hover {
+  font-size: 16px;
+}
+
+.create-person {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  height: 25px;
+  color: rgb(130, 119, 116);
+  text-decoration: none;
+  transition: font-size 0.2s, color 1s ease-in-out;
+  letter-spacing: 1.5px;
+}
+
+.create-person:hover {
+  font-size: 21px;
+}
+
+.edit-person {
+  background-color: rgb(238, 217, 196); 
+  color: rgb(130, 119, 116); 
+  font-family: Arial; 
+  border: 0; 
+  font-size: 16px;
 }

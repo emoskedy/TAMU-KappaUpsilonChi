@@ -1,5 +1,7 @@
+
 <%= stylesheet_link_tag "application" %>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+
 
 <header>
   <div class="profile">
@@ -45,7 +47,8 @@
 </header>
 
 <body>
-  <div class="nav-overlay"> <!-- This element will overlay the entire page -->
+  <div class="home">
+    <div class="nav-overlay"> <!-- This element will overlay the entire page -->
       <nav class="nav-content">
         <div class="btn-container">
           <div>
@@ -103,46 +106,16 @@
       </nav>
     </div>
 
-    <h1>Welcome to the Admin Page</h1>
-    <p style="color: red"><%= alert %></p>
-    <p style="color: green"><%= notice %></p>
-    <%= form_tag update_path, method: :post do %>
-      <h2>Your Account:</h2>
-      <table border="6" style="width: 100%;">
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Full Name</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= current_admin.email %></td>
-            <td><%= current_admin.full_name %></td>
-            <td><%= current_admin.admin? ? 'Admin' : (current_admin.officer? ? 'Officer' : 'Member') %></td>
-          </tr>
-        </tbody>
-      </table>
 
-      <h2>All Other Accounts :</h2>
-      
-      <table border="6" style="width: 100%;">
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Full Name</th>
-            <th>Created At</th>
-            <th>Updated At</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render partial: 'table', locals: { admins: @all_admins } %>
-        </tbody>
-      </table>
-    <% end %>
+    <div>
+      <h1 class="title">Kappa Upsilon Chi</h1>
+      <p class="description">Budget Request</p>
+    </div>
 
-    <%= link_to "Add New User", new_admins_admin_path, class: "btn btn-primary" %>
+    <%= javascript_include_tag "image" %>
+
+    
   </div>
 </body>
+
+

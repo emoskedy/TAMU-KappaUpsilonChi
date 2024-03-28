@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root to: 'checks#index'
+  root to: 'homepage#index'
 
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
   devise_scope :admin do
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       patch 'update_review'
     end
   end
-  
+
   resources :people
   resources :sub_accounts
   resources :notes
@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   post '/update', to: 'admins/admin#update'
 
   namespace :admins do
-    resources :admin, only: [:index, :create, :new, :destroy] 
+    resources :admin, only: %i[index create new destroy]
     post 'update', to: 'admin#update', as: 'update'
-    get 'search', to: 'admin#search', as: 'search'  
+    get 'search', to: 'admin#search', as: 'search'
   end
 end
