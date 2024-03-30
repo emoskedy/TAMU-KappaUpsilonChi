@@ -36,6 +36,11 @@
 
         <br>
 
+        <strong>Payment Method: </strong>
+        <%= check.payment_method %>
+
+        <br>
+
         <strong>Travel:</strong>
         <%= check.travel %>
 
@@ -97,6 +102,16 @@
 
         <strong>Officer Comments: </strong>
         <%=check.comments %>
+
+        <br>
+
+        <strong>Time Created: </strong>
+        <%=check.created_at.in_time_zone('Central Time (US & Canada)')%>
+
+        <br>
+
+        <strong>Created By: </strong>
+        <%= check.admin.full_name %>
 
 
     </p>

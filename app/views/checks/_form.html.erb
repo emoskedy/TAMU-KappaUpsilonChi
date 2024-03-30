@@ -33,21 +33,21 @@
 
     <div>
         <%= form.label :role %>
-        <%= form.check_box :role, { multiple: false }, "student", nil%> 
+        <%= form.radio_button :role, 'student' %>
         <%= form.label :role, "Student" %>
-        <%=form.check_box :role, { multiple: false }, "employee", nil %>
+        <%=form.radio_button :role, 'employee' %>
         <%= form.label :role, "Employee" %>
-        <%= form.check_box :role, { multiple: false }, "not_affiliated", nil %>
+        <%= form.radio_button :role, 'not_affiliated' %>
         <%= form.label :role, "Not Affiliated" %>
     </div>
 
     <div>
         <%= form.label :payment_method %>
-        <%= form.check_box :payment_method, { multiple: false }, "direct_deposit", nil %>
+        <%= form.radio_button :payment_method, 'direct_deposit' %>
         <%= form.label :payment_method, "Direct Deposit" %>
-        <%= form.check_box :payment_method, { multiple: false }, "mail_to_payee", nil %>
+        <%= form.radio_button :payment_method, 'mail_to_payee' %>
         <%= form.label :payment_method, "Mail to Payee Address" %>
-        <%= form.check_box :payment_method, { multiple: false }, "pick_up_at_sofc", nil %>
+        <%= form.radio_button :payment_method, 'pick_up_at_sofc' %>
         <%= form.label :payment_method, "Pick up at SOFC" %>
     </div>
 
