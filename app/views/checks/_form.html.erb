@@ -63,7 +63,7 @@
 
     <div>
         <%= form.label :payable_phone_number %>
-        <%= form.text_field :payable_phone_number %>
+        <%= form.text_field :payable_phone_number, pattern: '^[0-9]{10}$', title: "Phone number must be exactly 10 digits. (e.g. 1234567890)"%>
     </div>
 
     <div>
