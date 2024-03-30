@@ -75,6 +75,14 @@ class ChecksController < ApplicationController
   #   end
   # end
 
+  def past
+    @checks = if current_admin.is_admin? || current_admin.is_officer?
+                Check.all
+              else
+                current_admin.checks
+              end
+  end
+
   private
 
   def set_check
