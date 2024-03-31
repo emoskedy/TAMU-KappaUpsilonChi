@@ -17,6 +17,9 @@ Rails.application.routes.draw do
       get 'review'
       patch 'update_review'
     end
+    collection do
+      get 'past'
+    end
   end
 
   resources :people
