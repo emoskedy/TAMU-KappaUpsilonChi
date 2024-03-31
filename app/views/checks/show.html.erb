@@ -7,7 +7,11 @@
 
 <div>
   <%= link_to "Edit this form", edit_check_path(@check) %> |
-  <%= link_to "Back to forms", checks_path %> |
+  <% if @check.pending? %>
+    <%= link_to "Back to forms", checks_path %> |
+  <% else %>
+    <%= link_to "Back to past forms", past_checks_path %> |
+  <% end %>
   <%= link_to "Review this form", review_check_path(@check) %>
 
   <%= button_to "Destroy this form", @check, method: :delete %>
