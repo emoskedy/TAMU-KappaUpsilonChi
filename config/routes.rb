@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
     collection do
       get 'past'
+      get 'approved'
+      get 'denied'
     end
     resources :notes
   end
