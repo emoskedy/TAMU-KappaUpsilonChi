@@ -21,12 +21,12 @@
       </tr>
       <tr>
         <td style="text-align: center">
-          <strong><%= form.label :uin %></strong>
-          <%= form.text_field :uin, class: "edit-person", style: "text-align: center;" %>
+          <strong><%= form.label :uin, "UIN".upcase %></strong>
+          <%= form.text_field :uin, class: "edit-person", style: "text-align: center;", pattern: '\d{9}', title: "UIN must be 9 digits long" %>
         </td>
         <td style="text-align: center">
           <strong><%= form.label :phone_number %></strong>
-          <%= form.text_field :phone_number, class: "edit-person", style: "text-align: center;" %>
+          <%= form.text_field :phone_number, class: "edit-person", style: "text-align: center;", pattern: '^[0-9]{10}$', title: "Phone number must be exactly 10 digits. (e.g. 1234567890)" %>
         </td>
         <td style="text-align: center">
           <strong><%= form.label :affiliation %></strong>

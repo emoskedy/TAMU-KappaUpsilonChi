@@ -12,8 +12,7 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/notes", type: :request do
-  
+RSpec.describe '/notes', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Note. As you add validations to Note, be sure to
   # adjust the attributes here as well.
@@ -25,25 +24,25 @@ RSpec.describe "/notes", type: :request do
   #   skip("Add a hash of attributes invalid for your model")
   # }
 
-	describe "GET /index" do
-    it "returns http success" do
-      get "/notes/index"
+  describe 'GET /index' do
+    it 'returns http success' do
+      get '/notes/index'
       follow_redirect!
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /new" do
-    it "returns http success" do
-      get "/notes/new"
+  describe 'GET /new' do
+    it 'returns http success' do
+      get '/notes/new'
       follow_redirect!
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /edit" do
-    it "returns http success" do
-      get "/notes/edit"
+  describe 'GET /edit' do
+    it 'returns http success' do
+      get '/notes/edit'
       follow_redirect!
       expect(response).to have_http_status(:success)
     end
@@ -51,9 +50,9 @@ RSpec.describe "/notes", type: :request do
 
   # describe "GET /index" do
   #   it "renders a successful response" do
-	# 		Note.create! valid_attributes
-	# 		get notes_url
-	# 		expect(response).to be_successful
+  # 		Note.create! valid_attributes
+  # 		get notes_url
+  # 		expect(response).to be_successful
   #   end
   # end
 
@@ -65,95 +64,94 @@ RSpec.describe "/notes", type: :request do
   #   end
   # end
 
-#   describe "GET /new" do
-#     it "renders a successful response" do
-#       get new_note_url
-#       expect(response).to be_successful
-#     end
-#   end
+  #   describe "GET /new" do
+  #     it "renders a successful response" do
+  #       get new_note_url
+  #       expect(response).to be_successful
+  #     end
+  #   end
 
-#   describe "GET /edit" do
-#     it "renders a successful response" do
-#       note = Note.create! valid_attributes
-#       get edit_note_url(note)
-#       expect(response).to be_successful
-#     end
-#   end
+  #   describe "GET /edit" do
+  #     it "renders a successful response" do
+  #       note = Note.create! valid_attributes
+  #       get edit_note_url(note)
+  #       expect(response).to be_successful
+  #     end
+  #   end
 
-#   describe "POST /create" do
-#     context "with valid parameters" do
-#       it "creates a new Note" do
-#         expect {
-#           post notes_url, params: { note: valid_attributes }
-#         }.to change(Note, :count).by(1)
-#       end
+  #   describe "POST /create" do
+  #     context "with valid parameters" do
+  #       it "creates a new Note" do
+  #         expect {
+  #           post notes_url, params: { note: valid_attributes }
+  #         }.to change(Note, :count).by(1)
+  #       end
 
-#       it "redirects to the created note" do
-#         post notes_url, params: { note: valid_attributes }
-#         expect(response).to redirect_to(note_url(Note.last))
-#       end
-#     end
+  #       it "redirects to the created note" do
+  #         post notes_url, params: { note: valid_attributes }
+  #         expect(response).to redirect_to(note_url(Note.last))
+  #       end
+  #     end
 
-#     context "with invalid parameters" do
-#       it "does not create a new Note" do
-#         expect {
-#           post notes_url, params: { note: invalid_attributes }
-#         }.to change(Note, :count).by(0)
-#       end
+  #     context "with invalid parameters" do
+  #       it "does not create a new Note" do
+  #         expect {
+  #           post notes_url, params: { note: invalid_attributes }
+  #         }.to change(Note, :count).by(0)
+  #       end
 
-    
-#       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-#         post notes_url, params: { note: invalid_attributes }
-#         expect(response).to have_http_status(:unprocessable_entity)
-#       end
-    
-#     end
-#   end
+  #       it "renders a response with 422 status (i.e. to display the 'new' template)" do
+  #         post notes_url, params: { note: invalid_attributes }
+  #         expect(response).to have_http_status(:unprocessable_entity)
+  #       end
 
-#   describe "PATCH /update" do
-#     context "with valid parameters" do
-#       let(:new_attributes) {
-#         skip("Add a hash of attributes valid for your model")
-#       }
+  #     end
+  #   end
 
-#       it "updates the requested note" do
-#         note = Note.create! valid_attributes
-#         patch note_url(note), params: { note: new_attributes }
-#         note.reload
-#         skip("Add assertions for updated state")
-#       end
+  #   describe "PATCH /update" do
+  #     context "with valid parameters" do
+  #       let(:new_attributes) {
+  #         skip("Add a hash of attributes valid for your model")
+  #       }
 
-#       it "redirects to the note" do
-#         note = Note.create! valid_attributes
-#         patch note_url(note), params: { note: new_attributes }
-#         note.reload
-#         expect(response).to redirect_to(note_url(note))
-#       end
-#     end
+  #       it "updates the requested note" do
+  #         note = Note.create! valid_attributes
+  #         patch note_url(note), params: { note: new_attributes }
+  #         note.reload
+  #         skip("Add assertions for updated state")
+  #       end
 
-#     context "with invalid parameters" do
-    
-#       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-#         note = Note.create! valid_attributes
-#         patch note_url(note), params: { note: invalid_attributes }
-#         expect(response).to have_http_status(:unprocessable_entity)
-#       end
-    
-#     end
-#   end
+  #       it "redirects to the note" do
+  #         note = Note.create! valid_attributes
+  #         patch note_url(note), params: { note: new_attributes }
+  #         note.reload
+  #         expect(response).to redirect_to(note_url(note))
+  #       end
+  #     end
 
-#   describe "DELETE /destroy" do
-#     it "destroys the requested note" do
-#       note = Note.create! valid_attributes
-#       expect {
-#         delete note_url(note)
-#       }.to change(Note, :count).by(-1)
-#     end
+  #     context "with invalid parameters" do
 
-#     it "redirects to the notes list" do
-#       note = Note.create! valid_attributes
-#       delete note_url(note)
-#       expect(response).to redirect_to(notes_url)
-#     end
-#   end
+  #       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
+  #         note = Note.create! valid_attributes
+  #         patch note_url(note), params: { note: invalid_attributes }
+  #         expect(response).to have_http_status(:unprocessable_entity)
+  #       end
+
+  #     end
+  #   end
+
+  #   describe "DELETE /destroy" do
+  #     it "destroys the requested note" do
+  #       note = Note.create! valid_attributes
+  #       expect {
+  #         delete note_url(note)
+  #       }.to change(Note, :count).by(-1)
+  #     end
+
+  #     it "redirects to the notes list" do
+  #       note = Note.create! valid_attributes
+  #       delete note_url(note)
+  #       expect(response).to redirect_to(notes_url)
+  #     end
+  #   end
 end

@@ -8,11 +8,11 @@
       <%= form_tag admins_update_path, method: :post do %>
         <%= hidden_field_tag "admins[#{admin.id}][role]", admin.admin? ? 'admin' : (admin.officer? ? 'officer' : 'member') %>
         <%= select_tag "admins[#{admin.id}][role]", options_for_select(['admin', 'officer', 'member'].map { |role| [role.capitalize, role] }, admin.admin? ? 'admin' : (admin.officer? ? 'officer' : 'member')), include_blank: true %>
-        <%= submit_tag "Update Role" %>
+        <%= submit_tag "Update Role", class: "adminpage" %>
       <% end %>
     </td>
     <td>
-      <%= button_to "Delete", admins_admin_path(admin), method: :delete, data: { confirm: "Are you sure you want to delete this account?" } %>
+      <%= button_to "Delete", admins_admin_path(admin), method: :delete, data: { confirm: "Are you sure you want to delete this admin?" }, class: "adminpage" %>
     </td>
   </tr>
 <% end %>

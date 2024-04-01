@@ -1,35 +1,133 @@
 <%= stylesheet_link_tag "application" %>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-<%= form_with(model: Admin.new, url: admins_admin_index_path, method: :post) do |form| %>
-  <% if @admin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-        <% @admin.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<header>
+  <div class="profile">
+    <i class="fas fa-user-circle"></i>
+    <strong ><%= current_admin.full_name %></strong>
+    <div class="dropdown-content">
+        <span><strong>Email: </strong><i><%= current_admin.email %></i> </span><br>
+        <span>
+          <% if current_admin.is_admin? %>
+            <strong>Role: </strong><i>admin</i>
+          <% elsif current_admin.is_officer? %>
+            <strong>Role: </strong><i>officer</i>
+          <% else %>
+            <strong>Role: </strong><i>member</i>
+          <% end %>
+        </span>
     </div>
+  </div>
+
+   <a href="#" class="navbar">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbar = document.querySelector('.navbar');
+      const navOverlay = document.querySelector('.nav-overlay');
+      const navContent = document.querySelector('.nav-content');
+
+      navbar.addEventListener('click', function() {
+        navOverlay.classList.toggle('show');
+        navContent.classList.toggle('show');
+      });
+
+      navOverlay.addEventListener('click', function() {
+        navOverlay.classList.remove('show');
+        navContent.classList.remove('show');
+      });
+    });
+  </script>
+</header>
+
+<body>
+  <div class="nav-overlay"> <!-- This element will overlay the entire page -->
+      <nav class="nav-content">
+        <div class="btn-container">
+          <div>
+            <%= link_to root_path, class: "root" do %>
+              <strong>Kappa Upsilon Chi</strong>
+            <% end %>
+          </div>
+          <br>
+          <div>
+            <%= link_to root_path, class: "btn" do %>
+              <strong>Home</strong>
+            <% end %>
+          </div>
+
+          <div>
+            <% if current_admin.is_admin? %>
+              <%= link_to admins_admin_index_path, class: "btn" do %>
+                <strong>Admin</strong>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div>
+            <% if current_admin.is_admin?  || current_admin.is_officer? %>
+              <%= link_to sub_accounts_path, class: "btn" do %>
+                <strong>Sub-account</strong>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to checks_path, class: "btn" do %>
+              <strong>Checks</strong>
+            <% end %>
+          </div>
+        
+          <div>
+            <%= link_to people_path, class: "btn" do %>
+              <strong>Profile</strong>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
+              <strong>Sign Out</strong>
+            <% end %>
+          </div>
+        
+      </nav>
+    </div>
+
+<div class="email-container">
+  <%= form_with(model: Admin.new, url: admins_admin_index_path, method: :post) do |form| %>
+    <% if @admin.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @admin.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= form.label :full_name %>
+      <%= form.text_field :full_name %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Create New User" , class: "create-person" %>
+    </div>
+    
+    <!-- Display flash alert message -->
+    <p style="color: red"><%= flash.now[:alert] %></p>
+    <p style="color: green"><%= notice %></p>
   <% end %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :full_name %>
-    <%= form.text_field :full_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Create New User" %>
-  </div>
-  
-  <!-- Display flash alert message -->
-  <p style="color: red"><%= flash.now[:alert] %></p>
-  <p style="color: green"><%= notice %></p>
-<% end %>
-
-<%= link_to "Back to Admin Page", admins_admin_index_path, class: "create-person" %>
+  <%= link_to "Back to Admin Page", admins_admin_index_path, class: "create-person" %>
+</div>
