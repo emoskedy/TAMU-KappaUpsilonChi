@@ -6,6 +6,10 @@
 <%= render @check %>
 
 <div>
+  <%= link_to "View Notes", check_notes_path(@check) %>
+</div>
+
+<div>
   <%= link_to "Edit this form", edit_check_path(@check) %> |
   <% if @check.pending? %>
     <%= link_to "Back to forms", checks_path %> |

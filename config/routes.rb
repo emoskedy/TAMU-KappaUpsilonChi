@@ -20,11 +20,11 @@ Rails.application.routes.draw do
     collection do
       get 'past'
     end
+    resources :notes
   end
 
   resources :people
   resources :sub_accounts
-  resources :notes
   get '/admin', to: 'admins/admin#admin'
   post '/update', to: 'admins/admin#update'
 
