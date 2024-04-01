@@ -17,17 +17,22 @@ Rails.application.routes.draw do
       get 'review'
       patch 'update_review'
     end
+    collection do
+      get 'past'
+    end
+    resources :notes
   end
-  
+
   resources :people
   resources :sub_accounts
-  resources :notes
   get '/admin', to: 'admins/admin#admin'
   post '/update', to: 'admins/admin#update'
+  get '/search', to: 'admins/admin#search'
 
   namespace :admins do
-    resources :admin, only: [:index, :create, :new, :destroy] 
+    resources :admin, only: %i[index create new destroy]
     post 'update', to: 'admin#update', as: 'update'
-    get 'search', to: 'admin#search', as: 'search'  
+    get 'search', to: 'admin#search', as: 'search'
   end
 end
+

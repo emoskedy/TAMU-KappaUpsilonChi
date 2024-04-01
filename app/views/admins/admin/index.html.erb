@@ -89,12 +89,6 @@
           </div>
 
           <div>
-            <%= link_to notes_path, class: "btn" do %>
-              <strong>Note</strong>
-            <% end %>
-          </div>
-
-          <div>
             <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
               <strong>Sign Out</strong>
             <% end %>
@@ -103,31 +97,49 @@
       </nav>
     </div>
 
-    <h1>Welcome to the Admin Page</h1>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h1>Welcome to the Admin Page</h1>
+      <%= link_to "Add New User", new_admins_admin_path, style: "margin-left: auto;", class: "create-person" %>
+    </div>
+
     <p style="color: red"><%= alert %></p>
     <p style="color: green"><%= notice %></p>
-    <%= form_tag update_path, method: :post do %>
-      <h2>Your Account:</h2>
-      <table border="6" style="width: 100%;">
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Full Name</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= current_admin.email %></td>
-            <td><%= current_admin.full_name %></td>
-            <td><%= current_admin.admin? ? 'Admin' : (current_admin.officer? ? 'Officer' : 'Member') %></td>
-          </tr>
-        </tbody>
-      </table>
 
-      <h2>All Other Accounts :</h2>
-      
-      <table border="6" style="width: 100%;">
+    <div style="display: flex; justify-content: space-between; padding: 10px;">
+      <!-- Filter Dropdown -->
+      <%= form_tag(admins_admin_index_path, method: :get, class: "filter-form") do %>
+        <div class="filter-by-status">
+          <label for="status-filter">Filter by Role</label>
+          <select id="status-filter" name="status" onchange="this.form.submit()">
+            <option value="All" <%= 'selected' if params[:status] == 'All' %>>All</option>
+            <option value="Admin" <%= 'selected' if params[:status] == 'Admin' %>>Admin</option>
+            <option value="Officer" <%= 'selected' if params[:status] == 'Officer' %>>Officer</option>
+            <option value="Member" <%= 'selected' if params[:status] == 'Member' %>>Member</option>
+          </select>
+
+          <label for="name-sort">Sort by Name</label>
+          <select id="name-sort" name="sort" onchange="this.form.submit()">
+            <option value="A-Z" <%= 'selected' if params[:sort] == 'A-Z' %>>A-Z</option>
+            <option value="Z-A" <%= 'selected' if params[:sort] == 'Z-A' %>>Z-A</option>
+          </select>
+        </div>
+      <% end %>
+
+      <!-- Search Bar -->
+      <div class="refresh-icon-container">
+        <%= link_to admins_admin_index_path, class: 'refresh-button', title: 'Refresh' do %>
+          <i class="fas fa-sync"></i>
+        <% end %>
+      </div>
+
+      <%= form_tag(admins_search_path, method: :get, class: "search-bar-form") do %>
+        <input type="text" id="search" name="search" placeholder="Search by name..." class="search-input">
+        <%= submit_tag("Search", class: "adminpage") %>
+      <% end %>
+    </div>
+
+    <%= form_tag update_path, method: :post do %>
+      <table border="1" style="width: 100%;">
         <thead>
           <tr>
             <th>Email</th>
@@ -135,14 +147,18 @@
             <th>Created At</th>
             <th>Updated At</th>
             <th>Role</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           <%= render partial: 'table', locals: { admins: @all_admins } %>
         </tbody>
       </table>
+      <% if @all_admins.empty? %>
+        <div class="no-results">
+          <p style="font-size: 20px;">I can't find that person...</p>
+        </div>
+      <% end %>
     <% end %>
-
-    <%= link_to "Add New User", new_admins_admin_path, class: "btn btn-primary" %>
   </div>
 </body>

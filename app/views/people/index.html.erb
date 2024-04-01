@@ -87,12 +87,6 @@
             <strong>Profile</strong>
           <% end %>
         </div>
-        
-        <div>
-          <%= link_to notes_path, class: "btn" do %>
-            <strong>Note</strong>
-          <% end %>
-        </div>
 
         <div>
           <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
@@ -104,7 +98,6 @@
   </div>
 
   <p style="color: green"><%= notice %></p>
-    
 
   <div class="my-profile">
     <div>
@@ -113,7 +106,7 @@
 
     <div>
       <% if @show_new_profile_button %>
-        <%= link_to "Create", new_person_path , class: "create-person" %><br>
+        <%= link_to "Create new profile", new_person_path , class: "create-person" %><br>
       <% end %>
     </div>
 
@@ -158,4 +151,3 @@
 
 
 </body>
-

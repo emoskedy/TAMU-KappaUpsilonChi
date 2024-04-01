@@ -89,17 +89,10 @@
         </div>
 
         <div>
-          <%= link_to notes_path, class: "btn" do %>
-            <strong>Note</strong>
-          <% end %>
-        </div>
-
-        <div>
           <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
             <strong>Sign Out</strong>
           <% end %>
         </div>
-      
     </nav>
   </div>
 
@@ -107,7 +100,7 @@
   <p>Find me in app/views/checks/index.html.erb</p>
 
   <div id="checks">
-    <% @checks.each do |check| %>
+    <% @checks.select { |check| check.approval_status == 'pending'}.each do |check| %>
       <%= render check %>
       <p>
         <%= link_to "Show this form", check %>
@@ -116,5 +109,5 @@
   </div>
 
   <%= link_to "New form", new_check_path %>
-
+  <%= link_to "Past Submissions", past_checks_path %>
 </body>
