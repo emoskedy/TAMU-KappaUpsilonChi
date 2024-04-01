@@ -44,7 +44,7 @@ class NotesController < ApplicationController
 
   # DELETE /notes/1 or /notes/1.json
   def destroy
-    Rails.logger.info("Hi, I am at the beginning")
+    Rails.logger.info('Hi, I am at the beginning')
     # Initialize S3 client and delete object, does not delete files from s3 when deleting check, deletes from database
     s3 = Aws::S3::Resource.new(
       region: ENV['AWS_REGION'],
@@ -56,14 +56,14 @@ class NotesController < ApplicationController
     bucket.object(key).delete
 
     @note.destroy
-    Rails.logger.info("Logging after note.destroy")
+    Rails.logger.info('Logging after note.destroy')
 
     respond_to do |format|
       format.html { redirect_to check_notes_path(@check), notice: 'Note was successfully destroyed.' }
       format.json { head :no_content }
     end
 
-    Rails.logger.info("Logging here at the end")
+    Rails.logger.info('Logging here at the end')
     # obj = bucket.object(@note.avatar_url)
     # obj.delete
   end

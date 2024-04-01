@@ -30,8 +30,8 @@ class Check < ApplicationRecord
     end
 
     def destroying_check
-        Rails.logger.info("Hi I am in the checks model about to destroy")
-        notes.each &:destroying_notes
+        Rails.logger.info('Hi I am in the checks model about to destroy')
+        notes.each(&:destroying_notes)
     end
 
     private
