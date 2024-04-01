@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :sub_accounts
   get '/admin', to: 'admins/admin#admin'
   post '/update', to: 'admins/admin#update'
+  get '/search', to: 'admins/admin#search'
 
   namespace :admins do
     resources :admin, only: %i[index create new destroy]
@@ -34,3 +35,4 @@ Rails.application.routes.draw do
     get 'search', to: 'admin#search', as: 'search'
   end
 end
+

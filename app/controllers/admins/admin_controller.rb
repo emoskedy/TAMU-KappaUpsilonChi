@@ -6,10 +6,27 @@ module Admins
     def index
       # Get the currently logged-in admin's email
       current_admin_email = current_admin.email
-
+  
       # Retrieve all admins excluding the currently logged-in admin and sort them
       @all_admins = Admin.where.not(email: current_admin_email)
-                         .order(is_admin: :desc, is_officer: :desc, email: :asc)
+
+      case params[:status]
+      when 'Admin'
+        @all_admins = @all_admins.where(is_admin: true)
+      when 'Officer'
+        @all_admins = @all_admins.where(is_officer: true)
+      when 'Member'
+        @all_admins = @all_admins.where(is_admin: false, is_officer: false)
+      else 
+        @all_admins = @all_admins.order(is_admin: :desc, is_officer: :desc)
+      end
+
+      case params[:sort]
+      when 'Z-A'
+        @all_admins = @all_admins.order(full_name: :desc)
+      else
+        @all_admins = @all_admins.order(full_name: :asc)
+      end
     end
 
     def update
