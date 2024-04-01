@@ -94,7 +94,8 @@ class ChecksController < ApplicationController
   end
 
   def show
-    # @check = Check.find(params[:id])
+    @check = Check.find(params[:id])
+    @notes = @check.notes
   end
 
   def require_officer_or_admin
