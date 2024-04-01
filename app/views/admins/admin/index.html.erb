@@ -113,13 +113,23 @@
 
     <div style="display: flex; justify-content: space-between; padding: 10px;">
       <!-- Filter Dropdown -->
-      <div class="filter-by-status">
-        <label for="status-filter">Filter by Status</label>
-        <select id="status-filter" name="status">
-          <option value="a-z">a-z</option>
-          <option value="Role">Role</option>
-        </select>
-      </div>
+      <%= form_tag(admins_admin_index_path, method: :get, class: "filter-form") do %>
+        <div class="filter-by-status">
+          <label for="status-filter">Filter by Role</label>
+          <select id="status-filter" name="status" onchange="this.form.submit()">
+            <option value="All" <%= 'selected' if params[:status] == 'All' %>>All</option>
+            <option value="Admin" <%= 'selected' if params[:status] == 'Admin' %>>Admin</option>
+            <option value="Officer" <%= 'selected' if params[:status] == 'Officer' %>>Officer</option>
+            <option value="Member" <%= 'selected' if params[:status] == 'Member' %>>Member</option>
+          </select>
+
+          <label for="name-sort">Sort by Name</label>
+          <select id="name-sort" name="sort" onchange="this.form.submit()">
+            <option value="A-Z" <%= 'selected' if params[:sort] == 'A-Z' %>>A-Z</option>
+            <option value="Z-A" <%= 'selected' if params[:sort] == 'Z-A' %>>Z-A</option>
+          </select>
+        </div>
+      <% end %>
 
       <!-- Search Bar -->
       <div class="refresh-icon-container">

@@ -103,35 +103,37 @@
       </nav>
     </div>
 
-<%= form_with(model: Admin.new, url: admins_admin_index_path, method: :post) do |form| %>
-  <% if @admin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-        <% @admin.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="email-container">
+  <%= form_with(model: Admin.new, url: admins_admin_index_path, method: :post) do |form| %>
+    <% if @admin.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @admin.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
     </div>
+
+    <div class="field">
+      <%= form.label :full_name %>
+      <%= form.text_field :full_name %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Create New User" , class: "create-person" %>
+    </div>
+    
+    <!-- Display flash alert message -->
+    <p style="color: red"><%= flash.now[:alert] %></p>
+    <p style="color: green"><%= notice %></p>
   <% end %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :full_name %>
-    <%= form.text_field :full_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Create New User" , class: "create-person" %>
-  </div>
-  
-  <!-- Display flash alert message -->
-  <p style="color: red"><%= flash.now[:alert] %></p>
-  <p style="color: green"><%= notice %></p>
-<% end %>
-
-<%= link_to "Back to Admin Page", admins_admin_index_path, class: "create-person" %>
+  <%= link_to "Back to Admin Page", admins_admin_index_path, class: "create-person" %>
+</div>
