@@ -66,16 +66,16 @@ module Admins
     end
 
     def search
-      if params[:search].present?
-        @search_query = params[:search]
-        @all_admins = Admin.where.not(email: current_admin.email)
-                           .where('email LIKE ?', "%#{@search_query}%")
-                           .order(is_admin: :desc, is_officer: :desc, email: :asc)
-      else
-        # If no search query provided, render index action to display all admins
-        redirect_to admins_admin_index_path
-      end
-    end
+      @all_admins = if params[:search].present?
+                      Admin.where("lower(full_name) LIKE ?", "%#{params[:search].downcase}%")
+                    else
+                      current_admin_email = current_admin.email  
+                      # Retrieve all admins excluding the currently logged-in admin and sort them
+                      @all_admins = Admin.where.not(email: current_admin_email)
+                                        .order(is_admin: :desc, is_officer: :desc, email: :asc)
+                    end
+      render 'index'
+    end 
 
     def destroy
       admin = Admin.find(params[:id])
