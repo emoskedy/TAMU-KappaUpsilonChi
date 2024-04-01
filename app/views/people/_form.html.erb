@@ -21,7 +21,9 @@
       </tr>
       <tr>
         <td style="text-align: center">
+          
           <strong><%= form.label :uin, "UIN".upcase %></strong>
+      
           <%= form.text_field :uin, class: "edit-person", style: "text-align: center;", pattern: '\d{9}', title: "UIN must be 9 digits long" %>
         </td>
         <td style="text-align: center">
