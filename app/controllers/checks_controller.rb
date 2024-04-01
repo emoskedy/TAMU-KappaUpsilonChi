@@ -83,6 +83,16 @@ class ChecksController < ApplicationController
               end
   end
 
+  def approved
+    @checks = Check.where(approval_status: :approved)
+    render 'past'
+  end
+
+  def denied
+    @checks = Check.where(approval_status: :denied)
+    render 'past'
+  end
+
   private
 
   def set_check

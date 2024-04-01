@@ -100,6 +100,12 @@
   <h1>Checks#past</h1>
   <p>Find me in app/views/checks/past.html.erb</p>
 
+  <div>
+    <%= link_to "Show All Approved Forms", approved_checks_path%>
+    <%= link_to "Show All Denied Forms", denied_checks_path %>
+    <%= link_to "Show All Past Forms", past_checks_path %>
+  </div>
+
   <% if @checks.nil? %>
     <p> No checks found </p>
   <% else %>
