@@ -75,13 +75,13 @@
             <% end %>
           <% end %>
         </div>
-
+      
         <div>
           <%= link_to checks_path, class: "btn" do %>
             <strong>Checks</strong>
           <% end %>
         </div>
-      
+        
         <div>
           <%= link_to people_path, class: "btn" do %>
             <strong>Profile</strong>
@@ -97,22 +97,21 @@
     </nav>
   </div>
 
-    <p style="color: green"><%= notice %></p>
-    <p style="color: red"><%= alert %></p>
+  <h1>Checks#past</h1>
+  <p>Find me in app/views/checks/past.html.erb</p>
 
-    <h1>SubAccounts#index</h1>
-    <p>Find me in app/views/sub_accounts/index.html.erb</p>
-
-    <div id="sub_accounts">
-        <% @sub_accounts.each do |sub_account| %>
-            <%= render sub_account %>
-            <p>
-                <%= link_to "Show this sub_account", sub_account %>
-            </p>
+  <% if @checks.nil? %>
+    <p> No checks found </p>
+  <% else %>
+    <div id="checks">
+        <% @checks.select { |check| check.approval_status != 'pending'}.each do |check| %>
+        <%= render check %>
+        <p>
+            <%= link_to "Show this form", check %>
+        </p>
         <% end %>
+        <%= link_to "Back to forms", checks_path %>
     </div>
-
-    <%= link_to "New sub-account", new_sub_account_path %>
+  <% end %>
 
 </body>
-

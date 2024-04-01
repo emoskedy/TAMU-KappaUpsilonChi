@@ -6,6 +6,6 @@
 <br>
 
 <div>
-  <%= link_to "Show this note", @note %> |
-  <%= link_to "Back to notes", notes_path %>
+  <%= link_to "Show this note", check_note_path(@note.check, @note) %> |
+  <%= link_to "Back to notes", check_notes_path(@note.check) %>
 </div>
