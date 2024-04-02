@@ -6,7 +6,7 @@
 <%= render @note %>
 
 <div>
-  <%= link_to "Back to notes", check_notes_path(@note.check) %>
+  <%= link_to "Back to notes", check_notes_path(@note.check), class: "create-person", style: "margin-right: 20px;" %>
 
   <%= button_to "Destroy this note", check_note_path(@note.check, @note), method: :delete %>
 </div>
