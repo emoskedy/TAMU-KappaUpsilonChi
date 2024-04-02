@@ -1,15 +1,13 @@
 <%= stylesheet_link_tag "application" %>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-<h1>Checks#edit</h1>
-
-<p>Find me in app/views/checks/edit.html.erb</p>
+<h1 style="text-align: center;">Edit Form</h1>
 
 <%= render "form", check: @check %>
 
 <br>
 
-<div>
-    <%= link_to "Show this form", @check %> |
-    <%= link_to "Back to homepage", checks_path %>
+<div style="text-align: center; margin-top: 5px;">
+    <%= link_to "Show this Form", @check, class: "create-person", style: "margin-right: 10px;"%>
+    <%= link_to "Back to Forms", checks_path, class: "create-person", style: "margin-left: 10px;"%>
 </div>

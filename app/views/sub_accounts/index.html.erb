@@ -89,12 +89,6 @@
         </div>
 
         <div>
-          <%= link_to notes_path, class: "btn" do %>
-            <strong>Note</strong>
-          <% end %>
-        </div>
-
-        <div>
           <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
             <strong>Sign Out</strong>
           <% end %>
@@ -106,19 +100,25 @@
     <p style="color: green"><%= notice %></p>
     <p style="color: red"><%= alert %></p>
 
-    <h1>SubAccounts#index</h1>
-    <p>Find me in app/views/sub_accounts/index.html.erb</p>
+    <h1 style="text-align: center;">SubAccounts</h1>
+
+    <div style="text-align: center; padding-bottom: 50px;">
+      <%= link_to "New SubAccount", new_sub_account_path, class: "create-person" %>
+    </div>
 
     <div id="sub_accounts">
         <% @sub_accounts.each do |sub_account| %>
             <%= render sub_account %>
             <p>
-                <%= link_to "Show this sub_account", sub_account %>
+              <div style="text-align: center; margin-top: 5px;">
+                <%= link_to "Show this SubAccount", sub_account , class: "create-person"%>
+              </div>
             </p>
+            <br>
         <% end %>
     </div>
-
-    <%= link_to "New sub-account", new_sub_account_path %>
+    
+    
 
 </body>
 

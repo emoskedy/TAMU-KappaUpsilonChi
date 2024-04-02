@@ -7,25 +7,33 @@
 
 <%= form_with(model: @check, method: :patch) do |form| %>
     <div class="field">
-      <%= form.label :approval_status %>
+      <div style="text-align: center; margin-top: 20px;">
+        <%= form.label :approval_status %>
+      </div>
       <% Check.approval_statuses.each do |status, label| %>
         <%= form.radio_button :approval_status, status %>
-        <%= form.label "approval_status_#{status}", label %><br>
+        <%= form.label "approval_status_#{status}", label %>
       <% end %>
     </div>
   
-    <div>
+    <div style="text-align: center; margin-top: 20px;">
         <%= form.label :sub_account_id %>
         <%= form.select :sub_account_id, options_from_collection_for_select(@sub_accounts, :id, :sub_account_number, :owner_name), {} %>
     </div>
 
   
     <div class="field">
-      <%= form.label :comments %>
+      <div>
+        <%= form.label :comments %>
+      </div>
       <%= form.text_area :comments, rows: 4 %>
     </div>
   
     <div class="actions">
       <%= form.submit "Update Approval Status and Comments" %>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <%= link_to "Back to forms", checks_path, class: "create-person"%>
     </div>
   <% end %>

@@ -1,12 +1,12 @@
 <%= stylesheet_link_tag "application" %>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-<h1>New note</h1>
+<h1 style="text-align: center;">New Note</h1>
 
 <%= render "form", note: @note %>
 
 <br>
 
-<div>
-  <%= link_to "Back to notes", notes_path %>
+<div style="text-align: center; padding-top: 20px">
+  <%= link_to "Back to Note(s)", check_notes_path(@note.check), class: "create-person" %>
 </div>

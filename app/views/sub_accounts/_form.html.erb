@@ -1,27 +1,44 @@
-<%= form_with(model: sub_account) do |form| %>
-    <%if sub_account.errors.any? %>
-        <div style="color: red">
-            <h2><%= pluralize(sub_account.errors.count, "error") %> prohibited this form from being saved: </h2>
-
-            <ul>
+<div id="<%= dom_id sub_account %>" style="display: block; width: 100%; text-align: center;">
+    <div style="display: inline-block; text-align: left;">
+        <%= form_with(model: sub_account) do |form| %>
+            <% if sub_account.errors.any? %>
+            <div style="color: red">
+                <h2><%= pluralize(sub_account.errors.count, "error") %> prohibited this form from being saved:</h2>
+        
+                <ul>
                 <% sub_account.errors.each do |error| %>
                     <li><%= error.full_message %></li>
-                <%end%>
-            </ul>
-        </div>
-    <%end%>
-
-    <div>
-        <%= form.label :sub_account_number %>
-        <%= form.number_field :sub_account_number %>
+                <% end %>
+                </ul>
+            </div>
+            <% end %>
+        
+            <table border="1" cellpadding="5" style="width: 500px; height: 30px;">
+            <tr>
+                <td colspan="1">
+                    <strong><%= form.label :sub_account_number %></strong>
+                </td>
+                <td>
+                    <%= form.number_field :sub_account_number %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <strong><%= form.label :owner_name %></strong>
+                </td>
+                <td>
+                    <%= form.text_field :owner_name %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                <%= form.submit class: "create-person" %>
+                </td>
+            </tr>
+            </table>
+        
+            
+        <% end %>
     </div>
-
-    <div>
-        <%= form.label :owner_name %>
-        <%= form.text_field :owner_name %>
-    </div>
-
-    <div>
-        <%= form.submit %>
-    </div>
-<% end %>
+</div>
+        

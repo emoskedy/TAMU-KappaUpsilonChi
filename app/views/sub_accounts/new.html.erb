@@ -1,13 +1,12 @@
 <%= stylesheet_link_tag "application" %>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-<h1>SubAccounts#new></h1>
-<p>Find me in app/views/sub_accounts/new.html.erb</p>
+<h1 style="text-align: center;">New SubAccount</h1>
 
 <%= render "form", sub_account: @sub_account %>
 
 <br>
 
-<div>
-    <%= link_to "Back to homepage", sub_accounts_path%>
+<div style="text-align: center; margin-top: 20px;">
+    <%= link_to "Back to homepage", sub_accounts_path, class: "create-person"%>
 </div>

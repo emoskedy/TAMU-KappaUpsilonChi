@@ -3,8 +3,11 @@ class Check < ApplicationRecord
     before_save :calculate_dollar_amount
     before_update :reset_status_to_pending, if: -> { approval_status_was == 'denied' }
 
+    before_destroy :destroying_check
+
     belongs_to :admin, optional: true
     belongs_to :sub_account, optional: true
+    has_many :notes, foreign_key: 'form_id', dependent: :destroy
 
     validates :organization_name, presence: true
     validates :account_number, presence: true, numericality: { only_integer: true }
@@ -26,6 +29,10 @@ class Check < ApplicationRecord
         self.approval_status = 'pending'
     end
 
+    def destroying_check
+        Rails.logger.info('Hi I am in the checks model about to destroy')
+        notes.each(&:destroying_notes)
+    end
 
     private
 

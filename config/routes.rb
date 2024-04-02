@@ -17,13 +17,19 @@ Rails.application.routes.draw do
       get 'review'
       patch 'update_review'
     end
+    collection do
+      get 'past'
+      get 'approved'
+      get 'denied'
+    end
+    resources :notes
   end
 
   resources :people
   resources :sub_accounts
-  resources :notes
   get '/admin', to: 'admins/admin#admin'
   post '/update', to: 'admins/admin#update'
+  get '/search', to: 'admins/admin#search'
 
   namespace :admins do
     resources :admin, only: %i[index create new destroy]
@@ -31,3 +37,4 @@ Rails.application.routes.draw do
     get 'search', to: 'admin#search', as: 'search'
   end
 end
+
