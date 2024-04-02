@@ -1,38 +1,45 @@
-<%= form_with(model: person) do |form| %>
-
-    <div>
-        <%= form.label :name %>
-        <%= form.text_field :name, value: current_admin.full_name, readonly: true %>
-    </div>
-    
-    <div>
-        <%= form.label :email %>
-        <%= form.text_field :email, value: current_admin.email, readonly: true %>
-    </div>
-
-    <div>
-        <%= form.label :address %>
-        <%= form.text_field :address %>
-    </div>
-
-    <div>
-        <%= form.label :uin %>
-        <%= form.text_field :uin %>
-    </div>
-
-    <div>
-        <%= form.label :phone_number %>
-        <%= form.text_field :phone_number %>
-    </div>
-
-    <div>
-    <%= form.label :affiliation %>
-    <%= form.select :affiliation, [['TAMU Student', 'TAMU Student'], ['TAMU Employee', 'TAMU Employee'], ['Not Affiliated', 'Not Affiliated']] %>
-  </div>
-
-    <div>
-        <%= form.submit %>
-    </div>
-
-<% end %>
-
+<div id="<%= dom_id person %>" style="width: 600px; height: 150px;">
+  <%= form_with(model: person) do |form| %>
+    <table border="1" cellpadding="5" style="width: 100%; height: 100%;">
+      <tr>
+        <td colspan="2" style="text-align: center">
+          <strong><%= form.label :name %></strong>
+          :
+          <%= form.text_field :name, value: current_admin.full_name, readonly: true, class: "edit-person" %>
+        </td>
+        <td colspan="1" style="text-align: center">
+          <strong><%= form.label :email %></strong>
+          :
+          <%= form.text_field :email, value: current_admin.email, readonly: true, class: "edit-person", style: "text-align: center;" %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" style="padding-left: 20px">
+          <strong><%= form.label :address %></strong>
+          <%= form.text_field :address, size: 60, class: "edit-person" %>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center">
+          
+          <strong><%= form.label :uin, "UIN".upcase %></strong>
+      
+          <%= form.text_field :uin, class: "edit-person", style: "text-align: center;", pattern: '\d{9}', title: "UIN must be 9 digits long" %>
+        </td>
+        <td style="text-align: center">
+          <strong><%= form.label :phone_number %></strong>
+          <%= form.text_field :phone_number, class: "edit-person", style: "text-align: center;", pattern: '^[0-9]{10}$', title: "Phone number must be exactly 10 digits. (e.g. 1234567890)" %>
+        </td>
+        <td style="text-align: center">
+          <strong><%= form.label :affiliation %></strong>
+          <%= form.select :affiliation, [['TAMU Student', 'TAMU Student'], ['TAMU Employee', 'TAMU Employee'], ['Not Affiliated', 'Not Affiliated']]%>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: center">
+          <%= form.submit class: "create-person" %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

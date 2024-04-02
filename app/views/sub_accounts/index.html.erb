@@ -1,17 +1,118 @@
-<p style="color: green"><%= notice %></p>
-<p style="color: red"><%= alert %></p>
+<%= stylesheet_link_tag "application" %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-<h1>SubAccounts#index</h1>
-<p>Find me in app/views/sub_accounts/index.html.erb</p>
+<header>
+  <div class="profile">
+    <i class="fas fa-user-circle"></i>
+    <strong ><%= current_admin.full_name %></strong>
+    <div class="dropdown-content">
+        <span><strong>Email: </strong><i><%= current_admin.email %></i> </span><br>
+        <span>
+            <% if current_admin.is_admin? %>
+            <strong>Role: </strong><i>admin</i>
+            <% elsif current_admin.is_officer? %>
+            <strong>Role: </strong><i>officer</i>
+            <% else %>
+            <strong>Role: </strong><i>member</i>
+            <% end %>
+        </span>
+    </div>
+  </div>
 
-<div id="sub_accounts">
-    <% @sub_accounts.each do |sub_account| %>
-        <%= render sub_account %>
-        <p>
-            <%= link_to "Show this sub_account", sub_account %>
-        </p>
-    <% end %>
-</div>
+   <a href="#" class="navbar">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </a>
 
-<%= link_to "New sub-account", new_sub_account_path %>
-<%= link_to "Back to main page", checks_path %>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbar = document.querySelector('.navbar');
+      const navOverlay = document.querySelector('.nav-overlay');
+      const navContent = document.querySelector('.nav-content');
+
+      navbar.addEventListener('click', function() {
+        navOverlay.classList.toggle('show');
+        navContent.classList.toggle('show');
+      });
+
+      navOverlay.addEventListener('click', function() {
+        navOverlay.classList.remove('show');
+        navContent.classList.remove('show');
+      });
+    });
+  </script>
+</header>
+
+<body>
+  <div class="nav-overlay"> <!-- This element will overlay the entire page -->
+    <nav class="nav-content">
+      <div class="btn-container">
+        <div>
+          <%= link_to root_path, class: "root" do %>
+            <strong>Kappa Upsilon Chi</strong>
+          <% end %>
+        </div>
+        <br>
+        <div>
+          <%= link_to root_path, class: "btn" do %>
+            <strong>Home</strong>
+          <% end %>
+        </div>
+
+        <div>
+            <% if current_admin.is_admin? %>
+                <%= link_to admins_admin_index_path, class: "btn" do %>
+                <strong>Admin</strong>
+                <% end %>
+            <% end %>
+        </div>
+
+        <div>
+          <% if current_admin.is_admin?  || current_admin.is_officer? %>
+            <%= link_to sub_accounts_path, class: "btn" do %>
+              <strong>Sub-account</strong>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to checks_path, class: "btn" do %>
+            <strong>Checks</strong>
+          <% end %>
+        </div>
+      
+        <div>
+          <%= link_to people_path, class: "btn" do %>
+            <strong>Profile</strong>
+          <% end %>
+        </div>
+
+        <div>
+          <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
+            <strong>Sign Out</strong>
+          <% end %>
+        </div>
+      
+    </nav>
+  </div>
+
+    <p style="color: green"><%= notice %></p>
+    <p style="color: red"><%= alert %></p>
+
+    <h1>SubAccounts#index</h1>
+    <p>Find me in app/views/sub_accounts/index.html.erb</p>
+
+    <div id="sub_accounts">
+        <% @sub_accounts.each do |sub_account| %>
+            <%= render sub_account %>
+            <p>
+                <%= link_to "Show this sub_account", sub_account %>
+            </p>
+        <% end %>
+    </div>
+
+    <%= link_to "New sub-account", new_sub_account_path %>
+
+</body>
+

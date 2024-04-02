@@ -1,11 +1,16 @@
-<h1>People#edit</h1>
-<p>Find me in app/views/people/edit.html.erb</p>
+<%= stylesheet_link_tag "application" %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 
-<%= render "form", person: @person %>
+<body>
+    <div class="my-profile">
+        <h1>Modify Profile</h1>
 
-<br>
+        <%= render "form", person: @person %>
 
-<div>
-    <%= link_to "Show this Profile", @person %> |
-    <%= link_to "Back to Profiles", people_path %>
-</div>
+        <br>
+        <br>
+        <div>
+            <%= link_to "Back to Profiles", people_path, class: "create-person", style: "padding-left: 500px" %>
+        </div>
+    </div>
+</body>

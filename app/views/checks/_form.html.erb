@@ -1,125 +1,125 @@
-<%= form_with(model: check) do |form| %>
-    <% if check.errors.any? %>
-        <div style="color: red">
-            <h2><%= pluralize(check.errors.count, "error") %> prohibited this form from being saved: </h2>
-
-            <ul>
-                <% check.errors.each do |error| %>
-                    <li><%= error.full_message %></li>
-                <%end%>
-            </ul>
-        </div>
-    <%end%>
-
-    <div>
-        <%= form.label :description %>
-        <%= form.text_field :description %>
-    </div>
-
-    <div>
-        <%= form.label :organization_name %>
-        <%= form.text_field :organization_name %>
-    </div>
-
-    <div>
-        <%= form.label :account_number %>
-        <%= form.number_field :account_number %>
-    </div>
-
-    <div>
-        <%= form.label :date %>
-        <%= form.date_select :date, { prompt: true } %>
-    </div>
-
-    <div>
-        <%= form.label :role %>
-        <%= form.check_box :role, { multiple: false }, "student", nil%> 
-        <%= form.label :role, "Student" %>
-        <%=form.check_box :role, { multiple: false }, "employee", nil %>
-        <%= form.label :role, "Employee" %>
-        <%= form.check_box :role, { multiple: false }, "not_affiliated", nil %>
-        <%= form.label :role, "Not Affiliated" %>
-    </div>
-
-    <div>
-        <%= form.label :payment_method %>
-        <%= form.check_box :payment_method, { multiple: false }, "direct_deposit", nil %>
-        <%= form.label :payment_method, "Direct Deposit" %>
-        <%= form.check_box :payment_method, { multiple: false }, "mail_to_payee", nil %>
-        <%= form.label :payment_method, "Mail to Payee Address" %>
-        <%= form.check_box :payment_method, { multiple: false }, "pick_up_at_sofc", nil %>
-        <%= form.label :payment_method, "Pick up at SOFC" %>
-    </div>
-
-    <div>
-        <%= form.label :payable_name %>
-        <%= form.text_field :payable_name %>
-    </div>
-
-    <div>
-        <%= form.label :payable_address %>
-        <%= form.text_field :payable_address %>
-    </div>
-
-    <div>
-        <%= form.label :payable_phone_number %>
-        <%= form.text_field :payable_phone_number %>
-    </div>
-
-    <div>
-        <%=form.label :travel %>
-        <%= form.number_field :travel, step: '0.01' %>
-    </div>
-
-    <div>
-        <%=form.label :food %>
-        <%= form.number_field :food, step: '0.01' %>
-    </div>
-
-    <div>
-        <%=form.label :office_supplies %>
-        <%= form.number_field :office_supplies, step: '0.01' %>
-    </div>
-
-    <div>
-        <%=form.label :utilities %>
-        <%= form.number_field :utilities, step: '0.01' %>
-    </div>
-
-    <div>
-        <%=form.label :membership %>
-        <%= form.number_field :membership, step: '0.01' %>
-    </div>
-
-    <div>
-        <%=form.label :services_and_other_income %>
-        <%= form.number_field :services_and_other_income, step: '0.01' %>
-    </div>
-
-    <div>
-        <%=form.label :clothing %>
-        <%= form.number_field :clothing, step: '0.01' %>
-    </div>
-
-    <div>
-        <%=form.label :rent %>
-        <%= form.number_field :rent, step: '0.01' %>
-    </div>
-
-    <div>
-        <%=form.label :other_expenses %>
-        <%= form.number_field :other_expenses, step: '0.01' %>
-    </div>
-
-    <div>
-        <%=form.label :items_for_resale %>
-        <%= form.number_field :items_for_resale, step: '0.01' %>
-    </div>
-  
-    
-
-    <div>
-        <%= form.submit %>
-    </div>
-
-<% end %>
+<div id="<%= dom_id check %>" style="display: block; width: 100%; text-align: center;">
+  <div style="display: inline-block; text-align: left;">
+    <%= form_with(model: check) do |form| %>
+        <table border="1" cellpadding="5" style="width: 100%; height: 100%;">
+        <tr>
+            <td colspan="2" style="text-align: center;">
+            <strong><%= form.label :description %></strong>
+            <%= form.text_field :description %>
+            </td>
+            <td colspan="1" style="text-align: center;">
+            <strong><%= form.label :organization_name %></strong>
+            <%= form.text_field :organization_name %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="padding-left: 20px;">
+            <strong><%= form.label :account_number %></strong>
+            <%= form.number_field :account_number %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+            <strong><%= form.label :date %></strong>
+            <%= form.date_select :date, { prompt: true } %>
+            </td>
+            <td colspan="1" style="text-align: center;">
+            <strong><%= form.label :role %></strong>
+            <%= form.radio_button :role, 'student' %>
+            <%= form.label :role, "Student" %>
+            <%= form.radio_button :role, 'employee' %>
+            <%= form.label :role, "Employee" %>
+            <%= form.radio_button :role, 'not_affiliated' %>
+            <%= form.label :role, "Not Affiliated" %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="padding-left: 20px;">
+            <strong><%= form.label :payment_method %></strong>
+            <%= form.radio_button :payment_method, 'direct_deposit' %>
+            <%= form.label :payment_method, "Direct Deposit" %>
+            <%= form.radio_button :payment_method, 'mail_to_payee' %>
+            <%= form.label :payment_method, "Mail to Payee Address" %>
+            <%= form.radio_button :payment_method, 'pick_up_at_sofc' %>
+            <%= form.label :payment_method, "Pick up at SOFC" %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+            <strong><%= form.label :payable_name %></strong>
+            <%= form.text_field :payable_name %>
+            </td>
+            <td colspan="1" style="text-align: center;">
+            <strong><%= form.label :payable_address %></strong>
+            <%= form.text_field :payable_address %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+            <strong><%= form.label :payable_phone_number %></strong>
+            <%= form.text_field :payable_phone_number, pattern: '^[0-9]{10}$', title: "Phone number must be exactly 10 digits. (e.g. 1234567890)" %>
+            </td>
+            <td colspan="1" style="text-align: center;">
+            <strong><%= form.label :affiliation %></strong>
+            <%= form.select :affiliation, [['TAMU Student', 'TAMU Student'], ['TAMU Employee', 'TAMU Employee'], ['Not Affiliated', 'Not Affiliated']]%>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+            <strong><%= form.label :travel %></strong>
+            <%= form.number_field :travel, step: '0.01' %>
+            </td>
+            <td colspan="1" style="text-align: center;">
+            <strong><%= form.label :food %></strong>
+            <%= form.number_field :food, step: '0.01' %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+            <strong><%= form.label :office_supplies %></strong>
+            <%= form.number_field :office_supplies, step: '0.01' %>
+            </td>
+            <td colspan="1" style="text-align: center;">
+            <strong><%= form.label :utilities %></strong>
+            <%= form.number_field :utilities, step: '0.01' %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+            <strong><%= form.label :membership %></strong>
+            <%= form.number_field :membership, step: '0.01' %>
+            </td>
+            <td colspan="1" style="text-align: center;">
+            <strong><%= form.label :services_and_other_income %></strong>
+            <%= form.number_field :services_and_other_income, step: '0.01' %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+            <strong><%= form.label :clothing %></strong>
+            <%= form.number_field :clothing, step: '0.01' %>
+            </td>
+            <td colspan="1" style="text-align: center;">
+            <strong><%= form.label :rent %></strong>
+            <%= form.number_field :rent, step: '0.01' %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+            <strong><%= form.label :other_expenses %></strong>
+            <%= form.number_field :other_expenses, step: '0.01' %>
+            </td>
+            <td colspan="1" style="text-align: center;">
+            <strong><%= form.label :items_for_resale %></strong>
+            <%= form.number_field :items_for_resale, step: '0.01' %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;">
+            <%= form.submit class: "create-check" %>
+            </td>
+        </tr>
+        </table>
+    <% end %>
+  </div>
+</div>
