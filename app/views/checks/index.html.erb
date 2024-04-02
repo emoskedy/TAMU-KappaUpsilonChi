@@ -96,20 +96,22 @@
     </nav>
   </div>
 
-  <h1>Pending Submissions</h1>
+  <h1 style="text-align: center;">Pending Submissions</h1>
+
+  <div style="text-align: center; padding-bottom: 50px;">
+    <%= link_to "Create New Form", new_check_path, class: "create-person", style: "margin-right: 10px;"%>
+    <%= link_to "Past Submission(s)", past_checks_path, class: "create-person", style: "margin-left: 10px;"%>
+  </div>
 
   <div id="checks">
     <% @checks.select { |check| check.approval_status == 'pending'}.each do |check| %>
       <%= render check %>
       <p>
-        <div style="text-align: center; margin-top: 20px;">
+        <div style="text-align: center; margin-top: 5px;">
           <%= link_to "Show this form", check, class: "create-person"%>
         </div>
       </p>
     <% end %>
   </div>
-  <div style="text-align: center; margin-top: 20px;">
-    <%= link_to "New form", new_check_path, class: "create-person", style: "margin-right: 20px;"%>
-    <%= link_to "Past Submissions", past_checks_path, class: "create-person", style: "margin-right: 20px;"%>
-  </div>
+  
 </body>

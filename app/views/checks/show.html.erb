@@ -5,7 +5,7 @@
 
 <%= render @check %>
 
-<div style="text-align: center; margin-top: 20px;">
+<div style="text-align: center; margin-top: 5px;">
   <%= link_to "Edit this form", edit_check_path(@check), class: "create-person", style: "margin-right: 20px;"%> 
   <% if @check.pending? %>
     <%= link_to "Back to forms", checks_path, class: "create-person", style: "margin-right: 20px;" %> 
@@ -13,7 +13,7 @@
     <%= link_to "Back to past forms", past_checks_path, class: "create-person", style: "margin-right: 20px;" %> 
   <% end %>
   <%= link_to "Review this form", review_check_path(@check), class: "create-person", style: "margin-right: 20px;"%> 
-  <%= link_to "View Notes", check_notes_path(@check), class: "create-person", style: "margin-right: 20px;"%>
+  <%= link_to "View Note(s)", check_notes_path(@check), class: "create-person", style: "margin-right: 20px;"%>
 
-  <%= button_to "Destroy this form", @check, method: :delete %>
+  <%= button_to "Delete this form", @check, method: :delete, class: "create-person" %>
 </div>

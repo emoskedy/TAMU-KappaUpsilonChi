@@ -13,22 +13,31 @@
             </div>
             <% end %>
         
-            <table border="1" cellpadding="5" style="width: 100%; height: 100%;">
+            <table border="1" cellpadding="5" style="width: 500px; height: 30px;">
             <tr>
-                <td colspan="2">
-                <strong><%= form.label :sub_account_number %></strong>
-                <%= form.number_field :sub_account_number %>
-                </td>
                 <td colspan="1">
-                <strong><%= form.label :owner_name %></strong>
-                <%= form.text_field :owner_name %>
+                    <strong><%= form.label :sub_account_number %></strong>
+                </td>
+                <td>
+                    <%= form.number_field :sub_account_number %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <strong><%= form.label :owner_name %></strong>
+                </td>
+                <td>
+                    <%= form.text_field :owner_name %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                <%= form.submit class: "create-person" %>
                 </td>
             </tr>
             </table>
         
-            <div style="text-align: center; margin-top: 20px;">
-            <%= form.submit %>
-            </div>
+            
         <% end %>
     </div>
 </div>

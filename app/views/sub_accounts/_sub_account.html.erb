@@ -1,15 +1,21 @@
 <div id="<%= dom_id sub_account %>" style="display: block; width: 100%; text-align: center;">
-<div style="display: inline-block; text-align: left;">
+<div style="display: inline-block; text-align: center;">
     <%= form_with(model: sub_account) do |form| %>
-        <table border="1" cellpadding="5" style="width: 100%; height: 100%;">
+        <table border="1" cellpadding="5" style="width: 500px; height: 30px;">
         <tr>
-            <td colspan="2">
-            <strong>Sub-Account Number:</strong>
-            <%= sub_account.sub_account_number %>
+            <td style="width: 250px;">
+                <strong>Sub-Account Number:</strong>
             </td>
             <td colspan="1">
-            <strong>Sub-Account Owner:</strong>
-            <%= sub_account.owner_name %>
+                <%= sub_account.sub_account_number %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1">
+                <strong>Sub-Account Owner:</strong>
+            </td>
+            <td>
+                <%= sub_account.owner_name %>
             </td>
         </tr>
         </table>

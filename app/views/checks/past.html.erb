@@ -97,7 +97,10 @@
     </nav>
   </div>
 
-  <h1>Past Submissions</h1>
+  <h1 style="text-align: center;">Past Submissions</h1>
+  <div style="text-align: center; padding-bottom: 20px;">
+    <%= link_to "Back to Pending Forms", checks_path, class: "create-person"%>
+  </div>
 
   <div style="text-align: center; margin-top: 20px">
     <%= link_to "Show All Approved Forms", approved_checks_path, class: "create-person", style: "margin-right: 20px;"%>    
@@ -117,9 +120,6 @@
           </div>
         </p>
         <% end %>
-        <div style="text-align: center; margin-top: 20px;">
-          <%= link_to "Back to forms", checks_path, class: "create-person"%>
-        </div>
     </div>
   <% end %>
 

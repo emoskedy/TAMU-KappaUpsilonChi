@@ -3,11 +3,18 @@
 
 <p style="color: green"><%= notice %></p>
 
-<%= render @sub_account %>
+<h1 style="text-align: center;">Show SubAccount</h1>
 
-<div style="text-align: center; margin-top: 20px;">
-    <%= link_to "Edit this sub-account", edit_sub_account_path(@sub_account) , class: "create-person", style: "margin-right: 20px;"%> 
-    <%= link_to "Back to sub-accounts", sub_accounts_path , class: "create-person", style: "margin-right: 20px;"%>
+<div style="text-align:center; padding-top: 100px;">
 
-    <%= button_to "Destroy this sub-account", @sub_account, method: :delete %>
+    <%= render @sub_account %>
+
+    <div style="padding: 3px;">
+        <%= link_to "Edit this SubAccount", edit_sub_account_path(@sub_account) , class: "create-person", style: "margin-right: 10px;"%> 
+        <%= link_to "Back to SubAccount ", sub_accounts_path , class: "create-person", style: "margin-left: 10px;"%>
+    </div>
+
+    <div style="padding: 3px;">
+        <%= button_to "Delete", @sub_account, method: :delete , class: "create-person" %>
+    </div>
 </div>
