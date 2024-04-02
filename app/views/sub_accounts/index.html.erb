@@ -100,22 +100,25 @@
     <p style="color: green"><%= notice %></p>
     <p style="color: red"><%= alert %></p>
 
-    <h1>SubAccounts</h1>
+    <h1 style="text-align: center;">SubAccounts</h1>
+
+    <div style="text-align: center; padding-bottom: 50px;">
+      <%= link_to "New SubAccount", new_sub_account_path, class: "create-person" %>
+    </div>
 
     <div id="sub_accounts">
         <% @sub_accounts.each do |sub_account| %>
             <%= render sub_account %>
             <p>
-              <div style="text-align: center; margin-top: 20px;">
-                <%= link_to "Show this sub-account", sub_account , class: "create-person"%>
+              <div style="text-align: center; margin-top: 5px;">
+                <%= link_to "Show this SubAccount", sub_account , class: "create-person"%>
               </div>
             </p>
+            <br>
         <% end %>
     </div>
     
-    <div style="text-align: center; margin-top: 20px;">
-      <%= link_to "New sub-account", new_sub_account_path, class: "create-person"%>
-    </div>
+    
 
 </body>
 
