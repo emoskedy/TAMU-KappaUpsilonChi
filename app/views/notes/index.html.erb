@@ -106,15 +106,15 @@
     <%= render note %>
     <p>
       <% if note.check.approval_status == 'pending' %>
-        <%= link_to "Show this note", check_note_path(note.check, note) %>
+        <%= link_to "Show this note", check_note_path(note.check, note), class: "create-person", style: "margin-right: 20px;" %>
       <% end %>
     </p>
   <% end %>
 </div>
 
   <% if @check.approval_status == 'pending' %>
-    <%= link_to "New note", new_check_note_path(@check) %> |
+    <%= link_to "New note", new_check_note_path(@check), class: "create-person", style: "margin-right: 20px;" %>
   <% end %>
-  <%= link_to "Back to form", @check %>
+  <%= link_to "Back to form", @check, class: "create-person", style: "margin-right: 20px;" %>
 
 </body>

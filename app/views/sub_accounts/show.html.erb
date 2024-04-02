@@ -5,9 +5,9 @@
 
 <%= render @sub_account %>
 
-<div>
-    <%= link_to "Edit this sub-account", edit_sub_account_path(@sub_account) %> |
-    <%= link_to "Back to sub-accounts", sub_accounts_path %>
+<div style="text-align: center; margin-top: 20px;">
+    <%= link_to "Edit this sub-account", edit_sub_account_path(@sub_account) , class: "create-person", style: "margin-right: 20px;"%> 
+    <%= link_to "Back to sub-accounts", sub_accounts_path , class: "create-person", style: "margin-right: 20px;"%>
 
     <%= button_to "Destroy this sub-account", @sub_account, method: :delete %>
 </div>
