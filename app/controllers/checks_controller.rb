@@ -3,7 +3,8 @@ class ChecksController < ApplicationController
   before_action :load_sub_accounts, only: %i[new edit update update_review review]
   before_action :require_officer_or_admin, only: %i[review update_review destroy]
   before_action :check_profile_existence, only: [:new]
-
+  before_action :set_person
+  
   def index
     @checks = if current_admin.is_admin? || current_admin.is_officer?
                 Check.all
@@ -16,7 +17,10 @@ class ChecksController < ApplicationController
     @check = Check.new(
       organization_name: 'Kappa Upsilon Chi',
       account_number: 945470,
-      payment_method: 'direct_deposit'
+      payment_method: 'direct_deposit',
+      payable_name: @current_person.name,
+      payable_address: @current_person.address,
+      payable_phone_number: @current_person.phone_number
     )
   end
 
@@ -101,6 +105,10 @@ class ChecksController < ApplicationController
 
   def load_sub_accounts
     @sub_accounts = SubAccount.all
+  end
+
+  def set_person
+    @current_person = Person.find_by(email: current_admin.email)
   end
 
   def show
