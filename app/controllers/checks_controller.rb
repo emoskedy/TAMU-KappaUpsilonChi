@@ -2,7 +2,7 @@ class ChecksController < ApplicationController
   before_action :set_check, only: %i[ show edit update destroy ]
   before_action :load_sub_accounts, only: %i[new edit update update_review review]
   before_action :require_officer_or_admin, only: %i[review update_review destroy]
-  before_action :check_profile_existence, only: [:new]
+  before_action :check_profile_existence, only: [:index]
   before_action :set_person
   
   def index
