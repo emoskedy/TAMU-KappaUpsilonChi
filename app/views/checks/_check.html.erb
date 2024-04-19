@@ -39,7 +39,7 @@
         </tr>
         <tr>
         <td><strong>Created By:</strong> <%= check.admin.full_name %></td>
-        <td><strong>UIN:</strong> <%= @current_person.uin %></td>
+        <td><strong>UIN:</strong> <%= Person.find_by(email: check.admin.email).uin %></td>
         <td></td>
         </tr>
     </table>
