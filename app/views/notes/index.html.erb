@@ -102,6 +102,7 @@
   <h1 style="text-align: center;">Notes</h1>
 
   <div style="text-align: center;">
+    <p>Please upload your reciept below. Must be a itemized reciept, showing ONE credit card per request</p>
     <% if @check.approval_status == 'pending' %>
       <%= link_to "Create New Note", new_check_note_path(@check), class: "create-person", style: "margin-right: 10px;" %>
     <% end %>
