@@ -294,6 +294,11 @@ body {
   padding-top: -20px;
   font-size: 36px; /* Increase font size for the description */
   text-align: center; /* Center align the description */
+  transition: font-size 0.2s, color 1s ease-in-out;
+}
+
+.description:hover {
+  font-size: 48px;
 }
 
 .my-profile {
