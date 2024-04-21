@@ -1,6 +1,17 @@
 <div id="<%= dom_id check %>" style="display: block; width: 100%; text-align: center;">
   <div style="display: inline-block; text-align: left;">
     <%= form_with(model: check) do |form| %>
+        <% if check.errors.any? %>
+        <div style="color:red">
+            <h2><%= pluralize(check.errors.count, "error") %> prohibited this form from being saved: </h2>
+            
+            <ul>
+                <% check.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
         <table border="1" cellpadding="5" style="width: 100%; height: 100%;">
         <tr>
             <td colspan="2" style="text-align: center;">

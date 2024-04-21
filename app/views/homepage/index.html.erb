@@ -72,30 +72,16 @@
           </div>
 
           <div>
-            <% if current_admin.is_admin?  || current_admin.is_officer? %>
-              <%= link_to sub_accounts_path, class: "btn" do %>
-                <strong>Sub-account</strong>
-              <% end %>
-            <% end %>
-          </div>
-
-          <div>
-            <%= link_to checks_path, class: "btn" do %>
-              <strong>Checks</strong>
-            <% end %>
-          </div>
-        
-          <div>
-            <%= link_to people_path, class: "btn" do %>
-              <strong>Profile</strong>
-            <% end %>
-          </div>
-
-          <div>
             <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
               <strong>Sign Out</strong>
             <% end %>
           </div>
+
+          <div>
+          <%= link_to faq_path, class: "btn" do %>
+            <strong>FAQ</strong>
+          <% end %>
+        </div>
         
       </nav>
     </div>
@@ -103,7 +89,7 @@
 
     <div>
       <h1 class="title">Kappa Upsilon Chi</h1>
-      <p class="description">Budget Request</p>
+      <%= link_to checks_path, class: "check-request" do %><p class="description"> Check Request </p><% end %>
     </div>
 
     <%= javascript_include_tag "image" %>

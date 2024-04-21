@@ -50,7 +50,8 @@ class NotesController < ApplicationController
       region: ENV['AWS_REGION'],
       credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'])
     )
-    bucket = s3.bucket('kappaupsilonchi1-sofcnotes')
+    # bucket = s3.bucket('kappaupsilonchi1-sofcnotes')
+    bucket = s3.bucket('kyxbucket')
     key = @note.avatar_url.split('amazonaws.com/')[1]
     Rails.logger.info("Deleting S3 object with key: #{key}")
     bucket.object(key).delete

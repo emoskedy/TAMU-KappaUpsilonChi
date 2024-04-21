@@ -38,7 +38,14 @@
         <td colspan="3"><strong>Officer Comments:</strong> <%= check.comments %></td>
         </tr>
         <tr>
-        <td colspan="3"><strong>Created By:</strong> <%= check.admin.full_name %></td>
+        <td><strong>Created By:</strong> <%= check.admin.full_name %></td>
+        <% if (person = Person.find_by(email: check.admin.email)).nil? %>
+        <td><strong>UIN:</strong> UIN Not Found </td>
+        <td></td>
+        <% else %>
+        <td><strong>UIN:</strong> <%= Person.find_by(email: check.admin.email).uin %></td>
+        <td></td>
+        <% end %>
         </tr>
     </table>
   </div>
