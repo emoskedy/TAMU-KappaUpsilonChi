@@ -29,7 +29,7 @@ class ChecksController < ApplicationController
 
     respond_to do |format|
       if @check.save
-        format.html { redirect_to check_url(@check), notice: "Form was successfully created" }
+        format.html { redirect_to check_notes_path(@check), notice: "Form was successfully created" }
         format.json { render :show, status: :created, location: @check }
       else
         format.html { render :new, status: :unprocessable_entity}

@@ -39,4 +39,3 @@ Rails.application.routes.draw do
     get 'search', to: 'admin#search', as: 'search'
   end
 end
-
