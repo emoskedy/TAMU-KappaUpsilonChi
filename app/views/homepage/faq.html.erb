@@ -1,0 +1,216 @@
+<%= stylesheet_link_tag "application" %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+
+<header>
+  <div class="profile">
+    <i class="fas fa-user-circle"></i>
+    <strong ><%= current_admin.full_name %></strong>
+    <div class="dropdown-content">
+        <span><strong>Email: </strong><i><%= current_admin.email %></i> </span><br>
+        <span>
+          <% if current_admin.is_admin? %>
+            <strong>Role: </strong><i>admin</i>
+          <% elsif current_admin.is_officer? %>
+            <strong>Role: </strong><i>officer</i>
+          <% else %>
+            <strong>Role: </strong><i>member</i>
+          <% end %>
+        </span>
+    </div>
+  </div>
+
+   <a href="#" class="navbar">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbar = document.querySelector('.navbar');
+      const navOverlay = document.querySelector('.nav-overlay');
+      const navContent = document.querySelector('.nav-content');
+
+      navbar.addEventListener('click', function() {
+        navOverlay.classList.toggle('show');
+        navContent.classList.toggle('show');
+      });
+
+      navOverlay.addEventListener('click', function() {
+        navOverlay.classList.remove('show');
+        navContent.classList.remove('show');
+      });
+    });
+  </script>
+</header>
+
+<body>
+    <div class="nav-overlay"> <!-- This element will overlay the entire page -->
+      <nav class="nav-content">
+        <div class="btn-container">
+          <div>
+            <%= link_to root_path, class: "root" do %>
+              <strong>Kappa Upsilon Chi</strong>
+            <% end %>
+          </div>
+          <br>
+          <div>
+            <%= link_to root_path, class: "btn" do %>
+              <strong>Home</strong>
+            <% end %>
+          </div>
+
+          <div>
+            <% if current_admin.is_admin? %>
+              <%= link_to admins_admin_index_path, class: "btn" do %>
+                <strong>Admin</strong>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to destroy_admin_session_path, method: :delete, class: "btn" do %>
+              <strong>Sign Out</strong>
+            <% end %>
+          </div>
+
+          <div>
+          <%= link_to faq_path, class: "btn" do %>
+            <strong>FAQ</strong>
+          <% end %>
+        </div>
+        
+      </nav>
+    </div>
+
+    <h1 style="text-align: center;">FAQ</h1>
+    <h3 style="text-align: center;">Have Any Other Questions?</h3>
+    <p style="text-align: center;">Contact Us At: <b>jay123q@tamu.edu</b></p>
+    
+
+    <div>
+        <h1 style="text-align: center;">_________</h1>
+        <br>
+        <div>
+            <h2 style="text-align: center;">Member Help and Support</h2>
+            <h3 class="faq-question">How do I create/edit my profile?</h3>
+            <p class="faq-answer">
+            If you hit the <b>Check Request</b> button on the homepage without a profile, you will be taken to a screen where you can create 
+            a profile. On this page, you can enter your address, phone number, and UIN. Your UIN must be 9 digits long (ex: 123456789), and your phone number 
+            must be 10 digits long with no hyphens or parentheses (ex:1234567890). Once you have entered your information, press the <b>Create Person</b> button 
+            to create your profile. To edit your profile, navigate to the <b>Profile</b> page using the side bar on any page that is not the home page. Then, hit 
+            the <b>Modify My Profile</b> button to go a page where you can edit your information. Once you have made changes, press the <b>Update Person</b> button 
+            to update your profile.
+            </p>
+
+            <h3 class="faq-question">How do I create a check?</h3>
+            <p class="faq-answer">
+            To create a check, press the <b>Check Request</b> button on the home page. If you have not yet created a profile, you will be prompted to make a new one.
+            Once you have a profile you will be taken to a page where you can see all of your pending checks. To create a new check, press the 
+            <b>Create New Form</b> button. Here, you can enter all the information necessary to create your form. Once you have filled everything in, 
+            press the <b>Create Check</b> button. You will be taken to a page where you can upload pictures of your reciept. To do this, press the <b> Create New Note</b> button. 
+            Then, you can press the <b>Choose File</b> button, where you then can attach a picture of your reciept from your device. To complete the upload, press the 
+            <b>Create Note</b> button. 
+            </p>
+
+            <h3 class="faq-question">How can I edit a check?</h3>
+            <p class="faq-answer">
+            You can only edit checks that are pending. To edit a check, press the <b>Check Request</b> button on the home page. This will take you to a page that
+            lists your pending checks. Press the <b>Show this Form</b> button under the check you want to edit. Next, press the <b>Edit this Form</b> button. This will 
+            take you to a page where you can edit your check. Once you have made the changes you wish to make, press the <b>Update Check</b> button to update your check. If 
+            you need to add more reciepts to your submission, press the <b>Add Attachment(s)</b> button to upload new pictures. 
+            </p>
+
+            <h3 class="faq-question">How can I see my past submissions? </h3>
+            <p class="faq-answer">
+            To see your past requests that have already been reviewed by an officer, press the <b>Check Request</b> button on the homepage, then press the <b>Past Submission(s)</b> 
+            button near the top of the page. This page will display all check requests made by you that have been reviewed by an officer. To filter your past requests to only 
+            see requests that have been approved, press the <b>Show All Approved Forms</b> button. To see only requests that have been denied, press the <b>Show All Denied Forms</b> button. 
+            To reset the filter and see all past forms, press the <b>Show All Past Forms</b> button.
+            </p>
+        </div>
+        
+        <% if current_admin.is_admin?  || current_admin.is_officer? %>
+            <h1 style="text-align: center;">_________</h1>
+            <br>
+            <div>
+                <h2 style="text-align: center;">Officer Help & Support</h2>
+                
+                <h3 class="faq-question">How do I create/edit a subaccount?</h3>
+                <p class="faq-answer">
+                To create a subaccount, first click on <b>Check Request</b> to navigate to the Checks page. From here, if you go to our intuitive navigation dashboard, you will see an option 
+                called <b>SubAccount</b>. Clicking on it will take you to the SubAccount management page. You'll see a list of all available subaccounts (if any) where you can edit by clicking
+                <b>Show this SubAccount</b> then <b>Edit this SubAccount</b> or delete that subaccount. If you wish to create a subaccount, simply click on <b>New SubAccount</b> located near the
+                top of the page. From here, you would fill out the Sub account number and the owner's name, then <b>Create Sub account</b>.
+                </p>
+
+                <h3 class="faq-question">How do I approve/deny a form?</h3>
+                <p class="faq-answer">
+                To approve or deny a form, click on <b>Check Request</b> to navigate to the Checks page. From here, you will see a list of pending forms. If you click on <b>Show this form</b>, 
+                you will see a list of options you could do with that form. To approve or deny a form, simply click on <b>Review this form</b>. You don't neccessarily have to approve or deny 
+                the form. You could still set it as pending, add comments, but you must assign a sub account to that form. Then you'll update the form by clicking on <b>Update Approval Status
+                and Comments</b>.
+                </p>
+
+                <h3 class="faq-question">How do I view others' profiles?</h3>
+                <p class="faq-answer">
+                Other Members' profiles are only visible to officers and admins. To view others' created profiles, first click on <b>Check Request</b> to navigate to the Checks page. From here, 
+                if you go to our intuitive navigation dashboard, you will see an option called <b>Profile</b>. Clicking on it will takes you to the Profile page where you can see your own profile
+                along with others' profile. You <b>can not</b> modify others' profiles, but can delete them. Members will not be able to see others' profiles.
+                </p>
+
+            </div>
+        <% end %>
+        
+        <% if current_admin.is_admin? %>
+            <h1 style="text-align: center;">_________</h1>
+            <br>
+            <div>
+                <h2 style="text-align: center;">Admin Help & Support</h2>
+
+                <h3 class="faq-question">How do I add/delete a new account to the database?</h3>
+                <p class="faq-answer">
+                Admins have full control over account management within the system. To add a new account, navigate to <b>Admin</b> section in the dashboard. Here, you can create a new 
+                account by clicking on <b>Add New User</b>. Then you are going to provide the email and the name of the person/account you wish to add, and then click on <b>Create New User</b>.
+                If you do not wish to create an account anymore , you could always go back to the Admin table by clicking on <b>Back to Admin Page</b> or via our dynamic navigation board located
+                on top right of the screen. A timestamp will be created when you do so, as well as everytime you update that account in the Admin table. In the Admin table, there is a <b>Delete</b>
+                button next to each account so you could delete any account of your choice.
+                </p>
+
+                <h3 class="faq-question">How do I change a role of a profile?</h3>
+                <p class="faq-answer">
+                Admins can modify the roles of profiles within the system to grant or revoke permissions as needed. To change the role of a profile, navigate to <b>Admin</b> 
+                section in the dashboard. Select the role of the account whose you wish to modify and update the role field accordingly. Note: You can only modify <b>1</b> account
+                at once to prevent accidental modifications and confusions.
+                </p>
+
+                <h3 class="faq-question">Why can't I edit/delete my own account in Admin table?</h3>
+                <p class="faq-answer">
+                For security reasons, admin accounts typically have restricted access to prevent accidental or unauthorized modifications. Admins should refrain from editing or 
+                deleting their own accounts directly from the Admin table to avoid potential disruptions to system access. If changes to an admin account are necessary, they 
+                should be made by another admin with appropriate permissions.
+                </p>
+
+                <h3 class="faq-question">There are so many accounts, how can I find the account I want?</h3>
+                <p class="faq-answer">
+                Along with many other features an Admin could do in the Admin page, there are also many usuability features for an admin to use: Filter by role, Sort by Name, or
+                Search by name. You could always utilize these features located right above the admin table to help you find the account you wish to find. If you are searching by
+                name, clicking on <i class="fas fa-sync"></i> will refresh your filtering.
+                </p>
+
+            </div>    
+        <% end %>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questions = document.querySelectorAll('.faq-question');
+            questions.forEach(question => {
+                question.addEventListener('click', function() {
+                    this.nextElementSibling.classList.toggle('show');
+                });
+            });
+        });
+    </script>
+</body>

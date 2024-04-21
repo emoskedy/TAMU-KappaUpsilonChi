@@ -39,8 +39,13 @@
         </tr>
         <tr>
         <td><strong>Created By:</strong> <%= check.admin.full_name %></td>
+        <% if (person = Person.find_by(email: check.admin.email)).nil? %>
+        <td><strong>UIN:</strong> UIN Not Found </td>
+        <td></td>
+        <% else %>
         <td><strong>UIN:</strong> <%= Person.find_by(email: check.admin.email).uin %></td>
         <td></td>
+        <% end %>
         </tr>
     </table>
   </div>

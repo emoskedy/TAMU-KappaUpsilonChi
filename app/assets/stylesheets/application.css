@@ -294,6 +294,11 @@ body {
   padding-top: -20px;
   font-size: 36px; /* Increase font size for the description */
   text-align: center; /* Center align the description */
+  transition: font-size 0.2s, color 1s ease-in-out;
+}
+
+.description:hover {
+  font-size: 48px;
 }
 
 .my-profile {
@@ -440,4 +445,26 @@ tr:hover {
   text-decoration: none;
   transition: font-size 0.2s, color 1s ease-in-out;
   letter-spacing: 1.5px;
+}
+
+.faq-question {
+  height: 30px;
+  width: 800px;
+  margin-bottom: 5px;
+  font-size: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.faq-question:hover {
+  font-size: 105%
+}
+
+.faq-answer {
+  display: none;
+}
+
+.faq-answer.show {
+  display: block;
+  padding-bottom: 10px;
+  padding-left: 60px;
 }
